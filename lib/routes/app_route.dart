@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:psut_portal/packages/pages/CSO/cso_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_event_name_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
+import 'package:psut_portal/packages/pages/Cards/cards_page.dart';
 import 'package:psut_portal/packages/pages/EVENTS/events_page.dart';
 import 'package:psut_portal/packages/pages/Home/views/home_page.dart';
 import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
@@ -24,5 +25,6 @@ class AppRoute {
     CSOPage.id: (context) => const CSOPage(),
     CsoEventNamePage.id: (context) => const CsoEventNamePage(),
     CsoProfilePage.id: (context) => const CsoProfilePage(),
+    CardsPage.id: (context) => const CardsPage(),
   };
 }

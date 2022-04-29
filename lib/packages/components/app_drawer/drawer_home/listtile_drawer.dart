@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:psut_portal/themes/custom_theme.dart';
 
 class ListTileDrawer extends StatelessWidget {
   const ListTileDrawer(
@@ -20,7 +21,13 @@ class ListTileDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(_title.tr()),
+      title: Text(
+        _title.tr(),
+        style: CustomTheme.mainTextStyle?.copyWith(
+          color: Colors.white,
+          fontWeight: FontWeight.normal,
+        ),
+      ),
       leading: _icon,
       onTap: _onTap,
     );

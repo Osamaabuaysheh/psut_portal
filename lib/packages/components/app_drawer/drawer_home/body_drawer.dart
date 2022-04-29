@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:psut_portal/packages/components/app_drawer/drawer_home/header_drawer.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/settings_drawer.dart';
 
 class BodyDrawer extends StatelessWidget {
@@ -7,14 +6,15 @@ class BodyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Column(
-        children: const [
-          // * Header
-          HeaderDrawer(),
-          // // * Settings
-          SettingDrawer()
-        ],
+    return SafeArea(
+      child: Drawer(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        child: Column(
+          children: const [
+            SettingDrawer(),
+          ],
+        ),
       ),
     );
   }
