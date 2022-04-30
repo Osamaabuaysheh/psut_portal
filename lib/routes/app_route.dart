@@ -10,6 +10,7 @@ import 'package:psut_portal/packages/pages/JOBS/jobs_page.dart';
 import 'package:psut_portal/packages/pages/auth/Views/forget.dart';
 import 'package:psut_portal/packages/pages/auth/Views/login.dart';
 import 'package:psut_portal/packages/pages/auth/Views/register.dart';
+import 'package:psut_portal/packages/pages/notifications/views/notifications_page.dart';
 import 'package:psut_portal/packages/pages/splash/views/body.dart';
 
 class AppRoute {
@@ -26,5 +27,6 @@ class AppRoute {
     CsoEventNamePage.id: (context) => const CsoEventNamePage(),
     CsoProfilePage.id: (context) => const CsoProfilePage(),
     CardsPage.id: (context) => const CardsPage(),
+    NotificationPage.id: (context) => const NotificationPage(),
   };
 }

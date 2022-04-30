@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/custom_divider.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
@@ -32,14 +33,15 @@ class SettingDrawer extends StatelessWidget {
             ListTileDrawer(
               title: "My Cards",
               icon: AppSvg.psutLogoGreen,
-              onTap: () => Navigator.pushNamed(context, CardsPage.id),
+              onTap: () => Navigator.popAndPushNamed(context, CardsPage.id),
             ),
             const CustomDivider(),
             ListTileDrawer(
-              title: "Community Service Profile",
-              icon: AppSvg.psutLogoGreen,
-              onTap: () => Navigator.pushNamed(context, CsoProfilePage.id),
-            ),
+                title: "Community Service Profile",
+                icon: AppSvg.psutLogoGreen,
+                onTap: () {
+                  Navigator.popAndPushNamed(context, CsoProfilePage.id);
+                }),
             const CustomDivider(),
             ListTileDrawer(title: "Saved Jobs", icon: AppSvg.psutLogoGreen),
             const CustomDivider(),

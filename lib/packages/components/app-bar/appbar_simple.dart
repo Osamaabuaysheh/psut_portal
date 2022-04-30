@@ -6,17 +6,20 @@ import 'package:psut_portal/utils/svg_images.dart';
 class AppBarSimple extends StatelessWidget with PreferredSizeWidget {
   const AppBarSimple({
     Key? key,
-    required String title,
+    String title = '',
     final PreferredSizeWidget? bottomWidget,
     final double bottomsize = 0,
+    List<Widget>? actions = const [],
   })  : _title = title,
         _bottom = bottomWidget,
         _bottomSize = bottomsize,
+        _actions = actions,
         super(key: key);
   // ignore: unused_field
   final String _title;
   final PreferredSizeWidget? _bottom;
   final double _bottomSize;
+  final List<Widget>? _actions;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,9 @@ class AppBarSimple extends StatelessWidget with PreferredSizeWidget {
         ),
       ),
       iconTheme: IconThemeData(color: AppColors.mainColor),
-      actions: const [],
+      actions: [
+        ...?_actions,
+      ],
       bottom: _bottom,
     );
   }

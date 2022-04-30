@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/packages/components/app-bar/appbar_simple.dart';
+import 'package:psut_portal/packages/components/app_drawer/drawer_home/body_drawer.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_profile_page_table/cso_profile_table.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
@@ -11,9 +12,11 @@ class CsoProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: const BodyDrawer(),
       appBar: AppBarSimple(
         title: "",
         bottomsize: 60,
+        actions: const [],
         bottomWidget: PreferredSize(
           preferredSize: const Size.fromHeight(0),
           child: Align(

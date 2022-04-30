@@ -7,10 +7,15 @@ class CardsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final GlobalKey<ScaffoldState> _key = GlobalKey();
+
+    return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBarSimple(title: ""),
-      body: Center(
+      appBar: AppBarSimple(
+        title: "",
+        key: _key,
+      ),
+      body: const Center(
         child: Text("Cards Page"),
       ),
     );
