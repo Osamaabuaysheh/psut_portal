@@ -5,7 +5,11 @@ import 'package:psut_portal/themes/app_colors.dart';
 class EventCardMain extends StatelessWidget {
   const EventCardMain({
     Key? key,
-  }) : super(key: key);
+    required final String assetName,
+  })  : _assetName = assetName,
+        super(key: key);
+
+  final String _assetName;
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +32,8 @@ class EventCardMain extends StatelessWidget {
                   height: 200.h,
                   width: double.infinity,
                   fit: BoxFit.fitWidth,
-                  image: const AssetImage(
-                    "assets/images/error_page.jpg",
+                  image: AssetImage(
+                    _assetName,
                   ),
                 ),
               ),

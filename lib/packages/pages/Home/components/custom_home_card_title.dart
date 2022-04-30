@@ -33,7 +33,7 @@ class CustomHomeCardTitle extends StatelessWidget {
             Icons.arrow_forward_ios_outlined,
             color: AppColors.mainColor,
           ),
-        )
+        ),
       ],
     );
   }

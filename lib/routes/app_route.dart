@@ -3,7 +3,8 @@ import 'package:psut_portal/packages/pages/CSO/cso_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_event_name_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
 import 'package:psut_portal/packages/pages/Cards/cards_page.dart';
-import 'package:psut_portal/packages/pages/EVENTS/events_page.dart';
+import 'package:psut_portal/packages/pages/EVENTS/views/event_name_page.dart';
+import 'package:psut_portal/packages/pages/EVENTS/views/events_page.dart';
 import 'package:psut_portal/packages/pages/Home/views/home_page.dart';
 import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/JOBS/jobs_page.dart';
@@ -28,5 +29,6 @@ class AppRoute {
     CsoProfilePage.id: (context) => const CsoProfilePage(),
     CardsPage.id: (context) => const CardsPage(),
     NotificationPage.id: (context) => const NotificationPage(),
+    EventNamePage.id: (context) => const EventNamePage(),
   };
 }

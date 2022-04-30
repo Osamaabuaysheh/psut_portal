@@ -14,6 +14,7 @@ class CustomTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tab(
+      height: 32.w,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.r),

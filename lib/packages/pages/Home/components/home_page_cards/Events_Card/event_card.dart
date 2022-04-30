@@ -6,9 +6,12 @@ class EventCard extends StatelessWidget {
   const EventCard({
     Key? key,
     required final Widget titleWidget,
+    Axis scrollDirection = Axis.horizontal,
   })  : _titleWidget = titleWidget,
+        _scrollDirection = scrollDirection,
         super(key: key);
   final Widget _titleWidget;
+  final Axis _scrollDirection;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +24,10 @@ class EventCard extends StatelessWidget {
           Expanded(child: _titleWidget),
           Expanded(
             child: ListView.builder(
-              scrollDirection: Axis.horizontal,
+              scrollDirection: _scrollDirection,
               itemCount: 5,
-              itemBuilder: (context, index) => const EventCardMain(),
+              itemBuilder: (context, index) =>
+                  const EventCardMain(assetName: "assets/images/R.png"),
             ),
             flex: 6,
           ),

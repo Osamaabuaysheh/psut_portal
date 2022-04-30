@@ -8,7 +8,7 @@ class EventNameDetails extends StatelessWidget {
     Key? key,
     required final IconData icon,
     required final String text,
-    required final String details,
+    final String details = "",
   })  : _text = text,
         _details = details,
         _icon = icon,
