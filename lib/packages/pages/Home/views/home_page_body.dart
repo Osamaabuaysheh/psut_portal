@@ -6,7 +6,7 @@ import 'package:psut_portal/packages/pages/Home/components/home_page_cards/CSO_C
 import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Events_Card/event_card.dart';
 import 'package:psut_portal/packages/pages/Home/components/custom_home_card_title.dart';
 import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Jobs_Card/job_card.dart';
-import 'package:psut_portal/packages/pages/JOBS/jobs_page.dart';
+import 'package:psut_portal/packages/pages/JOBS/views/jobs_page.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({Key? key}) : super(key: key);

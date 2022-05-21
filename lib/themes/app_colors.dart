@@ -32,6 +32,11 @@ class AppColors {
   static final Color blueGradient = _colorFromHex('#0E2C71');
   static final Color skyBlueGradient = _colorFromHex('#2AC4F4');
   static final Color yellowGradient = _colorFromHex('#FFCA17');
+  static Color blue = _colorFromHex("#0E2C71");
+  static Color white = _colorFromHex("#FFFFFF");
+  static Color lightBlue = _colorFromHex("#2AC4F4");
+  static Color grey = _colorFromHex("#707070");
+  static Color searchColor = _colorFromHex("##F4F4F4");
 
   // * text Color
   static final Color textGrey = _colorFromHex('#C8C8C8');

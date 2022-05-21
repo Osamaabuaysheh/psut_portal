@@ -56,13 +56,67 @@ class AppSvg {
     width: 25.w,
     height: 25.h,
   );
+
+  static final SvgPicture logout = SvgPicture.asset(
+    PathIcons.logout,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture cs = SvgPicture.asset(
+    PathIcons.cs,
+    width: 25.w,
+    height: 25.h,
+  );
+
+  static final SvgPicture events = SvgPicture.asset(
+    PathIcons.events,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture home = SvgPicture.asset(
+    PathIcons.home,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture jobs = SvgPicture.asset(
+    PathIcons.jobs,
+    width: 25.w,
+    height: 25.h,
+  );
   static final SvgPicture tutor = SvgPicture.asset(
     PathIcons.tutor,
     width: 25.w,
     height: 25.h,
   );
-  static final SvgPicture logout = SvgPicture.asset(
-    PathIcons.logout,
+  static final SvgPicture logo = SvgPicture.asset(
+    PathIcons.psutLogo,
+    width: 25.w,
+    height: 25.h,
+  );
+
+  static final SvgPicture csW = SvgPicture.asset(
+    PathIcons.csW,
+    width: 25.w,
+    height: 25.h,
+  );
+
+  static final SvgPicture eventsW = SvgPicture.asset(
+    PathIcons.eventsW,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture homeW = SvgPicture.asset(
+    PathIcons.homeW,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture jobsW = SvgPicture.asset(
+    PathIcons.jobsW,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture tutorW = SvgPicture.asset(
+    PathIcons.tutorW,
     width: 25.w,
     height: 25.h,
   );

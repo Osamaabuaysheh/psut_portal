@@ -30,7 +30,7 @@ class PageRegister extends StatelessWidget {
               children: [
                 const HeaderAuth(),
                 //* Email
-                FieldEmail(onsaved: _userAuth.setPassword),
+                FieldEmail(valueEmail: _userAuth.setPassword),
                 //* Password
                 const SB(height: 10),
                 FieldPass(onChanged: (val) => pass = val),

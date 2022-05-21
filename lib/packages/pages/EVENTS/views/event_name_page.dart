@@ -117,7 +117,7 @@ class EventNamePage extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

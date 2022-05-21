@@ -59,4 +59,37 @@ class CustomTheme {
     fontWeight: FontWeight.bold,
     color: AppColors.secondaryColor,
   );
+  static TextStyle? normalBlue = TextStyle(
+      fontSize: 14.sp,
+      //fontWeight: FontWeight.bold,
+      color: AppColors.blue,
+      fontFamily: 'Arial');
+  static TextStyle? subjectCardTitle = TextStyle(
+    fontSize: 22.sp,
+    fontWeight: FontWeight.bold,
+    color: AppColors.blue,
+  );
+
+  static TextStyle? warning = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.bold,
+    color: AppColors.lightBlue,
+  );
+
+  static TextStyle? details = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.bold,
+    color: AppColors.grey,
+  );
+
+  static TextStyle? bigTitle = TextStyle(
+    color: AppColors.blue,
+    fontWeight: FontWeight.bold,
+    fontSize: 25.sp,
+  );
+  static TextStyle? se = TextStyle(
+    color: AppColors.blue,
+    fontWeight: FontWeight.bold,
+    fontSize: 25.sp,
+  );
 }

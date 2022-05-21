@@ -35,7 +35,17 @@ class PathIcons {
   static const String csoProfile =
       'assets/icons/Icon material-person-outline.svg';
   static const String bookmark = 'assets/icons/Icon feather-bookmark.svg';
-  static const String tutor =
-      'assets/icons/Icon awesome-chalkboard-teacher.svg';
+
   static const String logout = 'assets/icons/Icon open-account-logout.svg';
+  static const String home = 'assets/icons/Home.svg';
+  static const String events = 'assets/icons/Events.svg';
+  static const String cs = 'assets/icons/CS.svg';
+  static const String jobs = 'assets/icons/Jobs.svg';
+  static const String tutor = 'assets/icons/Tutor.svg';
+  static const String homeW = 'assets/icons/HomeWhite.svg';
+  static const String tutorW = 'assets/icons/TutorWhite.svg';
+  static const String eventsW = 'assets/icons/EventsWhite.svg';
+  static const String jobsW = 'assets/icons/JobsWhite.svg';
+  static const String csW = 'assets/icons/CSWhite.svg';
+  static const String psutLogo = 'assets/icons/psutLogo.svg';
 }

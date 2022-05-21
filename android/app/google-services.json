@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "38513329962",
+    "project_id": "mypsut-66b99",
+    "storage_bucket": "mypsut-66b99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38513329962:android:c171b5116e58837ea2c053",
+        "android_client_info": {
+          "package_name": "com.example.psut_portal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38513329962-dbce50sh5vhlsdip5oq2pfuuq2c0ps53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIgwgwD_BgSsZaJmc3HGE5D9RSl_7dhV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38513329962-dbce50sh5vhlsdip5oq2pfuuq2c0ps53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
