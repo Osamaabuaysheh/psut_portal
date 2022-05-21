@@ -27,7 +27,7 @@ class BookTutor extends StatelessWidget {
               '''Note that if a session cannot take place if it has less than 5 students ''',
               style: CustomTheme.normalBlue?.copyWith(fontSize: 18),
             ),
-            ParaSpacing(),
+            const ParaSpacing(),
             SizedBox(
               width: 341.w,
               height: 52.h,
@@ -65,7 +65,7 @@ class BookTutor extends StatelessWidget {
                 ),
               ),
             ),
-            CustomSpacing(),
+            const CustomSpacing(),
             SizedBox(
               width: 341.w,
               height: 52.h,
@@ -103,7 +103,7 @@ class BookTutor extends StatelessWidget {
                 ),
               ),
             ),
-            CustomSpacing(),
+            const CustomSpacing(),
             SizedBox(
               width: 341.w,
               height: 52.h,
@@ -140,7 +140,7 @@ class BookTutor extends StatelessWidget {
                 ),
               ),
             ),
-            ParaSpacing(),
+            const ParaSpacing(),
             Align(
               alignment: Alignment.center,
               child: SizedBox(

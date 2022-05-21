@@ -13,8 +13,8 @@ class CSOCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 450.w,
-      height: 250.h,
+      width: double.infinity,
+      height: 210.h,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

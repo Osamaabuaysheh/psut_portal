@@ -15,7 +15,7 @@ class AppValidator {
       return _messageEnterValue;
     } else if (!validators.isEmail(valueTrim!)) {
       return _messageCorrectEmail;
-    } else {}
+    }
   }
 
   //* Validate Password

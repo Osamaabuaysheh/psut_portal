@@ -15,21 +15,21 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 450.w,
-      height: 250.h,
+    return Container(
+      width: double.infinity,
+      height: 240.h,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(child: _titleWidget),
           Expanded(
             child: ListView.builder(
               scrollDirection: _scrollDirection,
               itemCount: 5,
-              itemBuilder: (context, index) =>
-                  const EventCardMain(assetName: "assets/images/R.png"),
+              itemBuilder: (context, index) => const EventCardMain(
+                assetName: "assets/images/wallpaper.jpg",
+              ),
             ),
-            flex: 6,
+            flex: 8,
           ),
         ],
       ),

@@ -14,24 +14,27 @@ class EventCardMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300.w,
-      margin: EdgeInsets.all(5.w),
+      width: 320.w,
+      margin: EdgeInsets.symmetric(
+        vertical: 5.w,
+        horizontal: 5.w,
+      ),
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.r),
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(25.r),
-          clipBehavior: Clip.antiAliasWithSaveLayer,
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25.r),
+          ),
           child: Column(
             children: [
               Expanded(
                 flex: 3,
                 child: Image(
-                  height: 200.h,
                   width: double.infinity,
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.fill,
                   image: AssetImage(
                     _assetName,
                   ),

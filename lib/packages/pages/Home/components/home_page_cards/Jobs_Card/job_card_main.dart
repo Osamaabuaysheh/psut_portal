@@ -11,8 +11,11 @@ class JobCardMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300.w,
-      margin: EdgeInsets.all(5.w),
+      width: 320.w,
+      margin: EdgeInsets.symmetric(
+        vertical: 5.w,
+        horizontal: 5.w,
+      ),
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(

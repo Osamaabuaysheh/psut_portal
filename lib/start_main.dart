@@ -5,9 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:psut_portal/packages/components/config_material.dart';
 import 'package:psut_portal/packages/components/loading/loading_page.dart';
-import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
-import 'package:psut_portal/packages/pages/JOBS/job_description.dart';
-import 'package:psut_portal/packages/pages/JOBS/jobs_home.dart';
 import 'package:psut_portal/packages/pages/auth/Views/wrapper.dart';
 import 'package:psut_portal/packages/pages/auth/manage_state/auth_service.dart';
 import 'package:psut_portal/routes/app_route.dart';
@@ -47,8 +44,7 @@ class MyApp extends StatelessWidget {
                     themeMode: ThemeMode.light,
                     theme: CustomTheme.lightTheme(context),
                     darkTheme: CustomTheme.darkTheme(context),
-                    // initialRoute: JobDesc(),
-                    home: JobDesc(),
+                    initialRoute: Wrapper.id,
                     routes: AppRoute.route,
                   ),
                 ),

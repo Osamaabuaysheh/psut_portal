@@ -13,7 +13,7 @@ class JobCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 450.w,
+      width: double.infinity,
       height: 120.h,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
