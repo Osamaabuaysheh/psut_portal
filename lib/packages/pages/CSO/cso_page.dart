@@ -17,7 +17,6 @@ class CSOPage extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBarSimple(
-          title: "",
           bottomsize: 90,
           bottomWidget: PreferredSize(
             preferredSize: Size.fromHeight(0),

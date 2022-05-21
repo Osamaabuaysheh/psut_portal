@@ -1,9 +1,9 @@
 abstract class KeyLang {
   static const String nameApp = 'nameApp';
   static const String email = 'email';
-  static const String pass = 'pass';
+  static const String pass = 'Password';
   static const String confirmPass = 'confirmPass';
-  static const String forgotPass = 'forgotPass';
+  static const String forgotPass = 'Forgot Password?';
   static const String login = 'login';
   static const String register = 'register';
   static const String notAccount = 'notAccount';

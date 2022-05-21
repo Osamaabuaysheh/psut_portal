@@ -11,13 +11,12 @@ class CustomTheme {
     return ThemeData.light().copyWith(
       appBarTheme: AppBarTheme(
         color: Colors.white,
-        iconTheme: IconThemeData(color: AppColors.bgGreenBold),
-        centerTitle: true,
-        titleTextStyle: TextStyle(
-          color: AppColors.bgGreenBold,
-          fontSize: 20.sp,
-          fontFamily: GoogleFonts.pacifico().fontFamily,
+        iconTheme: IconThemeData(
+          color: AppColors.mainColor,
+          size: 24.w,
         ),
+        centerTitle: true,
+        elevation: 0,
       ),
 
       /// displayColor ~>  headline4, headline3, headline2, headline1, and caption

@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/services/restart_app/app_restart.dart';
 
-import 'packages/pages/HomePageController/views/home.dart';
 import 'routes/app_route.dart';
 import 'themes/custom_theme.dart';
 

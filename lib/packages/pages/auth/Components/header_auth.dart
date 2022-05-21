@@ -25,11 +25,8 @@ class HeaderAuth extends StatelessWidget {
                 : Container(),
             const Spacer(),
             // * Logo
-            Transform.scale(
-              scale: 2.w,
-              child: const Image(
-                image: AssetImage(PathImage.logo),
-              ),
+            const Image(
+              image: AssetImage(PathImage.psutLogo),
             ),
             Spacer(
               flex: ModalRoute.of(context)?.canPop ?? false ? 2 : 1,

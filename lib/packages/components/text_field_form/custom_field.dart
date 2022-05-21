@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:psut_portal/Themes/app_colors.dart';
 
 class CustomField extends StatelessWidget {
@@ -60,26 +58,22 @@ class CustomField extends StatelessWidget {
       onChanged: _onChanged,
       decoration: InputDecoration(
         border: InputBorder.none,
-        hintText: _hint?.tr(),
+        hintText: _hint,
         label: _label,
         labelText: _labelText,
         helperText: _helperText,
         prefixIcon: _prefixIcon,
         suffixIcon: _suffixIcon,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.r),
-          borderSide: BorderSide(color: AppColors.bgGreen),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: AppColors.mainColor),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.r),
-          borderSide: BorderSide(color: AppColors.bgGreenBold),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: AppColors.mainColor),
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.r),
+        errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.ceriseRed),
         ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.r),
+        focusedErrorBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.ceriseRed),
         ),
       ),

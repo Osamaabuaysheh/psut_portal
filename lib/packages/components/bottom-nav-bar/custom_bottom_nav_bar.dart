@@ -12,9 +12,9 @@ class CustomBottomNavBar extends StatelessWidget {
     return ConvexAppBar(
       backgroundColor: AppColors.mainColor,
       items: const [
-        TabItem(icon: Icons.calendar_month_outlined, title: 'Events'),
-        TabItem(icon: Icons.business_center_rounded, title: 'Jobs'),
         TabItem(icon: Icons.home, title: 'Home'),
+        TabItem(icon: Icons.business_center_rounded, title: 'Jobs'),
+        TabItem(icon: Icons.calendar_month_outlined, title: 'Events'),
         TabItem(icon: Icons.groups, title: 'CSO'),
         TabItem(icon: Icons.school_rounded, title: 'Tutor'),
       ],

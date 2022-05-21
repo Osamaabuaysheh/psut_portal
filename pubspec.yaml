@@ -52,6 +52,7 @@ dependencies:
   # Bottom Navigation bar
   curved_navigation_bar: ^1.0.3
   convex_bottom_bar: ^3.0.0
+  material_floating_search_bar: ^0.3.7
 
 dev_dependencies:
   flutter_test:

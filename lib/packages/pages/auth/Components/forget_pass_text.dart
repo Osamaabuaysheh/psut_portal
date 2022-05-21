@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:psut_portal/language/generated/key_lang.dart';
 import 'package:psut_portal/packages/pages/auth/Views/forget.dart';
 import 'package:psut_portal/services/language/language_status.dart';
@@ -16,7 +15,7 @@ class ForgetPassText extends StatelessWidget {
       child: TextButton(
         onPressed: () => Navigator.pushNamed(context, PageForget.id),
         child: Text(
-          KeyLang.forgotPass.tr(),
+          KeyLang.forgotPass,
           style: AppTheme.b1(context)
               .copyWith(decoration: TextDecoration.underline),
         ),

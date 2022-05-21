@@ -3,4 +3,5 @@ class PathImage {
   static String coffeeCup = 'assets/images/coffee_cup.png';
   static String saudi = 'assets/images/saudi.png';
   static String unitedStates = 'assets/images/united-states.png';
+  static const String psutLogo = 'assets/images/Logo.jpg';
 }

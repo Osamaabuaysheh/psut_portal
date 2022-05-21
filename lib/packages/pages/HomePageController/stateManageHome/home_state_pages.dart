@@ -6,11 +6,11 @@ import 'package:psut_portal/packages/pages/JOBS/jobs_page.dart';
 import 'package:psut_portal/packages/pages/TUTORING/tutoringpage.dart';
 
 class HomeStatePages extends ChangeNotifier {
-  int _selectedPage = 2;
+  int _selectedPage = 0;
   final List<Widget> pages = <Widget>[
-    const EventsPage(),
-    const JOBSPage(),
     const HomePage(),
+    const JOBSPage(),
+    const EventsPage(),
     const CSOPage(),
     const TUTROPAGE(),
   ];

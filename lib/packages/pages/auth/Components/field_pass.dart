@@ -35,10 +35,6 @@ class _FieldPassState extends State<FieldPass> {
     return CustomField(
       hint: widget._hint,
       keyboardType: TextInputType.emailAddress,
-      prefixIcon: Padding(
-        padding: EdgeInsets.all(10.0.h),
-        child: PathIcons.passIcon,
-      ),
       obscureText: _obsecureText,
       suffixIcon: Padding(
         padding: EdgeInsets.all(10.0.h),

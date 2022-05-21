@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:psut_portal/services/themes/theme_status.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 
@@ -19,6 +18,7 @@ class SimpleBtn extends StatelessWidget {
   final double _height;
   final void Function()? _onTap;
   final String _btnTitle;
+  // ignore: unused_field
   final bool _ltr;
 
   @override
@@ -31,15 +31,12 @@ class SimpleBtn extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
-          gradient: LinearGradient(
-            colors: AppColors.btnColor,
-            begin: _ltr ? Alignment.centerLeft : Alignment.centerRight,
-            end: _ltr ? Alignment.centerRight : Alignment.centerLeft,
-          ),
+          color: AppColors.mainColor,
         ),
         child: Text(
-          _btnTitle.tr().toUpperCase(),
-          style: AppTheme.h5(context).copyWith(),
+          _btnTitle.toUpperCase(),
+          style: AppTheme.h5(context)
+              .copyWith(color: Colors.white, fontWeight: FontWeight.w500),
         ),
       ),
     );

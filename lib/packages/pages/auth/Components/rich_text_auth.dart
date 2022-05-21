@@ -34,11 +34,12 @@ class RichTextAuth extends StatelessWidget {
             ),
           ),
           TextSpan(
-              text: _sword.tr(),
-              style: AppTheme.h6(context).copyWith(
-                color: AppColors.bgGreenBold,
-              ),
-              recognizer: TapGestureRecognizer()..onTap = _onTap),
+            text: _sword.tr(),
+            style: AppTheme.h6(context).copyWith(
+              color: AppColors.mainColor,
+            ),
+            recognizer: TapGestureRecognizer()..onTap = _onTap,
+          ),
         ],
       ),
     );

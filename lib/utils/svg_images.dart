@@ -15,11 +15,6 @@ class AppSvg {
     width: 25.w,
     height: 25.h,
   );
-  static final SvgPicture dlogout = SvgPicture.asset(
-    PathIcons.logout,
-    width: 25.w,
-    height: 25.h,
-  );
   static final SvgPicture psutLogo = SvgPicture.asset(
     PathIcons.psutIcon,
     width: 25.w,
@@ -38,6 +33,36 @@ class AppSvg {
   );
   static final SvgPicture groupPeople = SvgPicture.asset(
     PathIcons.groupPeople,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture settings = SvgPicture.asset(
+    PathIcons.settings,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture card = SvgPicture.asset(
+    PathIcons.card,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture csoProfile = SvgPicture.asset(
+    PathIcons.csoProfile,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture saved = SvgPicture.asset(
+    PathIcons.bookmark,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture tutor = SvgPicture.asset(
+    PathIcons.tutor,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture logout = SvgPicture.asset(
+    PathIcons.logout,
     width: 25.w,
     height: 25.h,
   );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:psut_portal/packages/pages/BUS/views/bus_page.dart';
 import 'package:psut_portal/packages/pages/CSO/cso_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_event_name_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
@@ -8,6 +9,7 @@ import 'package:psut_portal/packages/pages/EVENTS/views/events_page.dart';
 import 'package:psut_portal/packages/pages/Home/views/home_page.dart';
 import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/JOBS/jobs_page.dart';
+import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
 import 'package:psut_portal/packages/pages/auth/Views/forget.dart';
 import 'package:psut_portal/packages/pages/auth/Views/login.dart';
 import 'package:psut_portal/packages/pages/auth/Views/register.dart';
@@ -30,5 +32,7 @@ class AppRoute {
     CardsPage.id: (context) => const CardsPage(),
     NotificationPage.id: (context) => const NotificationPage(),
     EventNamePage.id: (context) => const EventNamePage(),
+    SettingsPage.id: (context) => const SettingsPage(),
+    BusPage.id: (context) => const BusPage(),
   };
 }

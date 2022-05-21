@@ -29,6 +29,9 @@ class AppColors {
   static final Color bgGrey = _colorFromHex('#C8C8C8');
   static final Color bgGreen = _colorFromHex('#A5D6A7');
   static final Color bgGreenBold = _colorFromHex('#1B5E20');
+  static final Color blueGradient = _colorFromHex('#0E2C71');
+  static final Color skyBlueGradient = _colorFromHex('#2AC4F4');
+  static final Color yellowGradient = _colorFromHex('#FFCA17');
 
   // * text Color
   static final Color textGrey = _colorFromHex('#C8C8C8');
@@ -46,8 +49,8 @@ class AppColors {
 
   // * btn Color
   static final List<Color> btnColor = [
-    AppColors.bgGreen,
-    AppColors.bgGreenBold,
+    AppColors.mainColor.withOpacity(0.5),
+    AppColors.mainColor,
   ];
   // * color grey
   static final List<Color> colorGrey = [
@@ -58,4 +61,10 @@ class AppColors {
   //* MAIN COLORS FOR PUST PORTAL APP
   static final Color mainColor = _colorFromHex('#0E2C71');
   static final Color secondaryColor = _colorFromHex('#2AC4F4');
+
+  //*
+  static final List<Color> mainGradient = [
+    AppColors.blueGradient,
+    AppColors.skyBlueGradient,
+  ];
 }
