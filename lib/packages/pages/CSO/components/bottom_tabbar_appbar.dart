@@ -32,8 +32,8 @@ class CSOBottomTabBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(15.r),
             ),
             tabs: const [
-              CustomTab(text: "Upcoming"),
-              CustomTab(text: "Previous"),
+              CustomTab(text: "Upcoming", width: 150),
+              CustomTab(text: "Previous", width: 150),
             ],
           ),
         ),

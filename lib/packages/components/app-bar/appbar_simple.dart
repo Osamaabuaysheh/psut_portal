@@ -28,7 +28,7 @@ class AppBarSimple extends StatelessWidget with PreferredSizeWidget {
       leading: Padding(
         padding: EdgeInsets.only(top: 10.w, left: 10.w),
         child: Container(
-          child: AppSvg.psutLogo,
+          child: AppSvg.psutLogoPrimary,
         ),
       ),
       iconTheme: IconThemeData(color: AppColors.mainColor),

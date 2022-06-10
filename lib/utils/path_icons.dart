@@ -41,11 +41,16 @@ class PathIcons {
   static const String events = 'assets/icons/Events.svg';
   static const String cs = 'assets/icons/CS.svg';
   static const String jobs = 'assets/icons/Jobs.svg';
-  static const String tutor = 'assets/icons/Tutor.svg';
   static const String homeW = 'assets/icons/HomeWhite.svg';
-  static const String tutorW = 'assets/icons/TutorWhite.svg';
+  static const String tutorW =
+      'assets/icons/Icon awesome-chalkboard-teacher.svg';
   static const String eventsW = 'assets/icons/EventsWhite.svg';
   static const String jobsW = 'assets/icons/JobsWhite.svg';
   static const String csW = 'assets/icons/CSWhite.svg';
   static const String psutLogo = 'assets/icons/psutLogo.svg';
+  static const String psutLogoPrimary = 'assets/icons/psutLogoPrimary.svg';
+  static const String psutLogoGreen = 'assets/icons/psutLogoGreen.svg';
+  static const String psutLogoYellow = 'assets/icons/psutLogoYellow.svg';
+  static const String psutLogoOrange = 'assets/icons/psutLogoOrange.svg';
+  static const String psutLogoRed = 'assets/icons/psutLogoRed.svg';
 }

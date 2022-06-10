@@ -26,7 +26,7 @@ class JobCardMain extends StatelessWidget {
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: ListTile(
             leading: SizedBox(
-              child: AppSvg.psutLogoGreen,
+              child: AppSvg.psutLogoOragne,
               width: 50.w,
               height: 50.h,
             ),

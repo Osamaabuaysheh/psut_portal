@@ -20,12 +20,7 @@ class AppSvg {
     width: 25.w,
     height: 25.h,
   );
-  static final SvgPicture psutLogoGreen = SvgPicture.asset(
-    PathIcons.psutIconGreen,
-    width: 25.w,
-    height: 25.h,
-    color: Colors.amber,
-  );
+
   static final SvgPicture avatar = SvgPicture.asset(
     PathIcons.avatar,
     width: 25.w,
@@ -84,7 +79,7 @@ class AppSvg {
     height: 25.h,
   );
   static final SvgPicture tutor = SvgPicture.asset(
-    PathIcons.tutor,
+    PathIcons.tutorW,
     width: 25.w,
     height: 25.h,
   );
@@ -117,6 +112,31 @@ class AppSvg {
   );
   static final SvgPicture tutorW = SvgPicture.asset(
     PathIcons.tutorW,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture psutLogoPrimary = SvgPicture.asset(
+    PathIcons.psutLogoPrimary,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture psutLogoGreen = SvgPicture.asset(
+    PathIcons.psutLogoGreen,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture psutLogoYellow = SvgPicture.asset(
+    PathIcons.psutLogoYellow,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture psutLogoOragne = SvgPicture.asset(
+    PathIcons.psutLogoOrange,
+    width: 25.w,
+    height: 25.h,
+  );
+  static final SvgPicture psutLogoRed = SvgPicture.asset(
+    PathIcons.psutLogoRed,
     width: 25.w,
     height: 25.h,
   );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
 import 'package:psut_portal/packages/pages/JOBS/components/custom_background_image_job_desc.dart';
 import 'package:psut_portal/packages/pages/JOBS/components/custom_icon_image_job_desc.dart';
 import 'package:psut_portal/packages/pages/JOBS/components/job_desc_details.dart';
@@ -18,6 +19,9 @@ class JobDesc extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
+          actions: const [
+            PopIconButton(color: Colors.white),
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(

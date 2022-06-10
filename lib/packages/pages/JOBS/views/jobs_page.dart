@@ -45,10 +45,10 @@ class JOBSPage extends StatelessWidget {
                         const CustomSpacing(),
                         Row(
                           children: [
-                            const SizedBox(
-                              width: 262,
-                              height: 60,
-                              child: CustomSearch(),
+                            SizedBox(
+                              width: 262.w,
+                              height: 60.h,
+                              child: const CustomSearch(),
                             ),
                             IconButton(
                               onPressed: () {},

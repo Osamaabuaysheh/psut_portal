@@ -6,16 +6,20 @@ class CustomTab extends StatelessWidget {
   const CustomTab({
     Key? key,
     final String text = '',
+    final double width = 150,
   })  : _text = text,
+        _width = width,
         super(key: key);
 
   final String _text;
+  final double _width;
 
   @override
   Widget build(BuildContext context) {
     return Tab(
-      height: 32.w,
+      height: 35.w,
       child: Container(
+        width: _width.w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.r),
           border: Border.all(
@@ -25,7 +29,9 @@ class CustomTab extends StatelessWidget {
         ),
         child: Align(
           alignment: Alignment.center,
-          child: Text(_text),
+          child: Text(
+            _text,
+          ),
         ),
       ),
     );

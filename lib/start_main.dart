@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
                     theme: CustomTheme.lightTheme(context),
                     darkTheme: CustomTheme.darkTheme(context),
                     initialRoute: Wrapper.id,
+                    // home: TutorProfile(),
                     routes: AppRoute.route,
                   ),
                 ),

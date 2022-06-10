@@ -12,7 +12,7 @@ class HomeStatePages extends ChangeNotifier {
     const JOBSPage(),
     const EventsPage(),
     const CSOPage(),
-    const TUTROPAGE(),
+    const TutorPage(),
   ];
   get selectedPage => _selectedPage;
   get currentScreen => pages[_selectedPage];

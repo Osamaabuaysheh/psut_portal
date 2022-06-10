@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/custom_divider.dart';
-import 'package:psut_portal/packages/pages/BUS/views/bus_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
 import 'package:psut_portal/packages/pages/Cards/cards_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
@@ -20,6 +19,7 @@ class SettingDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthService _auth = Provider.of<AuthService>(context);
     return Container(
+      height: 430.h,
       decoration: BoxDecoration(
         color: AppColors.mainColor,
         borderRadius: BorderRadius.only(
@@ -27,9 +27,8 @@ class SettingDrawer extends StatelessWidget {
           bottomRight: Radius.circular(30.r),
         ),
       ),
-      height: 430.h,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -45,12 +44,7 @@ class SettingDrawer extends StatelessWidget {
               icon: AppSvg.card,
               onTap: () => Navigator.popAndPushNamed(context, CardsPage.id),
             ),
-            const CustomDivider(),
-            ListTileDrawer(
-              title: "Bus Tours",
-              icon: AppSvg.csoProfile,
-              onTap: () => Navigator.pushNamed(context, BusPage.id),
-            ),
+
             const CustomDivider(),
             ListTileDrawer(
                 title: "Community Service Profile",
@@ -67,9 +61,13 @@ class SettingDrawer extends StatelessWidget {
               title: "Logout",
               icon: AppSvg.logout,
               onTap: () async {
-                _auth.signOut().then((value) =>
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, Wrapper.id, (route) => false));
+                _auth.signOut().then(
+                      (value) => Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        Wrapper.id,
+                        (route) => false,
+                      ),
+                    );
               },
             ),
           ],

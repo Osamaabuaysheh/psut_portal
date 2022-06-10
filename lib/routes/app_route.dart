@@ -10,6 +10,7 @@ import 'package:psut_portal/packages/pages/Home/views/home_page.dart';
 import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/JOBS/views/jobs_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
+import 'package:psut_portal/packages/pages/TUTORING/views/tutoringpage.dart';
 import 'package:psut_portal/packages/pages/auth/Views/forget.dart';
 import 'package:psut_portal/packages/pages/auth/Views/login.dart';
 import 'package:psut_portal/packages/pages/auth/Views/register.dart';
@@ -28,6 +29,7 @@ class AppRoute {
     EventsPage.id: (context) => const EventsPage(),
     JOBSPage.id: (context) => const JOBSPage(),
     CSOPage.id: (context) => const CSOPage(),
+    TutorPage.id: (context) => const TutorPage(),
     CsoEventNamePage.id: (context) => const CsoEventNamePage(),
     CsoProfilePage.id: (context) => const CsoProfilePage(),
     CardsPage.id: (context) => const CardsPage(),
