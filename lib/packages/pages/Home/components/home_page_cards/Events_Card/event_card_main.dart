@@ -14,11 +14,7 @@ class EventCardMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 320.w,
-      margin: EdgeInsets.symmetric(
-        vertical: 5.w,
-        horizontal: 5.w,
-      ),
+      width: 325.w,
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(
@@ -31,7 +27,7 @@ class EventCardMain extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: Image(
                   width: double.infinity,
                   fit: BoxFit.fill,

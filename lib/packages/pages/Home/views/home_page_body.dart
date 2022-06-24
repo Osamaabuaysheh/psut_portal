@@ -13,32 +13,35 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            EventCard(
-              titleWidget: CustomHomeCardTitle(
-                cardName: "Events",
-                onPressed: () => Navigator.pushNamed(context, EventsPage.id),
+    return SingleChildScrollView(
+      child: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              EventCard(
+                titleWidget: CustomHomeCardTitle(
+                  cardName: "Events",
+                  onPressed: () => Navigator.pushNamed(context, EventsPage.id),
+                ),
               ),
-            ),
-            JobCard(
-              titleWidget: CustomHomeCardTitle(
-                cardName: "Jobs",
-                onPressed: () => Navigator.pushNamed(context, JOBSPage.id),
+              SizedBox(height: 20.h),
+              JobCard(
+                titleWidget: CustomHomeCardTitle(
+                  cardName: "Jobs",
+                  onPressed: () => Navigator.pushNamed(context, JOBSPage.id),
+                ),
               ),
-            ),
-            CSOCard(
-              titleWidget: CustomHomeCardTitle(
-                cardName: "Community Service",
-                onPressed: () => Navigator.pushNamed(context, CSOPage.id),
-              ),
-            )
-          ],
+              CSOCard(
+                titleWidget: CustomHomeCardTitle(
+                  cardName: "Community Service",
+                  onPressed: () => Navigator.pushNamed(context, CSOPage.id),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

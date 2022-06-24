@@ -14,14 +14,13 @@ class JobCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 120.h,
+      height: 140.h,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _titleWidget,
           SizedBox(
             width: 350.w,
-            height: 80.h,
+            height: 90.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 5,

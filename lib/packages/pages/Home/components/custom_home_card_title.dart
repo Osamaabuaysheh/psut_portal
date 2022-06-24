@@ -16,25 +16,29 @@ class CustomHomeCardTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          _cardName,
-          style: TextStyle(
-            color: AppColors.mainColor,
-            fontSize: 18.sp,
-            fontWeight: FontWeight.bold,
+    return SizedBox(
+      height: 40.h,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            _cardName,
+            style: TextStyle(
+              color: AppColors.mainColor,
+              fontSize: 18.sp,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        IconButton(
-          onPressed: _onPressed,
-          icon: Icon(
-            Icons.arrow_forward_ios_outlined,
-            color: AppColors.mainColor,
+          IconButton(
+            onPressed: _onPressed,
+            icon: Icon(
+              Icons.arrow_forward_ios_outlined,
+              color: AppColors.mainColor,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -29,7 +29,7 @@ class EventCard extends StatelessWidget {
                 assetName: "assets/images/wallpaper.jpg",
               ),
             ),
-            flex: 8,
+            flex: 6,
           ),
         ],
       ),
