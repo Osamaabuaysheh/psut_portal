@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:psut_portal/packages/components/config_material.dart';
 import 'package:psut_portal/packages/components/loading/loading_page.dart';
+import 'package:psut_portal/packages/pages/Cards/views/cards_page.dart';
+import 'package:psut_portal/packages/pages/ClubPage/views/club_page.dart';
 import 'package:psut_portal/packages/pages/auth/Views/wrapper.dart';
 import 'package:psut_portal/packages/pages/auth/manage_state/auth_service.dart';
 import 'package:psut_portal/routes/app_route.dart';
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
                 ],
                 child: ScreenUtilInit(
                   designSize: const Size(360, 690),
-                  builder: (BuildContext ctx) => MaterialApp(
+                  builder: (BuildContext ctx, child) => MaterialApp(
                     locale: context.locale,
                     supportedLocales: context.supportedLocales,
                     localizationsDelegates: context.localizationDelegates,
@@ -44,8 +46,8 @@ class MyApp extends StatelessWidget {
                     themeMode: ThemeMode.light,
                     theme: CustomTheme.lightTheme(context),
                     darkTheme: CustomTheme.darkTheme(context),
-                    initialRoute: Wrapper.id,
-                    // home: TutorProfile(),
+                    initialRoute: CardsPage.id,
+                    // home: ClubPage(),
                     routes: AppRoute.route,
                   ),
                 ),

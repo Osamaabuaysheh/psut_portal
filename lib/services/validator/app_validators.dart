@@ -16,6 +16,7 @@ class AppValidator {
     } else if (!validators.isEmail(valueTrim!)) {
       return _messageCorrectEmail;
     }
+    return null;
   }
 
   //* Validate Password
@@ -26,6 +27,7 @@ class AppValidator {
     } else if (!validators.isLength(valueTrim!, 6)) {
       return _messageCorrectPass;
     } else {}
+    return null;
   }
 
   //* Equal Pass
@@ -36,5 +38,6 @@ class AppValidator {
     } else if (!validators.equals(valueTrim, pass.trim())) {
       return _messageCorrectCPass;
     } else {}
+    return null;
   }
 }

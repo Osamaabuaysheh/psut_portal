@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/custom_divider.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
-import 'package:psut_portal/packages/pages/Cards/cards_page.dart';
+import 'package:psut_portal/packages/pages/Cards/views/cards_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
 import 'package:psut_portal/packages/pages/auth/Views/wrapper.dart';
 import 'package:psut_portal/packages/pages/auth/manage_state/auth_service.dart';

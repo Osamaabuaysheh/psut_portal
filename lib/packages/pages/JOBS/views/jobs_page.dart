@@ -46,9 +46,9 @@ class JOBSPage extends StatelessWidget {
                         Row(
                           children: [
                             SizedBox(
-                              width: 262.w,
+                              width: 250.w,
                               height: 60.h,
-                              child: const CustomSearch(),
+                              // child: const CustomSearch(),
                             ),
                             IconButton(
                               onPressed: () {},

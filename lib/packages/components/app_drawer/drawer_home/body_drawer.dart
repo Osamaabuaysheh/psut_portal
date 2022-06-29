@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/settings_drawer.dart';
 
 class BodyDrawer extends StatelessWidget {

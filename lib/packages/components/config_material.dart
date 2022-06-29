@@ -11,7 +11,7 @@ class ConfigMaterial extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(360, 690),
-      builder: (BuildContext ctx) => MaterialApp(
+      builder: (BuildContext ctx, child) => MaterialApp(
         home: _child,
       ),
     );

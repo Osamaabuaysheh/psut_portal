@@ -13,7 +13,6 @@ class EventsPageBody extends StatelessWidget {
         AllEventsPage(),
         DeanshipPage(),
         ClubsPage(),
-        ClubsPage(),
       ],
     );
   }

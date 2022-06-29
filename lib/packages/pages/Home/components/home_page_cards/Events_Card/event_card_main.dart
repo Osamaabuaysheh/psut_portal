@@ -13,7 +13,7 @@ class EventCardMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 325.w,
       child: Card(
         elevation: 5,

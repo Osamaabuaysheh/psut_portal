@@ -26,19 +26,18 @@ class EventsBottomTabBar extends StatelessWidget {
               color: AppColors.mainColor,
               borderRadius: BorderRadius.circular(15.r),
             ),
-            tabs: const [
+            tabs: [
               CustomTab(
                 text: "All",
-                width: 80,
+                width: 90.w,
               ),
               CustomTab(
-                text: "Deanship of Student Affairs",
-                width: 180,
+                text: "Deanships",
+                width: 90.w,
               ),
-              CustomTab(text: "Clubs"),
               CustomTab(
-                text: "Deanship of Admissions and Registration",
-                width: 260,
+                text: "Clubs",
+                width: 90.w,
               ),
             ],
           ),

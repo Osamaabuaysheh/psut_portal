@@ -3,7 +3,8 @@ import 'package:psut_portal/packages/pages/BUS/views/bus_page.dart';
 import 'package:psut_portal/packages/pages/CSO/cso_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_event_name_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
-import 'package:psut_portal/packages/pages/Cards/cards_page.dart';
+import 'package:psut_portal/packages/pages/Cards/views/cards_page.dart';
+import 'package:psut_portal/packages/pages/ClubPage/views/club_page.dart';
 import 'package:psut_portal/packages/pages/EVENTS/views/event_name_page.dart';
 import 'package:psut_portal/packages/pages/EVENTS/views/events_page.dart';
 import 'package:psut_portal/packages/pages/Home/views/home_page.dart';
@@ -38,5 +39,6 @@ class AppRoute {
     SettingsPage.id: (context) => const SettingsPage(),
     BusPage.id: (context) => const BusPage(),
     Wrapper.id: (context) => const Wrapper(),
+    ClubPage.id: (context) => const ClubPage(),
   };
 }
