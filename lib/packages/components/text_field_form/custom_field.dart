@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:psut_portal/Themes/app_colors.dart';
+import 'package:psut_portal/themes/app_colors.dart';
 
 class CustomField extends StatelessWidget {
   const CustomField(

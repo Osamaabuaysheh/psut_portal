@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/packages/pages/Cards/components/back_image.dart';
 import 'package:psut_portal/packages/pages/Cards/components/english_text_name.dart';
 import 'package:psut_portal/packages/pages/Cards/components/string_card.dart';
-import 'package:psut_portal/themes/custom_theme.dart';
 
 class HomeBodyCards extends StatelessWidget {
   const HomeBodyCards({
@@ -23,7 +22,6 @@ class HomeBodyCards extends StatelessWidget {
           SizedBox(height: 50.h),
           // const AddCardDottedButton(),
           InkWell(
-            
             child: Stack(
               children: [
                 const BackImage(),

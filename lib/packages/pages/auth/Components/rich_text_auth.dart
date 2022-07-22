@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:psut_portal/Themes/app_colors.dart';
 import 'package:psut_portal/services/themes/theme_status.dart';
+import 'package:psut_portal/themes/app_colors.dart';
 
 class RichTextAuth extends StatelessWidget {
   const RichTextAuth({

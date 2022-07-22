@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/services/themes/theme_status.dart';
 
 // ! Components
+import '../../../themes/app_colors.dart';
 import 'enum_loading.dart';
-import '../../../Themes/app_colors.dart';
 
 class AppLoading extends StatelessWidget {
   const AppLoading(

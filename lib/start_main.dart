@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
                     themeMode: ThemeMode.light,
                     theme: CustomTheme.lightTheme(context),
                     darkTheme: CustomTheme.darkTheme(context),
-                    initialRoute: CardsPage.id,
+                    initialRoute: Wrapper.id,
                     // home: ClubPage(),
                     routes: AppRoute.route,
                   ),
