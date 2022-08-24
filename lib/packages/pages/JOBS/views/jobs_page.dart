@@ -5,7 +5,6 @@ import 'package:psut_portal/packages/components/app-bar/components/open_notifica
 import 'package:psut_portal/packages/components/app-bar/components/oper_drawer_icon_button.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/body_drawer.dart';
 import 'package:psut_portal/packages/components/custom_spacing.dart';
-import 'package:psut_portal/packages/components/search_jobs.dart';
 import 'package:psut_portal/packages/pages/JOBS/components/jobs_body.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:psut_portal/packages/pages/Cards/components/back_image.dart';
-import 'package:psut_portal/packages/pages/Cards/components/english_text_name.dart';
-import 'package:psut_portal/packages/pages/Cards/components/string_card.dart';
+import 'package:psut_portal/packages/pages/Cards/components/add_card_dotted_button.dart';
+import 'package:psut_portal/packages/pages/Cards/components/electronic_personal_card.dart';
+import 'package:psut_portal/packages/pages/Cards/components/permit_card.dart';
 
 class HomeBodyCards extends StatelessWidget {
   const HomeBodyCards({
@@ -21,21 +21,9 @@ class HomeBodyCards extends StatelessWidget {
         children: [
           SizedBox(height: 50.h),
           // const AddCardDottedButton(),
-          InkWell(
-            child: Stack(
-              children: [
-                const BackImage(),
-                StringCard(
-                  userId: _userId,
-                  top: -20,
-                  right: 5,
-                  name: 'اسامه محمد ابو عيشه',
-                  collage: 'كلية الملك الحسين لعلوم الحاسوب',
-                ),
-                const EnglishTextName(englishName: "OSAMA M ABUAYSHEH"),
-              ],
-            ),
-          ),
+          ElectronicPersonalCard(userId: _userId),
+          const PermitCard(),
+          const AddCardDottedButton(),
         ],
       ),
     );

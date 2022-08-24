@@ -11,6 +11,7 @@ import 'package:psut_portal/packages/pages/Home/views/home_page.dart';
 import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/JOBS/views/jobs_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
+import 'package:psut_portal/packages/pages/TUTORING/tutor_signup.dart';
 import 'package:psut_portal/packages/pages/TUTORING/views/tutoringpage.dart';
 import 'package:psut_portal/packages/pages/auth/Views/forget.dart';
 import 'package:psut_portal/packages/pages/auth/Views/login.dart';
@@ -40,5 +41,6 @@ class AppRoute {
     BusPage.id: (context) => const BusPage(),
     Wrapper.id: (context) => const Wrapper(),
     ClubPage.id: (context) => const ClubPage(),
+    TutorSignUp.id: (context) => const TutorSignUp(),
   };
 }

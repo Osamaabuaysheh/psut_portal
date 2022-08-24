@@ -6,6 +6,7 @@ import 'package:psut_portal/packages/components/app_drawer/drawer_home/custom_di
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
 import 'package:psut_portal/packages/pages/Cards/views/cards_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
+import 'package:psut_portal/packages/pages/TUTORING/tutor_signup.dart';
 import 'package:psut_portal/packages/pages/auth/Views/wrapper.dart';
 import 'package:psut_portal/packages/pages/auth/manage_state/auth_service.dart';
 import 'package:psut_portal/themes/app_colors.dart';
@@ -55,7 +56,13 @@ class SettingDrawer extends StatelessWidget {
             const CustomDivider(),
             ListTileDrawer(title: "Saved Jobs", icon: AppSvg.saved),
             const CustomDivider(),
-            ListTileDrawer(title: "Become a Tutor", icon: AppSvg.tutor),
+            ListTileDrawer(
+              title: "Become a Tutor",
+              icon: AppSvg.tutor,
+              onTap: () {
+                Navigator.popAndPushNamed(context, TutorSignUp.id);
+              },
+            ),
             const CustomDivider(),
             ListTileDrawer(
               title: "Logout",
