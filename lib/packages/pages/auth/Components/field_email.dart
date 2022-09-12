@@ -15,7 +15,7 @@ class FieldEmail extends StatelessWidget {
     return CustomField(
       hint: "20190138",
       keyboardType: TextInputType.emailAddress,
-      onvalidator: AppValidator.isEmail,
+      // onvalidator: AppValidator.isEmail,
       onsaved: _valueEmail,
     );
   }

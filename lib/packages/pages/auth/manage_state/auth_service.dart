@@ -2,11 +2,15 @@ import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/auth/Model/user_auth.dart';
+import 'package:http/http.dart' as http;
 
 class AuthService extends ChangeNotifier {
   bool isLoading = false;
   String errorMessage = '';
+
+  bool go = false;
 
   set setLoading(bool value) {
     isLoading = value;
@@ -17,6 +21,13 @@ class AuthService extends ChangeNotifier {
     errorMessage = value;
     notifyListeners();
   }
+
+  set setGo(bool val) {
+    go = val;
+    notifyListeners();
+  }
+
+  get getGo => go;
 
   //* FireBase
   final FirebaseAuth _fireBaseInstance = FirebaseAuth.instance;
@@ -110,4 +121,14 @@ class AuthService extends ChangeNotifier {
 
   Stream<User> get userStream =>
       _fireBaseInstance.authStateChanges().map((User? user) => user!);
+
+  Future<void> loginStudent({required ModelUserAuth data}) async {
+    var response = await http.post(
+      Uri.parse('http://10.0.2.2:8000/login_Student'),
+      body: {'username': data.email, 'password': data.password},
+    );
+    try {
+      if (response.statusCode == 200) {}
+    } catch (e) {}
+  }
 }

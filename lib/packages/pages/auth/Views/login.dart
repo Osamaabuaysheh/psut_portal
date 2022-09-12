@@ -15,6 +15,7 @@ import 'package:psut_portal/packages/pages/auth/Components/forget_pass_text.dart
 import 'package:psut_portal/packages/pages/auth/Components/header_auth.dart';
 import 'package:psut_portal/packages/pages/auth/Model/user_auth.dart';
 import 'package:psut_portal/packages/pages/auth/manage_state/auth_service.dart';
+import 'package:http/http.dart' as http;
 
 class PageLogin extends StatelessWidget {
   static const String id = 'PageLogin';
@@ -90,11 +91,23 @@ class PageLogin extends StatelessWidget {
                                 FocusScope.of(context)
                                     .requestFocus(FocusNode());
 
-                                User? user = await _auth.login(data: _userAuth);
-                                if (user != null) {
+                                var response = await http.post(
+                                  Uri.parse(
+                                      'http://10.0.2.2:8000/login_Student'),
+                                  body: {
+                                    'username': _userAuth.email,
+                                    'password': _userAuth.password
+                                  },
+                                );
+                                if (response.statusCode == 200) {
                                   Navigator.pushReplacementNamed(
                                       context, MainHomePage.id);
                                 }
+                                // if (student == true) {
+                                //   print(student);
+                                //   Navigator.pushReplacementNamed(
+                                //       context, MainHomePage.id);
+                                // }
                               }
                             },
                             btnTitle: KeyLang.login,
