@@ -33,7 +33,7 @@ class ApplyNowButton extends StatelessWidget {
         ),
         style: ElevatedButton.styleFrom(
           fixedSize: Size(191.w, 62.h),
-          primary: AppColors.blue,
+          backgroundColor: AppColors.blue,
           textStyle: TextStyle(color: AppColors.white),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(31.r),

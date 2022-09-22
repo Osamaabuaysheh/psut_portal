@@ -98,8 +98,8 @@ class CsoEventNamePage extends StatelessWidget {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            onPrimary: Colors.white,
-                            primary: AppColors.mainColor,
+                            foregroundColor: Colors.white,
+                            backgroundColor: AppColors.mainColor,
                             padding: EdgeInsets.symmetric(
                                 horizontal: 35.w, vertical: 10.h),
                             shape: RoundedRectangleBorder(

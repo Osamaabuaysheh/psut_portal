@@ -22,7 +22,7 @@ class ButtonModalSheetCard extends StatelessWidget {
       height: 40.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            primary: AppColors.mainColor,
+            backgroundColor: AppColors.mainColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.r))),
         onPressed: _onPressed,

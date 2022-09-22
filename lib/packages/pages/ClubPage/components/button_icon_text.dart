@@ -28,7 +28,7 @@ class ButtonIconText extends StatelessWidget {
       height: _height.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: AppColors.mainColor,
+          backgroundColor: AppColors.mainColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.r),
           ),

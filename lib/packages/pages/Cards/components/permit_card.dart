@@ -12,7 +12,7 @@ class PermitCard extends StatelessWidget {
       width: double.infinity,
       color: Colors.white,
       margin: EdgeInsets.symmetric(vertical: 30.h),
-      child: Image(image: AssetImage("assets/images/Asset 5.png")),
+      child: const Image(image: AssetImage("assets/images/Asset 5.png")),
     );
   }
 }

@@ -19,9 +19,10 @@ class JobDesc extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          actions: const [
-            PopIconButton(color: Colors.white),
-          ],
+          leading: const PopIconButton(
+            color: Colors.white,
+            size: 25,
+          ),
         ),
         body: SingleChildScrollView(
           child: Column(

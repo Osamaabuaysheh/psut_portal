@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/custom_divider.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
 import 'package:psut_portal/packages/pages/Cards/views/cards_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
 import 'package:psut_portal/packages/pages/TUTORING/tutor_signup.dart';
-import 'package:psut_portal/packages/pages/auth/Views/wrapper.dart';
-import 'package:psut_portal/packages/pages/auth/manage_state/auth_service.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/utils/svg_images.dart';
 import 'listtile_drawer.dart';
@@ -18,7 +15,6 @@ class SettingDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthService _auth = Provider.of<AuthService>(context);
     return Container(
       height: 430.h,
       decoration: BoxDecoration(
@@ -67,15 +63,7 @@ class SettingDrawer extends StatelessWidget {
             ListTileDrawer(
               title: "Logout",
               icon: AppSvg.logout,
-              onTap: () async {
-                _auth.signOut().then(
-                      (value) => Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        Wrapper.id,
-                        (route) => false,
-                      ),
-                    );
-              },
+              onTap: () async {},
             ),
           ],
         ),

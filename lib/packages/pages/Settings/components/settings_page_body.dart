@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 import 'package:psut_portal/packages/pages/Settings/components/custom_settings_list_tile.dart';
 import 'package:psut_portal/packages/pages/Settings/components/settings_list_tile_icon_button.dart';
-import 'package:psut_portal/packages/pages/auth/Views/wrapper.dart';
-import 'package:psut_portal/packages/pages/auth/manage_state/auth_service.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
@@ -13,7 +10,7 @@ class SettingsPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthService _auth = Provider.of<AuthService>(context);
+    // AuthService _auth = Provider.of<AuthService>(context);
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(18.w),
@@ -58,10 +55,7 @@ class SettingsPageBody extends StatelessWidget {
           CustomSettingsListTile(
             icon: Icons.logout_outlined,
             title: "Logout",
-            widget: SettingsListTileIconButton(onPressed: () async {
-              _auth.signOut().then((value) => Navigator.pushNamedAndRemoveUntil(
-                  context, Wrapper.id, (route) => false));
-            }),
+            widget: SettingsListTileIconButton(onPressed: () {}),
           ),
         ],
       ),

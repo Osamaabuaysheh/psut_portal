@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/packages/components/app-bar/appbar_simple.dart';
-import 'package:psut_portal/packages/components/app-bar/components/open_notifications_page_icon_button.dart';
-import 'package:psut_portal/packages/components/app-bar/components/oper_drawer_icon_button.dart';
+import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
 import 'package:psut_portal/packages/pages/TUTORING/components/tutors_text_field.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
@@ -17,8 +16,7 @@ class TutorSignUp extends StatelessWidget {
       backgroundColor: AppColors.white,
       appBar: const AppBarSimple(
         actions: [
-          OpenNotificationPageIconButton(),
-          OpenDrawerIconButton(),
+          PopIconButton(),
         ],
       ),
       body: SingleChildScrollView(
@@ -57,7 +55,7 @@ class TutorSignUp extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        primary: AppColors.blue,
+                        backgroundColor: AppColors.blue,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.r),
                         ),

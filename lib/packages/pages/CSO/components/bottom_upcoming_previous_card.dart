@@ -36,8 +36,8 @@ class BottomUpcomingPreviousCard extends StatelessWidget {
             style: CustomTheme.mainTextStyle?.apply(color: Colors.white),
           ),
           style: ElevatedButton.styleFrom(
-            onPrimary: Colors.white,
-            primary: AppColors.mainColor,
+            foregroundColor: Colors.white,
+            backgroundColor: AppColors.mainColor,
             padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 8.h),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.r),

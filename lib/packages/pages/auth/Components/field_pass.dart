@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:psut_portal/language/generated/key_lang.dart';
 import 'package:psut_portal/packages/components/text_field_form/custom_field.dart';
+import 'package:psut_portal/packages/pages/auth/controllers/login_controller.dart';
 import 'package:psut_portal/services/validator/app_validators.dart';
 import 'package:psut_portal/utils/path_icons.dart';
 
@@ -27,12 +29,15 @@ class FieldPass extends StatefulWidget {
   final void Function(String)? _onChanged;
 }
 
+final _loginController = Get.put(LoginController());
+
 class _FieldPassState extends State<FieldPass> {
   bool _obsecureText = true;
   FaIcon _iconSuffix = PathIcons.eyeIcon;
   @override
   Widget build(BuildContext context) {
     return CustomField(
+      controller: _loginController.passwordController,
       hint: widget._hint,
       keyboardType: TextInputType.emailAddress,
       obscureText: _obsecureText,

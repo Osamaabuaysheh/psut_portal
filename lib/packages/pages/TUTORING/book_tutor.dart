@@ -60,7 +60,7 @@ class BookTutor extends StatelessWidget {
                   ],
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: AppColors.white,
+                  backgroundColor: AppColors.white,
                   elevation: 0,
                 ),
               ),
@@ -98,7 +98,7 @@ class BookTutor extends StatelessWidget {
                   ],
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: AppColors.white,
+                  backgroundColor: AppColors.white,
                   elevation: 0,
                 ),
               ),
@@ -135,7 +135,7 @@ class BookTutor extends StatelessWidget {
                   ],
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: AppColors.white,
+                  backgroundColor: AppColors.white,
                   elevation: 0,
                 ),
               ),
@@ -148,7 +148,7 @@ class BookTutor extends StatelessWidget {
                 height: 52.h,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: AppColors.blue,
+                    backgroundColor: AppColors.blue,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.r),
                     ),

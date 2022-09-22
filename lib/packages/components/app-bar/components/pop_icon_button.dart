@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PopIconButton extends StatelessWidget {
   const PopIconButton({
@@ -22,7 +23,7 @@ class PopIconButton extends StatelessWidget {
       icon: Icon(
         _icon,
         color: _color,
-        size: _size,
+        size: _size.sp,
       ),
     );
   }

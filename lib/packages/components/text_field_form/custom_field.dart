@@ -16,7 +16,8 @@ class CustomField extends StatelessWidget {
       Widget? suffixIcon,
       final String? Function(String?)? onvalidator,
       final void Function(String?)? onsaved,
-      final void Function(String)? onChanged})
+      final void Function(String)? onChanged,
+      TextEditingController? controller})
       : _initValue = initValue,
         _cursorColor = cursorColor,
         _keyboardType = keyboardType,
@@ -30,6 +31,7 @@ class CustomField extends StatelessWidget {
         _onvalidator = onvalidator,
         _onSaved = onsaved,
         _onChanged = onChanged,
+        _controller = controller,
         super(key: key);
 
   final String? _initValue;
@@ -46,9 +48,11 @@ class CustomField extends StatelessWidget {
   final String? Function(String?)? _onvalidator;
   final void Function(String?)? _onSaved;
   final void Function(String)? _onChanged;
+  final TextEditingController? _controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: _controller,
       initialValue: _initValue,
       cursorColor: _cursorColor,
       keyboardType: _keyboardType,

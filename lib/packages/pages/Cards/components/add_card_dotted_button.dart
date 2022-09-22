@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:psut_portal/packages/pages/Cards/components/button_modal_sheet_card.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
@@ -13,10 +14,8 @@ class AddCardDottedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        showModalBottomSheet(
-          context: context,
-          backgroundColor: Colors.transparent,
-          builder: (context) => Container(
+        Get.bottomSheet(
+          Container(
             height: 250.h,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

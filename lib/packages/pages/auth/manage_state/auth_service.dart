@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/auth/Model/user_auth.dart';
 import 'package:http/http.dart' as http;
 
@@ -129,6 +128,8 @@ class AuthService extends ChangeNotifier {
     );
     try {
       if (response.statusCode == 200) {}
-    } catch (e) {}
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 }

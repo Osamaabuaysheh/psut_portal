@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
+import 'package:psut_portal/packages/pages/auth/controllers/login_controller.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/language/generated/key_lang.dart';
 import 'package:psut_portal/packages/components/button/simple_btn.dart';
-import 'package:psut_portal/packages/components/loading/app_loading.dart';
-import 'package:psut_portal/packages/components/loading/enum_loading.dart';
 import 'package:psut_portal/packages/components/space/size_box.dart';
-import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/auth/Components/field_email.dart';
 import 'package:psut_portal/packages/pages/auth/Components/field_pass.dart';
 import 'package:psut_portal/packages/pages/auth/Components/forget_pass_text.dart';
 import 'package:psut_portal/packages/pages/auth/Components/header_auth.dart';
 import 'package:psut_portal/packages/pages/auth/Model/user_auth.dart';
-import 'package:psut_portal/packages/pages/auth/manage_state/auth_service.dart';
-import 'package:http/http.dart' as http;
 
+// ignore: must_be_immutable
 class PageLogin extends StatelessWidget {
   static const String id = 'PageLogin';
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
@@ -24,11 +20,12 @@ class PageLogin extends StatelessWidget {
   static final ModelUserAuth _userAuth = ModelUserAuth();
 
   PageLogin({Key? key}) : super(key: key);
+
+  var loginController = Get.put(LoginController());
   //* Key Form
 
   @override
   Widget build(BuildContext context) {
-    final AuthService _auth = Provider.of<AuthService>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -50,10 +47,8 @@ class PageLogin extends StatelessWidget {
                   SB(height: 5.h),
                   Text(
                     "Sign in using your student ID and password",
-                    style: CustomTheme.secondaryTextStyle?.copyWith(
-                      fontSize: 14.sp,
-                      color: Colors.grey,
-                    ),
+                    style: CustomTheme.secondaryTextStyle
+                        ?.copyWith(fontSize: 14.sp, color: Colors.grey),
                     textAlign: TextAlign.center,
                   ),
                   SB(height: 40.h),
@@ -79,40 +74,19 @@ class PageLogin extends StatelessWidget {
                   const SB(height: 20),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 80.w),
-                    child: _auth.isLoading
-                        ? const AppLoading(
-                            chooseLoading: ChooseLoading.button,
-                          )
-                        : SimpleBtn(
-                            height: 40.h,
-                            onTap: () async {
-                              if (_keyForm.currentState?.validate() ?? false) {
-                                _keyForm.currentState?.save();
-                                FocusScope.of(context)
-                                    .requestFocus(FocusNode());
+                    child: SimpleBtn(
+                      height: 40.h,
+                      onTap: () async {
+                        if (_keyForm.currentState?.validate() ?? false) {
+                          _keyForm.currentState?.save();
+                          FocusScope.of(context).requestFocus(FocusNode());
 
-                                var response = await http.post(
-                                  Uri.parse(
-                                      'http://10.0.2.2:8000/login_Student'),
-                                  body: {
-                                    'username': _userAuth.email,
-                                    'password': _userAuth.password
-                                  },
-                                );
-                                if (response.statusCode == 200) {
-                                  Navigator.pushReplacementNamed(
-                                      context, MainHomePage.id);
-                                }
-                                // if (student == true) {
-                                //   print(student);
-                                //   Navigator.pushReplacementNamed(
-                                //       context, MainHomePage.id);
-                                // }
-                              }
-                            },
-                            btnTitle: KeyLang.login,
-                            ltr: false,
-                          ),
+                          loginController.login();
+                        }
+                      },
+                      btnTitle: KeyLang.login,
+                      ltr: false,
+                    ),
                   ),
                 ],
               ),
