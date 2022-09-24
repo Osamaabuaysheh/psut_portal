@@ -19,7 +19,6 @@ class JOBSPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBarSimple(
-          title: "",
           actions: const [
             OpenNotificationPageIconButton(),
             OpenDrawerIconButton(),
@@ -27,7 +26,7 @@ class JOBSPage extends StatelessWidget {
           bottomsize: 120.h,
           bottomWidget: PreferredSize(
             child: CustomBottomJobSearch(),
-            preferredSize: Size.fromHeight(0),
+            preferredSize: const Size.fromHeight(0),
           ),
         ),
         body: const JobsBody(),

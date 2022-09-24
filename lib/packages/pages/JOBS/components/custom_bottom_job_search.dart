@@ -44,9 +44,9 @@ class CustomBottomJobSearch extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        const FilterSearchBar(),
+                        FilterSearchBar(),
                         SizedBox(width: 20.w),
-                        const FilterIcon(),
+                        FilterIcon(),
                       ],
                     ),
                     SizedBox(height: 20.w),

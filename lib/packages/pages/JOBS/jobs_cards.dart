@@ -9,7 +9,11 @@ bool toggle = false;
 class JobsCard extends StatelessWidget {
   const JobsCard({
     Key? key,
-  }) : super(key: key);
+    final String jobTitle = "Job Title",
+  })  : _jobTitle = jobTitle,
+        super(key: key);
+
+  final String _jobTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +47,10 @@ class JobsCard extends StatelessWidget {
                 width: 50,
                 height: 100,
               ),
-              title: const Text(
-                'Job Title',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              title: Text(
+                _jobTitle.toString(),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

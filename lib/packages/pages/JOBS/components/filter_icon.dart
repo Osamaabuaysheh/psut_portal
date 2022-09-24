@@ -2,14 +2,18 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:psut_portal/packages/components/button/custom_button.dart';
 import 'package:psut_portal/packages/components/button/custom_text_button.dart';
+import 'package:psut_portal/packages/pages/JOBS/controllers/search_controller.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class FilterIcon extends StatelessWidget {
-  const FilterIcon({
+  FilterIcon({
     Key? key,
   }) : super(key: key);
+
+  final SearchController controller = Get.put(SearchController());
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +32,9 @@ class FilterIcon extends StatelessWidget {
               builder: (context) => BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
                 child: Dialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.r),
+                  ),
                   insetPadding: EdgeInsets.only(
                     top: 100.w,
                     left: 90.w,
@@ -36,7 +43,8 @@ class FilterIcon extends StatelessWidget {
                   ),
                   alignment: Alignment.topRight,
                   child: Container(
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.r),
                       color: Colors.white,
                     ),
                     child: Padding(
@@ -52,8 +60,18 @@ class FilterIcon extends StatelessWidget {
                           CustomTextButton(
                               onPressed: () {},
                               text: "Newest to Oldest".toUpperCase()),
-                          CustomTextButton(onPressed: () {}, text: "A to Z"),
-                          CustomTextButton(onPressed: () {}, text: "Z to A"),
+                          CustomTextButton(
+                              onPressed: () {
+                                controller.sortListAlphabeticaly();
+                                Get.back();
+                              },
+                              text: "A to Z"),
+                          CustomTextButton(
+                              onPressed: () {
+                                controller.reverseSortList();
+                                Get.back();
+                              },
+                              text: "Z to A"),
                           Text(
                             "Filter",
                             style: CustomTheme.mainTextStyle
