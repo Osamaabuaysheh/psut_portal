@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
+import 'package:psut_portal/packages/components/button/custom_button.dart';
 import 'package:psut_portal/packages/components/custom_spacing.dart';
 import 'package:psut_portal/packages/components/para_space.dart';
 import 'package:psut_portal/packages/pages/TUTORING/book_tutor.dart';
@@ -13,25 +16,33 @@ class TutorProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: const PopIconButton(
+          color: Colors.white,
+          size: 25,
+        ),
+      ),
       body: Container(
         color: Colors.white,
         child: Column(
           children: [
-            //TODO Stack
             SizedBox(
               //color: Colors.purple,
               width: double.infinity,
-              height: 250.h,
+              height: 240.h,
               child: Stack(
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 300.h,
+                    height: 280.h,
                     color: AppColors.white,
                   ),
                   Container(
                     width: double.infinity,
-                    height: 172.h,
+                    height: 152.h,
                     color: AppColors.blue,
                   ),
                   Positioned(
@@ -57,8 +68,6 @@ class TutorProfile extends StatelessWidget {
                 ],
               ),
             ),
-
-            //TODO details
             SizedBox(
               //color: Colors.red,
               width: double.infinity,
@@ -74,13 +83,6 @@ class TutorProfile extends StatelessWidget {
                         'Yara Al Sadeeq',
                         style: CustomTheme.bigTitle,
                       ),
-                      // const VerticalDivider(
-                      //   width: 30,
-                      //   thickness: 3,
-                      //   indent: 5,
-                      //   endIndent: 0,
-                      //   color: Colors.red,
-                      // ),
                       const CustomSpacing(),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 100.w),
@@ -181,7 +183,7 @@ class TutorProfile extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '2 - 4 pM',
+                                      '2 - 4 PM',
                                       style: CustomTheme.normalBlue
                                           ?.copyWith(fontSize: 16),
                                     ),
@@ -237,60 +239,22 @@ class TutorProfile extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    width: 238.w,
-                    height: 52.h,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.blue,
+                  SizedBox(height: 20.h),
+                  CustomButton(
+                    onPressed: () {
+                      Get.bottomSheet(
+                        SizedBox(height: 415.h, child: const BookTutor()),
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.r),
-                        ),
-                        textStyle: CustomTheme.bigTitle
-                            ?.copyWith(color: AppColors.white, fontSize: 24.sp),
-                      ),
-                      onPressed: () {
-                        showModalBottomSheet(
-                          context: context,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(43.r),
-                            ),
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(43.r),
                           ),
-                          builder: (context) {
-                            return SizedBox(
-                                height: 415.h, child: const BookTutor());
-                          },
-                        );
-                      },
-                      child: const Text('Book a session'),
-                    ),
-                  ),
-                  // Row(
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //   children: [
-                  //     ElevatedButton(
-                  //         onPressed: () {
-                  //           Navigator.push(
-                  //             context,
-                  //             MaterialPageRoute(
-                  //               builder: (context) => const TutorSignUp(),
-                  //             ),
-                  //           );
-                  //         },
-                  //         child: const Text('sign up')),
-                  //     ElevatedButton(
-                  //         onPressed: () {
-                  //           Navigator.push(
-                  //             context,
-                  //             MaterialPageRoute(
-                  //               builder: (context) => const StudentCards(),
-                  //             ),
-                  //           );
-                  //         },
-                  //         child: const Text('Cards'))
-                  //   ],
-                  // )
+                        ),
+                      );
+                    },
+                    textButton: "Book a Session",
+                    width: 30,
+                  )
                 ],
               ),
             ),

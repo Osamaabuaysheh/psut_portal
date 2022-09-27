@@ -14,50 +14,52 @@ class SettingsPageBody extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(18.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Account", style: CustomTheme.mainTextStyle),
-          CustomSettingsListTile(
-            icon: Icons.person,
-            title: "Leen Ahmad",
-            widget: SettingsListTileIconButton(onPressed: () {}),
-          ),
-          Text("Perefrences", style: CustomTheme.mainTextStyle),
-          CustomSettingsListTile(
-            icon: Icons.language,
-            title: "Langauge",
-            widget: SettingsListTileIconButton(onPressed: () {}),
-          ),
-          CustomSettingsListTile(
-            icon: Icons.lock_outline,
-            title: "Privacy and Data",
-            widget: SettingsListTileIconButton(onPressed: () {}),
-          ),
-          CustomSettingsListTile(
-            icon: Icons.notifications_none_outlined,
-            title: "Notifications",
-            widget: SettingsListTileIconButton(onPressed: () {}),
-          ),
-          Divider(color: AppColors.mainColor, thickness: 1.2, height: 30.h),
-          Text("Support", style: CustomTheme.mainTextStyle),
-          CustomSettingsListTile(
-            icon: Icons.info_outline_rounded,
-            title: "About",
-            widget: SettingsListTileIconButton(onPressed: () {}),
-          ),
-          CustomSettingsListTile(
-            icon: Icons.help_outline_outlined,
-            title: "Help",
-            widget: SettingsListTileIconButton(onPressed: () {}),
-          ),
-          Divider(color: AppColors.mainColor, thickness: 1.2, height: 30.h),
-          CustomSettingsListTile(
-            icon: Icons.logout_outlined,
-            title: "Logout",
-            widget: SettingsListTileIconButton(onPressed: () {}),
-          ),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Account", style: CustomTheme.mainTextStyle),
+            CustomSettingsListTile(
+              icon: Icons.person,
+              title: "Leen Ahmad",
+              widget: SettingsListTileIconButton(onPressed: () {}),
+            ),
+            Text("Perefrences", style: CustomTheme.mainTextStyle),
+            CustomSettingsListTile(
+              icon: Icons.language,
+              title: "Langauge",
+              widget: SettingsListTileIconButton(onPressed: () {}),
+            ),
+            CustomSettingsListTile(
+              icon: Icons.lock_outline,
+              title: "Privacy and Data",
+              widget: SettingsListTileIconButton(onPressed: () {}),
+            ),
+            CustomSettingsListTile(
+              icon: Icons.notifications_none_outlined,
+              title: "Notifications",
+              widget: SettingsListTileIconButton(onPressed: () {}),
+            ),
+            Divider(color: AppColors.mainColor, thickness: 1.2, height: 30.h),
+            Text("Support", style: CustomTheme.mainTextStyle),
+            CustomSettingsListTile(
+              icon: Icons.info_outline_rounded,
+              title: "About",
+              widget: SettingsListTileIconButton(onPressed: () {}),
+            ),
+            CustomSettingsListTile(
+              icon: Icons.help_outline_outlined,
+              title: "Help",
+              widget: SettingsListTileIconButton(onPressed: () {}),
+            ),
+            Divider(color: AppColors.mainColor, thickness: 1.2, height: 30.h),
+            CustomSettingsListTile(
+              icon: Icons.logout_outlined,
+              title: "Logout",
+              widget: SettingsListTileIconButton(onPressed: () {}),
+            ),
+          ],
+        ),
       ),
     );
   }

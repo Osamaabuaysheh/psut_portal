@@ -7,9 +7,9 @@ class JobsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const TabBarView(
+    return TabBarView(
       children: [
-        JobsAll(),
+        const JobsAll(),
         JobsSaved(),
       ],
     );

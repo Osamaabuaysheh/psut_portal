@@ -26,7 +26,7 @@ class TutorPage extends StatelessWidget {
             OpenNotificationPageIconButton(),
             OpenDrawerIconButton(),
           ],
-          bottomsize: 140.w,
+          bottomsize: 150.w,
           bottomWidget: PreferredSize(
             child: Column(
               children: const [

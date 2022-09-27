@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:psut_portal/packages/components/button/custom_button.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 
 class ApplyCv extends StatelessWidget {
@@ -14,9 +15,10 @@ class ApplyCv extends StatelessWidget {
         Text(
           'Upload your CV',
           style: TextStyle(
-              color: AppColors.blue,
-              fontWeight: FontWeight.bold,
-              fontSize: 23.sp),
+            color: AppColors.blue,
+            fontWeight: FontWeight.bold,
+            fontSize: 23.sp,
+          ),
         ),
         DottedBorder(
           color: AppColors.blue,
@@ -48,18 +50,10 @@ class ApplyCv extends StatelessWidget {
             ),
           ),
         ),
-        ElevatedButton(
-          onPressed: () {},
-          child: const Text(
-            'Apply Now',
-            style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-          ),
-          style: ElevatedButton.styleFrom(
-              fixedSize: Size(191.w, 62.h),
-              backgroundColor: AppColors.blue,
-              textStyle: TextStyle(color: AppColors.white),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(31.r))),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 40.w),
+          child: CustomButton(
+              onPressed: () {}, textButton: "Apply Now", fromHeight: 50.h),
         ),
       ],
     );

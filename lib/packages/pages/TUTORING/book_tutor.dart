@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:psut_portal/packages/components/button/custom_button.dart';
 import 'package:psut_portal/packages/components/custom_spacing.dart';
 import 'package:psut_portal/packages/components/para_space.dart';
+import 'package:psut_portal/packages/pages/JOBS/components/custom_session.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
@@ -28,137 +30,33 @@ class BookTutor extends StatelessWidget {
               style: CustomTheme.normalBlue?.copyWith(fontSize: 18),
             ),
             const ParaSpacing(),
-            SizedBox(
-              width: 341.w,
-              height: 52.h,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Sunday',
-                      style: CustomTheme.normalBlue?.copyWith(fontSize: 20),
-                    ),
-                    Text(
-                      '10 - 11 AM',
-                      style: CustomTheme.normalBlue?.copyWith(fontSize: 20),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          '3',
-                          style: CustomTheme.normalBlue?.copyWith(fontSize: 20),
-                        ),
-                        Icon(
-                          Icons.person,
-                          color: AppColors.blue,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.white,
-                  elevation: 0,
-                ),
-              ),
+            const CustomSession(
+              day: "Sunday",
+              startTime: "10",
+              endTime: "11",
+              timePeriod: "AM",
+              people: 3,
             ),
             const CustomSpacing(),
-            SizedBox(
-              width: 341.w,
-              height: 52.h,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'Tuesday',
-                      style: CustomTheme.normalBlue?.copyWith(fontSize: 20),
-                    ),
-                    Text(
-                      '2 - 4 PM',
-                      style: CustomTheme.normalBlue?.copyWith(fontSize: 20),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          '1',
-                          style: CustomTheme.normalBlue?.copyWith(fontSize: 20),
-                        ),
-                        Icon(
-                          Icons.person,
-                          color: AppColors.blue,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.white,
-                  elevation: 0,
-                ),
-              ),
+            const CustomSession(
+              day: "Tuesday",
+              startTime: "2",
+              endTime: "4",
+              timePeriod: "PM",
+              people: 1,
             ),
             const CustomSpacing(),
-            SizedBox(
-              width: 341.w,
-              height: 52.h,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'Wednesday',
-                      style: CustomTheme.normalBlue?.copyWith(fontSize: 20),
-                    ),
-                    Text(
-                      '2 - 4 PM',
-                      style: CustomTheme.normalBlue?.copyWith(fontSize: 20),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          '7',
-                          style: CustomTheme.normalBlue?.copyWith(fontSize: 20),
-                        ),
-                        Icon(
-                          Icons.person,
-                          color: AppColors.blue,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.white,
-                  elevation: 0,
-                ),
-              ),
+            const CustomSession(
+              day: "Wednesday",
+              startTime: "2",
+              endTime: "4",
+              timePeriod: "PM",
+              people: 8,
             ),
             const ParaSpacing(),
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: 238.w,
-                height: 52.h,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.r),
-                    ),
-                    textStyle: CustomTheme.bigTitle
-                        ?.copyWith(color: AppColors.white, fontSize: 24.sp),
-                  ),
-                  onPressed: () {},
-                  child: const Text('Book a session'),
-                ),
-              ),
+            CustomButton(
+              onPressed: () {},
+              textButton: "Book a Session",
             ),
           ],
         ),

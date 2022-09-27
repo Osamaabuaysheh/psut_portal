@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:psut_portal/packages/pages/JOBS/controllers/job_controller.dart';
 import 'package:psut_portal/packages/pages/JOBS/job_description.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/utils/svg_images.dart';
@@ -7,13 +9,21 @@ import 'package:psut_portal/utils/svg_images.dart';
 bool toggle = false;
 
 class JobsCard extends StatelessWidget {
-  const JobsCard({
+  JobsCard({
     Key? key,
     final String jobTitle = "Job Title",
+    required void Function()? onPressed,
+    required RxBool isFavourite,
   })  : _jobTitle = jobTitle,
+        _onPressed = onPressed,
+        _isFavourite = isFavourite,
         super(key: key);
 
   final String _jobTitle;
+  final void Function()? _onPressed;
+  final RxBool _isFavourite;
+
+  JobsController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -65,30 +75,21 @@ class JobsCard extends StatelessWidget {
                   )
                 ],
               ),
-              trailing: IconButton(
-                icon: toggle
-                    ? const Icon(Icons.bookmark)
-                    : Icon(
-                        Icons.bookmark_border,
-                        size: 30,
-                        color: AppColors.blue,
-                      ),
-                onPressed: () {
-                  //* ( setState() {
-                  //*   // Here we changing the icon.
-                  //*   toggle = !toggle;
-                  //* }
-                  (Set<MaterialState> states) {
-                    states.contains(MaterialState.pressed)
-                        ? const Icon(Icons.bookmark)
-                        : Icon(
-                            Icons.bookmark_border,
-                            size: 30,
-                            color: AppColors.blue,
-                          );
-                  };
-                  // );
-                },
+              trailing: GetX<JobsController>(
+                builder: (controller) => IconButton(
+                  icon: _isFavourite.value
+                      ? Icon(
+                          Icons.bookmark,
+                          size: 30.w,
+                          color: AppColors.blue,
+                        )
+                      : Icon(
+                          Icons.bookmark_border,
+                          size: 30.w,
+                          color: AppColors.blue,
+                        ),
+                  onPressed: _onPressed,
+                ),
               ),
             ),
           ),

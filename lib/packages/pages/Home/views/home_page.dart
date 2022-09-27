@@ -17,6 +17,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBarSimple(
         key: _key,
+        bottomsize: 0,
         title: 'Home',
         actions: const [
           OpenNotificationPageIconButton(),

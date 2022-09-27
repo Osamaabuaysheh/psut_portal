@@ -7,10 +7,10 @@ class JobsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const TabBarView(
-      physics: NeverScrollableScrollPhysics(),
+    return TabBarView(
+      physics: const NeverScrollableScrollPhysics(),
       children: [
-        JobsAll(),
+        const JobsAll(),
         JobsSaved(),
       ],
     );

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/packages/components/button/custom_button.dart';
 import 'package:psut_portal/packages/components/button/custom_text_button.dart';
-import 'package:psut_portal/packages/pages/JOBS/controllers/search_controller.dart';
+import 'package:psut_portal/packages/pages/JOBS/controllers/job_controller.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class FilterIcon extends StatelessWidget {
@@ -13,7 +13,7 @@ class FilterIcon extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final SearchController controller = Get.put(SearchController());
+  final JobsController controller = Get.put(JobsController());
 
   @override
   Widget build(BuildContext context) {

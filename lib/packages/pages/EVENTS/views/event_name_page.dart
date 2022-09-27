@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_component.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/event_name_details_card.dart';
 import 'package:psut_portal/themes/app_colors.dart';
@@ -20,6 +21,15 @@ class EventNamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: const PopIconButton(
+            color: Colors.white,
+            size: 25,
+          ),
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
