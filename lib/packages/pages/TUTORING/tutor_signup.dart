@@ -7,7 +7,7 @@ import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class TutorSignUp extends StatelessWidget {
-  static const String id = 'TutorSignUp';
+  static const String id = '/TutorSignUp';
   const TutorSignUp({Key? key}) : super(key: key);
 
   @override

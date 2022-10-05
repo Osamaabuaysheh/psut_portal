@@ -14,7 +14,6 @@ class JobsAll extends StatelessWidget {
       width: 315.w,
       height: 97.h,
       child: GetX<JobsController>(
-        tag: '',
         init: JobsController(),
         builder: (controller) => controller.displayList.isEmpty
             ? const Center(

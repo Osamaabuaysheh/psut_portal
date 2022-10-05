@@ -8,7 +8,7 @@ import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class EventNamePage extends StatelessWidget {
-  static const String id = 'EventNamePage';
+  static const String id = '/EventNamePage';
   const EventNamePage({
     Key? key,
     final List<SvgPicture>? icons,

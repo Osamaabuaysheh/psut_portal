@@ -11,7 +11,7 @@ import 'package:psut_portal/packages/pages/auth/Model/user_auth.dart';
 import 'package:psut_portal/services/themes/theme_status.dart';
 
 class PageForget extends StatelessWidget {
-  static const String id = 'PageForget';
+  static const String id = '/PageForget';
   const PageForget({Key? key}) : super(key: key);
 
   static final ModelUserAuth _userAuth = ModelUserAuth();

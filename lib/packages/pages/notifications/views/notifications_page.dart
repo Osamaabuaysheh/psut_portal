@@ -4,7 +4,7 @@ import 'package:psut_portal/packages/components/app-bar/components/pop_icon_butt
 import 'package:psut_portal/packages/pages/notifications/components/notifcations_page_body.dart';
 
 class NotificationPage extends StatelessWidget {
-  static const String id = 'NotificationPage';
+  static const String id = '/NotificationPage';
   const NotificationPage({Key? key}) : super(key: key);
 
   @override

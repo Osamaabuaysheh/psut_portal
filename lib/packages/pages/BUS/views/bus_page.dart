@@ -4,7 +4,7 @@ import 'package:psut_portal/packages/components/app-bar/components/pop_icon_butt
 import 'package:psut_portal/packages/pages/BUS/components/bus_page_body.dart';
 
 class BusPage extends StatelessWidget {
-  static const String id = "BusPage";
+  static const String id = "/BusPage";
   const BusPage({Key? key}) : super(key: key);
 
   @override

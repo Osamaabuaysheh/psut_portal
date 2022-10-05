@@ -11,7 +11,7 @@ import 'package:psut_portal/packages/pages/auth/Model/user_auth.dart';
 import 'package:psut_portal/services/validator/app_validators.dart';
 
 class PageRegister extends StatelessWidget {
-  static const String id = 'PageRegister';
+  static const String id = '/PageRegister';
   static String? pass;
   const PageRegister({Key? key}) : super(key: key);
 

@@ -5,7 +5,7 @@ import 'package:psut_portal/packages/components/app_drawer/drawer_home/body_draw
 import 'package:psut_portal/packages/pages/Cards/components/home_body.dart';
 
 class CardsPage extends StatelessWidget {
-  static const String id = 'CardsPage';
+  static const String id = '/CardsPage';
   const CardsPage({Key? key}) : super(key: key);
 
   @override

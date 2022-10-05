@@ -6,7 +6,7 @@ import 'package:psut_portal/packages/pages/CSO/components/cso_profile_page_table
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class CsoProfilePage extends StatelessWidget {
-  static const id = 'CsoProfilePage';
+  static const id = '/CsoProfilePage';
   const CsoProfilePage({Key? key}) : super(key: key);
 
   @override

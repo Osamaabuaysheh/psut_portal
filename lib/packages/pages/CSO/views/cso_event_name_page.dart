@@ -7,7 +7,7 @@ import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class CsoEventNamePage extends StatelessWidget {
-  static const String id = 'CsoEventNamePage';
+  static const String id = '/CsoEventNamePage';
   const CsoEventNamePage({Key? key}) : super(key: key);
 
   @override

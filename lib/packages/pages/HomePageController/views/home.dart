@@ -5,7 +5,7 @@ import 'package:psut_portal/packages/pages/HomePageController/components/home_bo
 import 'package:psut_portal/packages/pages/HomePageController/stateManageHome/home_state_pages.dart';
 
 class MainHomePage extends StatelessWidget {
-  static const String id = 'MainHomePage';
+  static const String id = '/MainHomePage';
   const MainHomePage({Key? key}) : super(key: key);
 
   @override

@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:psut_portal/Middlewares/auth_middleware.dart';
 import 'package:psut_portal/packages/pages/BUS/views/bus_page.dart';
 import 'package:psut_portal/packages/pages/CSO/cso_page.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_event_name_page.dart';
@@ -21,26 +22,28 @@ import 'package:psut_portal/packages/pages/notifications/views/notifications_pag
 import 'package:psut_portal/packages/pages/splash/views/body.dart';
 
 class AppRoute {
-  static Map<String, WidgetBuilder> route = {
-    MainHomePage.id: (context) => const MainHomePage(),
-    PageSplash.id: (context) => const PageSplash(),
-    PageLogin.id: (context) => PageLogin(),
-    PageRegister.id: (context) => const PageRegister(),
-    PageForget.id: (context) => const PageForget(),
-    HomePage.id: (context) => const HomePage(),
-    EventsPage.id: (context) => const EventsPage(),
-    JOBSPage.id: (context) => const JOBSPage(),
-    CSOPage.id: (context) => const CSOPage(),
-    TutorPage.id: (context) => const TutorPage(),
-    CsoEventNamePage.id: (context) => const CsoEventNamePage(),
-    CsoProfilePage.id: (context) => const CsoProfilePage(),
-    CardsPage.id: (context) => const CardsPage(),
-    NotificationPage.id: (context) => const NotificationPage(),
-    EventNamePage.id: (context) => const EventNamePage(),
-    SettingsPage.id: (context) => const SettingsPage(),
-    BusPage.id: (context) => const BusPage(),
-    Wrapper.id: (context) => const Wrapper(),
-    ClubPage.id: (context) => const ClubPage(),
-    TutorSignUp.id: (context) => const TutorSignUp(),
-  };
+  static List<GetPage<dynamic>>? route = [
+    GetPage(name: MainHomePage.id, page: () => const MainHomePage()),
+    GetPage(name: PageSplash.id, page: () => const PageSplash(), middlewares: [
+      AuthMiddleware(),
+    ]),
+    GetPage(name: PageLogin.id, page: () => PageLogin()),
+    GetPage(name: PageRegister.id, page: () => const PageRegister()),
+    GetPage(name: PageForget.id, page: () => const PageForget()),
+    GetPage(name: HomePage.id, page: () => const HomePage()),
+    GetPage(name: EventsPage.id, page: () => const EventsPage()),
+    GetPage(name: JOBSPage.id, page: () => JOBSPage()),
+    GetPage(name: CSOPage.id, page: () => const CSOPage()),
+    GetPage(name: TutorPage.id, page: () => const TutorPage()),
+    GetPage(name: CsoEventNamePage.id, page: () => const CsoEventNamePage()),
+    GetPage(name: CsoProfilePage.id, page: () => const CsoProfilePage()),
+    GetPage(name: CardsPage.id, page: () => const CardsPage()),
+    GetPage(name: NotificationPage.id, page: () => const NotificationPage()),
+    GetPage(name: EventNamePage.id, page: () => const EventNamePage()),
+    GetPage(name: SettingsPage.id, page: () => const SettingsPage()),
+    GetPage(name: BusPage.id, page: () => const BusPage()),
+    GetPage(name: Wrapper.id, page: () => const Wrapper()),
+    GetPage(name: ClubPage.id, page: () => const ClubPage()),
+    GetPage(name: TutorSignUp.id, page: () => const TutorSignUp()),
+  ];
 }

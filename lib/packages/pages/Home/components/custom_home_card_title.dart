@@ -10,15 +10,9 @@ class CustomHomeCardTitle extends StatelessWidget {
     final bool enableFunc = true,
     final IconData icon = Icons.arrow_forward_ios_outlined,
   })  : _cardName = cardName,
-        _onPressed = onPressed,
-        _enableFunc = enableFunc,
-        _icon = icon,
         super(key: key);
 
   final String _cardName;
-  final void Function()? _onPressed;
-  final bool _enableFunc;
-  final IconData _icon;
 
   @override
   Widget build(BuildContext context) {

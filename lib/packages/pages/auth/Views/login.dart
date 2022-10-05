@@ -14,7 +14,7 @@ import 'package:psut_portal/packages/pages/auth/Model/user_auth.dart';
 
 // ignore: must_be_immutable
 class PageLogin extends StatelessWidget {
-  static const String id = 'PageLogin';
+  static const String id = '/PageLogin';
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
   static final ModelUserAuth _userAuth = ModelUserAuth();

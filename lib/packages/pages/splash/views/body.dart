@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:psut_portal/language/generated/key_lang.dart';
 import 'package:psut_portal/packages/components/button/simple_btn.dart';
-import 'package:psut_portal/packages/pages/auth/Views/wrapper.dart';
+import 'package:psut_portal/packages/pages/auth/Views/login.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class PageSplash extends StatelessWidget {
-  static const String id = 'PageSplash';
+  static const String id = '/PageSplash';
   const PageSplash({Key? key}) : super(key: key);
 
   @override
@@ -65,10 +66,7 @@ class PageSplash extends StatelessWidget {
                           child: SimpleBtn(
                             height: 40.h,
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                context,
-                                Wrapper.id,
-                              );
+                              Get.offNamed(PageLogin.id);
                             },
                             btnTitle: KeyLang.login,
                             ltr: false,

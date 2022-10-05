@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
+import 'package:psut_portal/packages/pages/splash/views/body.dart';
 import 'package:psut_portal/routes/app_route.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
@@ -18,9 +18,8 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.light,
         theme: CustomTheme.lightTheme(context),
         darkTheme: CustomTheme.darkTheme(context),
-        // initialRoute: PageLogin.id,
-        home: const MainHomePage(),
-        routes: AppRoute.route,
+        initialRoute: PageSplash.id,
+        getPages: AppRoute.route,
       ),
     );
   }

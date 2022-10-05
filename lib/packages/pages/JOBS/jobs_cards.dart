@@ -23,7 +23,7 @@ class JobsCard extends StatelessWidget {
   final void Function()? _onPressed;
   final RxBool _isFavourite;
 
-  JobsController controller = Get.find();
+  final JobsController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {

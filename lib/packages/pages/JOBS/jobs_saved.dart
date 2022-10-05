@@ -19,7 +19,6 @@ class JobsSaved extends StatelessWidget {
       width: 315.w,
       height: 97.h,
       child: GetX<JobsController>(
-        tag: '',
         builder: (controller) => controller.savedList.isEmpty
             ? Column(
                 children: [

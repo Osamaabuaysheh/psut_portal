@@ -6,7 +6,7 @@ import 'package:psut_portal/packages/components/app_drawer/drawer_home/body_draw
 import 'package:psut_portal/packages/pages/Home/views/home_page_body.dart';
 
 class HomePage extends StatelessWidget {
-  static const String id = 'HomePage';
+  static const String id = '/HomePage';
   const HomePage({Key? key}) : super(key: key);
 
   @override

@@ -8,7 +8,7 @@ import 'package:psut_portal/packages/pages/EVENTS/components/events_bottom_tabba
 import 'package:psut_portal/packages/pages/EVENTS/components/events_page_body.dart';
 
 class EventsPage extends StatelessWidget {
-  static const String id = 'EventsPage';
+  static const String id = '/EventsPage';
   const EventsPage({Key? key}) : super(key: key);
 
   @override

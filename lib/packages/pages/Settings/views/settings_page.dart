@@ -5,7 +5,7 @@ import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class SettingsPage extends StatelessWidget {
-  static const String id = "SettingsPage";
+  static const String id = "/SettingsPage";
   const SettingsPage({Key? key}) : super(key: key);
 
   @override

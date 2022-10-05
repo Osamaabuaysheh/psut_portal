@@ -10,7 +10,7 @@ import 'package:psut_portal/packages/pages/TUTORING/components/tutoring_body.dar
 import 'package:psut_portal/utils/path_image.dart';
 
 class TutorPage extends StatelessWidget {
-  static const String id = 'TutorPage';
+  static const String id = '/TutorPage';
 
   const TutorPage({Key? key}) : super(key: key);
 

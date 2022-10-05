@@ -7,7 +7,7 @@ import 'package:psut_portal/packages/pages/CSO/components/bottom_tabbar_appbar.d
 import 'package:psut_portal/packages/pages/CSO/components/cso_page_body.dart';
 
 class CSOPage extends StatelessWidget {
-  static const String id = 'CSOPage';
+  static const String id = '/CSOPage';
 
   const CSOPage({Key? key}) : super(key: key);
 

@@ -17,7 +17,6 @@ class FilterSearchBar extends StatelessWidget {
       child: TextField(
         onChanged: (value) {
           controller.updateList(controller.textEditingController.value.text);
-          debugPrint(controller.textEditingController.value.text);
         },
         controller: controller.textEditingController.value,
         decoration: InputDecoration(
