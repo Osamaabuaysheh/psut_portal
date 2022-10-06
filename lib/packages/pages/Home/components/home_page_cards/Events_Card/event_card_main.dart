@@ -16,6 +16,10 @@ class EventCardMain extends StatelessWidget {
     return SizedBox(
       width: 325.w,
       child: Card(
+        margin: EdgeInsets.symmetric(
+          vertical: 10.w,
+          horizontal: 10.w,
+        ),
         elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.r),

@@ -17,14 +17,14 @@ class CustomHomeCardTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40.h,
+      height: 25.h,
       child: Align(
         alignment: Alignment.centerLeft,
         child: Text(
           _cardName,
           style: TextStyle(
             color: AppColors.mainColor,
-            fontSize: 16.sp,
+            fontSize: 17.sp,
             fontWeight: FontWeight.bold,
           ),
         ),

@@ -17,7 +17,7 @@ class EventCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 240.h,
+      height: 235.h,
       child: Column(
         children: [
           Expanded(child: _titleWidget),

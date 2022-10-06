@@ -14,7 +14,7 @@ class CustomBottomJobSearch extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final TabBarController controller = Get.find();
+  final TabBarController controller = Get.put(TabBarController());
 
   @override
   Widget build(BuildContext context) {

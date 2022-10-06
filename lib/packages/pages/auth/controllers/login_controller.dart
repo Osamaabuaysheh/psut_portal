@@ -12,6 +12,7 @@ import 'package:psut_portal/services/start_services/start_services.dart';
 class LoginController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  RxBool isLoading = false.obs;
 
   void login() async {
     SettingsServices prefs = Get.find();
@@ -19,24 +20,33 @@ class LoginController extends GetxController {
       username: emailController.value.text,
       password: passwordController.value.text,
     );
-    var response = await ApiController.client.post(
-      Uri.parse(ApiLogin.loginApi),
-      body: loginModel.toJson(),
-    );
 
-    if (response.statusCode == 200) {
-      final token = json.jsonDecode(response.body);
+    try {
+      isLoading.value = true;
+      var response = await ApiController.client.post(
+        Uri.parse(ApiLogin.loginApi),
+        body: loginModel.toJson(),
+      );
 
-      prefs.preferences!
-          .setString(StringConstants.token, token['token'].toString());
+      if (response.statusCode == 200) {
+        final token = json.jsonDecode(response.body);
 
-      Get.to(const MainHomePage());
-    } else {
+        prefs.preferences!
+            .setString(StringConstants.token, token['token'].toString());
+
+        Get.to(const MainHomePage());
+      }
+    } catch (e) {
+      isLoading.value = false;
       Get.showSnackbar(
         const GetSnackBar(
           title: "Incorrect Username or Password",
+          message: "Incorrect",
+          duration: Duration(seconds: 3),
+          dismissDirection: DismissDirection.down,
         ),
       );
+      debugPrint(e.toString());
     }
   }
 }

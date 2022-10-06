@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:psut_portal/packages/components/ProgressIndicator/progress_indicator.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/login_controller.dart';
+import 'package:psut_portal/services/validator/app_validators.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/language/generated/key_lang.dart';
@@ -69,25 +71,32 @@ class PageLogin extends StatelessWidget {
                   FieldPass(
                     hint: "**********",
                     valuePass: (val) => _userAuth.setPassword(val),
+                    onValidators: AppValidator.isPass,
                   ),
                   const ForgetPassText(),
                   const SB(height: 20),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 80.w),
-                    child: SimpleBtn(
-                      height: 40.h,
-                      onTap: () async {
-                        if (_keyForm.currentState?.validate() ?? false) {
-                          _keyForm.currentState?.save();
-                          FocusScope.of(context).requestFocus(FocusNode());
 
-                          loginController.login();
-                        }
-                      },
-                      btnTitle: KeyLang.login,
-                      ltr: false,
-                    ),
-                  ),
+                  loginController.isLoading.value
+                      ? Center(
+                          child: CustomProgressIndicator.progressWidget(),
+                        )
+                      : Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 80.w),
+                          child: SimpleBtn(
+                            height: 40.h,
+                            onTap: () async {
+                              if (_keyForm.currentState?.validate() ?? false) {
+                                _keyForm.currentState?.save();
+                                FocusScope.of(context)
+                                    .requestFocus(FocusNode());
+
+                                loginController.login();
+                              }
+                            },
+                            btnTitle: KeyLang.login,
+                            ltr: false,
+                          ),
+                        ),
                 ],
               ),
             ),

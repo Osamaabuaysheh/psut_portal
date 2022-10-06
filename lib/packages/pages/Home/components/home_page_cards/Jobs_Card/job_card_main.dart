@@ -10,10 +10,13 @@ class JobCardMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 320.w,
-      margin: EdgeInsets.symmetric(horizontal: 5.w),
+    return SizedBox(
+      width: 325.w,
       child: Card(
+        margin: EdgeInsets.symmetric(
+          vertical: 10.w,
+          horizontal: 10.w,
+        ),
         elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.r),
@@ -21,47 +24,57 @@ class JobCardMain extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25.r),
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: ListTile(
-            leading: SizedBox(
-              child: AppSvg.psutLogoOragne,
-              width: 50.w,
-              height: 50.h,
-            ),
-            title: Padding(
-              padding: EdgeInsets.all(8.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Job Title",
-                    style: TextStyle(
-                      color: AppColors.mainColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "Company Name",
-                    style: TextStyle(
-                      color: AppColors.mainColor,
-                    ),
-                  ),
-                  Text(
-                    "Full Time",
-                    style: TextStyle(
-                      color: AppColors.mainColor,
-                    ),
-                  ),
-                ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 20.w),
+                child: SizedBox(
+                  child: AppSvg.psutLogoOragne,
+                  width: 50.w,
+                  height: 50.w,
+                ),
               ),
-            ),
-            trailing: Padding(
-              padding: EdgeInsets.only(top: 8.w),
-              child: Icon(
-                Icons.bookmark_border,
-                size: 25.h,
+              SizedBox(width: 20.w),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 15.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Job Title",
+                      style: TextStyle(
+                        color: AppColors.mainColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Company Name",
+                      style: TextStyle(
+                        color: AppColors.mainColor,
+                      ),
+                    ),
+                    Text(
+                      "Full Time",
+                      style: TextStyle(
+                        color: AppColors.mainColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
+              SizedBox(width: 60.w),
+              Padding(
+                padding: EdgeInsets.only(right: 20.w),
+                child: Icon(
+                  Icons.bookmark_border,
+                  size: 30.w,
+                  color: AppColors.blue,
+                ),
+              ),
+            ],
           ),
         ),
       ),

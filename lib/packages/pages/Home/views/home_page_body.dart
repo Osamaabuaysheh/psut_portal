@@ -27,7 +27,6 @@ class HomePageBody extends StatelessWidget {
                   onPressed: () => Navigator.pushNamed(context, EventsPage.id),
                 ),
               ),
-              SizedBox(height: 20.h),
               JobCard(
                 titleWidget: CustomHomeCardTitle(
                   cardName: "Jobs",
@@ -39,7 +38,7 @@ class HomePageBody extends StatelessWidget {
                   cardName: "Community Service",
                   onPressed: () => Navigator.pushNamed(context, CSOPage.id),
                 ),
-              )
+              ),
             ],
           ),
         ),

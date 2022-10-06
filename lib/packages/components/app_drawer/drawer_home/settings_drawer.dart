@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/custom_divider.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
 import 'package:psut_portal/packages/pages/Cards/views/cards_page.dart';
+import 'package:psut_portal/packages/pages/JOBS/jobs_saved.dart';
+import 'package:psut_portal/packages/pages/SavedJobs/views/saved_jobs_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
 import 'package:psut_portal/packages/pages/TUTORING/tutor_signup.dart';
 import 'package:psut_portal/themes/app_colors.dart';
@@ -50,7 +53,11 @@ class SettingDrawer extends StatelessWidget {
                   Navigator.popAndPushNamed(context, CsoProfilePage.id);
                 }),
             const CustomDivider(),
-            ListTileDrawer(title: "Saved Jobs", icon: AppSvg.saved),
+            ListTileDrawer(
+              title: "Saved Jobs",
+              icon: AppSvg.saved,
+              onTap: () => Get.toNamed(SavedJobsPage.id),
+            ),
             const CustomDivider(),
             ListTileDrawer(
               title: "Become a Tutor",
