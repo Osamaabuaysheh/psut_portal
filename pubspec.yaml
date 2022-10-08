@@ -41,11 +41,10 @@ dependencies:
   provider: ^6.0.1
   get: ^4.6.5
   # Bottom Navigation bar
-  convex_bottom_bar: ^3.0.0
   #Local Storage
   shared_preferences: ^2.0.15
 
-  material_floating_search_bar: ^0.3.7
+  # material_floating_search_bar: ^0.3.7
 
   cloud_firestore: ^3.1.15
   firebase_auth: ^3.3.18

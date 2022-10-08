@@ -21,7 +21,6 @@ class JobCard extends StatelessWidget {
           Expanded(
             flex: 3,
             child: SizedBox(
-              width: 350.w,
               height: 100.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,

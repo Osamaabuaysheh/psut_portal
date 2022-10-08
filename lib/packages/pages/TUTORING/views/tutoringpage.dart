@@ -4,6 +4,7 @@ import 'package:psut_portal/packages/components/app-bar/appbar_simple.dart';
 import 'package:psut_portal/packages/components/app-bar/components/open_notifications_page_icon_button.dart';
 import 'package:psut_portal/packages/components/app-bar/components/oper_drawer_icon_button.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/body_drawer.dart';
+import 'package:psut_portal/packages/components/bottom-nav-bar/custom_bottom_nav_bar.dart';
 import 'package:psut_portal/packages/components/search_jobs.dart';
 import 'package:psut_portal/packages/pages/TUTORING/components/custom_college_tab_bar.dart';
 import 'package:psut_portal/packages/pages/TUTORING/components/tutoring_body.dart';
@@ -54,6 +55,7 @@ class TutorPage extends StatelessWidget {
         ),
         body: const TutoringBody(),
         endDrawer: const BodyDrawer(),
+        bottomNavigationBar: const CustomBottomNavBar(),
       ),
     );
   }

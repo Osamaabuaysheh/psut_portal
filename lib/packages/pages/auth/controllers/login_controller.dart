@@ -34,7 +34,7 @@ class LoginController extends GetxController {
         prefs.preferences!
             .setString(StringConstants.token, token['token'].toString());
 
-        Get.to(const MainHomePage());
+        Get.to(MainHomePage());
       }
     } catch (e) {
       isLoading.value = false;

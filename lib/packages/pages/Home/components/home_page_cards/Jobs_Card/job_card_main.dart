@@ -11,7 +11,6 @@ class JobCardMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 325.w,
       child: Card(
         margin: EdgeInsets.symmetric(
           vertical: 10.w,

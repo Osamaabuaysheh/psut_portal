@@ -24,7 +24,7 @@ import 'package:psut_portal/packages/pages/splash/views/body.dart';
 
 class AppRoute {
   static List<GetPage<dynamic>>? route = [
-    GetPage(name: MainHomePage.id, page: () => const MainHomePage()),
+    GetPage(name: MainHomePage.id, page: () => MainHomePage()),
     GetPage(name: PageSplash.id, page: () => const PageSplash(), middlewares: [
       AuthMiddleware(),
     ]),

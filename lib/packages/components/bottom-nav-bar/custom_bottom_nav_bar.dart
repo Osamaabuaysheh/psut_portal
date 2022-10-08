@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:provider/provider.dart';
-import 'package:psut_portal/packages/pages/HomePageController/stateManageHome/home_state_pages.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:psut_portal/packages/components/bottom-nav-bar/components/bottom_nav_bar.dart';
+import 'package:psut_portal/packages/components/bottom-nav-bar/components/top_nav_bar.dart';
+import 'package:psut_portal/packages/components/bottom-nav-bar/controller/bottom_nav_bar_state.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
@@ -9,20 +12,48 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConvexAppBar(
-      backgroundColor: AppColors.mainColor,
-      items: const [
-        TabItem(icon: Icons.home, title: 'Home'),
-        TabItem(icon: Icons.business_center_rounded, title: 'Jobs'),
-        TabItem(icon: Icons.calendar_month_outlined, title: 'Events'),
-        TabItem(icon: Icons.groups, title: 'CSO'),
-        TabItem(icon: Icons.school_rounded, title: 'Tutor'),
-      ],
-      initialActiveIndex:
-          Provider.of<HomeStatePages>(context, listen: false).selectedPage,
-      onTap: (index) =>
-          Provider.of<HomeStatePages>(context, listen: false).setPage = index,
-      style: TabStyle.textIn,
+    double displayWidth = MediaQuery.of(context).size.width;
+
+    return Container(
+      margin: EdgeInsets.symmetric(
+        vertical: displayWidth * .02,
+        horizontal: displayWidth * .011,
+      ),
+      height: 50.h,
+      decoration: BoxDecoration(
+        color: AppColors.mainColor,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(.1),
+            blurRadius: 30,
+            offset: const Offset(0, 10),
+          ),
+        ],
+        borderRadius: BorderRadius.circular(25.r),
+      ),
+      child: GetBuilder<BottomNavBarController>(
+        init: BottomNavBarController(),
+        builder: (controller) => ListView.builder(
+          itemCount: controller.listOfIcons.length,
+          physics: const NeverScrollableScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) => InkWell(
+            onTap: () {
+              controller.setIndex(index);
+              controller.setPage = index;
+              HapticFeedback.lightImpact();
+            },
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            child: Stack(
+              children: [
+                BottomNavBarIcon(displayWidth: displayWidth, index: index),
+                TopNavBarIcon(displayWidth: displayWidth, index: index),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

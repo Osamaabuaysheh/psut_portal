@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/custom_divider.dart';
 import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
 import 'package:psut_portal/packages/pages/Cards/views/cards_page.dart';
-import 'package:psut_portal/packages/pages/JOBS/jobs_saved.dart';
 import 'package:psut_portal/packages/pages/SavedJobs/views/saved_jobs_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
 import 'package:psut_portal/packages/pages/TUTORING/tutor_signup.dart';

@@ -16,7 +16,7 @@ class Wrapper extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingPage();
         } else if (snapshot.hasData) {
-          return const MainHomePage();
+          return MainHomePage();
         } else {
           return PageLogin();
         }
