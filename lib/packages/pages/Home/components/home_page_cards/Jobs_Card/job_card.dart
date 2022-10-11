@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Jobs_Card/job_card_main.dart';
+import 'package:psut_portal/packages/pages/JOBS/components/job_desc_details.dart';
+import 'package:psut_portal/packages/pages/JOBS/job_description.dart';
 
 class JobCard extends StatelessWidget {
   const JobCard({
@@ -25,7 +28,10 @@ class JobCard extends StatelessWidget {
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
-                itemBuilder: (context, index) => const JobCardMain(),
+                itemBuilder: (context, index) => InkWell(
+                  child: const JobCardMain(),
+                  onTap: () => Get.toNamed(JobDesc.id),
+                ),
               ),
             ),
           ),

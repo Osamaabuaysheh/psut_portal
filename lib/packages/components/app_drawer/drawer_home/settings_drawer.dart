@@ -18,12 +18,11 @@ class SettingDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 430.h,
+      height: 350.h,
       decoration: BoxDecoration(
         color: AppColors.mainColor,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(30.r),
-          bottomRight: Radius.circular(30.r),
         ),
       ),
       child: Padding(
@@ -64,12 +63,6 @@ class SettingDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.popAndPushNamed(context, TutorSignUp.id);
               },
-            ),
-            const CustomDivider(),
-            ListTileDrawer(
-              title: "Logout",
-              icon: AppSvg.logout,
-              onTap: () async {},
             ),
           ],
         ),

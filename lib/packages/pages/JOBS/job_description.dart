@@ -8,6 +8,7 @@ import 'package:psut_portal/packages/pages/JOBS/components/row_icons_buttons.dar
 import 'package:psut_portal/themes/app_colors.dart';
 
 class JobDesc extends StatelessWidget {
+  static const String id = '/JobDesc';
   const JobDesc({Key? key}) : super(key: key);
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:psut_portal/packages/pages/CSO/cso_page.dart';
 import 'package:psut_portal/packages/pages/EVENTS/views/events_page.dart';
 import 'package:psut_portal/packages/pages/Home/components/home_page_cards/CSO_Card/cso_card.dart';
@@ -24,19 +25,19 @@ class HomePageBody extends StatelessWidget {
               EventCard(
                 titleWidget: CustomHomeCardTitle(
                   cardName: "Events",
-                  onPressed: () => Navigator.pushNamed(context, EventsPage.id),
+                  onPressed: () {},
                 ),
               ),
               JobCard(
                 titleWidget: CustomHomeCardTitle(
                   cardName: "Jobs",
-                  onPressed: () => Navigator.pushNamed(context, JOBSPage.id),
+                  onPressed: () {},
                 ),
               ),
               CSOCard(
                 titleWidget: CustomHomeCardTitle(
                   cardName: "Community Service",
-                  onPressed: () => Navigator.pushNamed(context, CSOPage.id),
+                  onPressed: () {},
                 ),
               ),
             ],

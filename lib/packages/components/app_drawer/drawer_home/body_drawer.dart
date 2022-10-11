@@ -9,12 +9,12 @@ class BodyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.topRight,
       child: SizedBox(
         height: Get.height - 233.h,
         child: SafeArea(
           child: SizedBox(
-            width: double.infinity,
+            width: Get.width - 70,
             child: Drawer(
               elevation: 0,
               backgroundColor: Colors.transparent,

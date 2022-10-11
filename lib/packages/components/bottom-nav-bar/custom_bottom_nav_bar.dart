@@ -29,7 +29,7 @@ class CustomBottomNavBar extends StatelessWidget {
             offset: const Offset(0, 10),
           ),
         ],
-        borderRadius: BorderRadius.circular(25.r),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: GetBuilder<BottomNavBarController>(
         init: BottomNavBarController(),
