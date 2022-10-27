@@ -6,6 +6,7 @@ import 'package:psut_portal/Constants/api/login_api.dart';
 import 'package:psut_portal/Constants/string_constants.dart';
 import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/auth/Model/login_model.dart';
+import 'package:psut_portal/packages/pages/auth/Views/login.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/api_controller.dart';
 import 'package:psut_portal/services/start_services/start_services.dart';
 
@@ -22,17 +23,21 @@ class LoginController extends GetxController {
     );
 
     try {
+      debugPrint("Login Started");
       isLoading.value = true;
       var response = await ApiController.client.post(
         Uri.parse(ApiLogin.loginApi),
         body: loginModel.toJson(),
       );
+      debugPrint(response.toString());
 
       if (response.statusCode == 200) {
+        debugPrint("Login Success");
         final token = json.jsonDecode(response.body);
-
         prefs.preferences!
-            .setString(StringConstants.token, token['token'].toString());
+            .setString(StringConstants.token, token['access_token'].toString());
+        prefs.preferences!.setString(
+            StringConstants.studentID, loginModel.username.toString());
 
         Get.to(MainHomePage());
       }
@@ -48,5 +53,13 @@ class LoginController extends GetxController {
       );
       debugPrint(e.toString());
     }
+  }
+
+  void logOut() {
+    emailController.clear();
+    passwordController.clear();
+    SettingsServices prefs = Get.find();
+    prefs.preferences?.remove(StringConstants.token);
+    Get.offAllNamed(PageLogin.id);
   }
 }

@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:psut_portal/packages/pages/ClubPage/views/club_page.dart';
+import 'package:psut_portal/packages/pages/EVENTS/controllers/event_controller.dart';
+import 'package:psut_portal/packages/pages/EVENTS/views/event_name_page.dart';
 import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Events_Card/event_card_main.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class ClubsPage extends StatelessWidget {
-  const ClubsPage({Key? key}) : super(key: key);
+  ClubsPage({Key? key}) : super(key: key);
+
+  final EventController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(10.w),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -65,15 +70,25 @@ class ClubsPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 500.h,
-                child: ListView.builder(
-                  itemCount: 8,
-                  itemBuilder: (context, index) => Container(
-                    margin: EdgeInsets.symmetric(vertical: 5.h),
-                    child: SizedBox(
-                      height: 230.h,
-                      child:
-                          const EventCardMain(assetName: "assets/images/R.png"),
+                height: 350.h,
+                child: GetX<EventController>(
+                  builder: (controller) => ListView.builder(
+                    itemCount: controller.events.length,
+                    itemBuilder: (context, index) => SizedBox(
+                      height: 215.h,
+                      child: InkWell(
+                        onTap: () => Get.toNamed(
+                          EventNamePage.id,
+                          arguments: [controller.events[index]],
+                        ),
+                        child: EventCardMain(
+                          eventName: controller.events[index].eventName!,
+                          assetName: controller.events[index].image!,
+                          location: controller.events[index].location!,
+                          startTime: controller.events[index].startTime!,
+                          endTime: controller.events[index].endTime!,
+                        ),
+                      ),
                     ),
                   ),
                 ),

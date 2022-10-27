@@ -1,3 +1,4 @@
 class ApiLogin {
-  static const loginApi = 'https://reqres.in/api/login';
+  static const baseUrl = "http://192.168.114.120:8000";
+  static const loginApi = '$baseUrl/login_Student';
 }

@@ -1,9 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:psut_portal/Constants/api/login_api.dart';
 import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_component.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/event_name_details_card.dart';
+import 'package:psut_portal/packages/pages/EVENTS/models/event.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
@@ -19,6 +23,8 @@ class EventNamePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = Get.arguments[0];
+    debugPrint(s.toString());
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
@@ -41,12 +47,9 @@ class EventNamePage extends StatelessWidget {
                       bottomLeft: Radius.circular(40.r),
                       bottomRight: Radius.circular(40.r),
                     ),
-                    child: const Image(
-                      width: double.infinity,
-                      image: AssetImage(
-                        "assets/images/Image 5.png",
-                      ),
+                    child: CachedNetworkImage(
                       fit: BoxFit.fill,
+                      imageUrl: "${ApiLogin.baseUrl}/${s.image}",
                     ),
                   ),
                   const CsoEventComponent(),
@@ -65,16 +68,14 @@ class EventNamePage extends StatelessWidget {
                             ?.copyWith(fontSize: 18.sp),
                       ),
                       SizedBox(height: 10.h),
-                      const Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and.",
-                      ),
+                      Text(s.description),
                       SizedBox(height: 10.h),
                       Column(
                         children: [
-                          const EventNameDetails(
+                          EventNameDetails(
                             icon: Icons.location_on_outlined,
                             text: "Location",
-                            details: "Lorem Ipsum is simply dummy text",
+                            details: s.location,
                           ),
                           const EventNameDetails(
                             icon: Icons.access_time,
@@ -108,14 +109,18 @@ class EventNamePage extends StatelessWidget {
                                 width: 300.w,
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
-                                  itemCount: _sponsors?.length ?? 1,
+                                  itemCount: s.organizers.length,
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     return Container(
                                       margin: EdgeInsets.all(10.w),
                                       width: 50.w,
                                       height: 50.h,
-                                      child: _sponsors?[index],
+                                      child: CachedNetworkImage(
+                                        fit: BoxFit.fill,
+                                        imageUrl:
+                                            "${ApiLogin.baseUrl}/${s.organizers?[index].organizerImage}",
+                                      ),
                                     );
                                   },
                                 ),

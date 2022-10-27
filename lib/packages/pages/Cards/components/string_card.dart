@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:psut_portal/packages/components/error/error_network_image.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class StringCard extends StatelessWidget {
@@ -12,6 +14,7 @@ class StringCard extends StatelessWidget {
     final double left = 0,
     required String name,
     required String collage,
+    required String imageUrl,
   })  : _userId = userId,
         _top = top,
         _bottom = bottom,
@@ -19,10 +22,12 @@ class StringCard extends StatelessWidget {
         _left = left,
         _name = name,
         _collage = collage,
+        _imageUrl = imageUrl,
         super(key: key);
 
   final String _userId;
   final String _name;
+  final String _imageUrl;
   final String _collage;
   final double _top;
   final double _bottom;
@@ -70,10 +75,12 @@ class StringCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          const Image(
-            image: AssetImage("assets/images/osama_profilePicture.jpg"),
-            width: 50,
-            fit: BoxFit.contain,
+          CachedNetworkImage(
+            imageUrl: _imageUrl,
+            height: 60.w,
+            width: 50.w,
+            fit: BoxFit.cover,
+            errorWidget: (context, url, error) => const ErrorNetworkImage(),
           ),
         ],
       ),

@@ -28,7 +28,7 @@ dependencies:
   # adapting screen and font size.Let your UI display a reasonable layout on different screen sizes!
   flutter_screenutil: ^5.0.1
   # cached network
-  cached_network_image: ^3.2.0
+  cached_network_image: ^3.2.2
   # Svg
   flutter_svg: ^1.0.0
   #language

@@ -9,11 +9,7 @@ import 'package:psut_portal/packages/pages/Cards/components/permit_card.dart';
 class HomeBodyCards extends StatelessWidget {
   const HomeBodyCards({
     Key? key,
-    final String uID = "20180926",
-  })  : _userId = uID,
-        super(key: key);
-
-  final String _userId;
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +19,7 @@ class HomeBodyCards extends StatelessWidget {
         children: [
           SizedBox(height: 50.h),
           // const AddCardDottedButton(),
-          ElectronicPersonalCard(userId: _userId),
+          const ElectronicPersonalCard(),
           InkWell(
             child: const PermitCard(),
             onTap: () => Get.to(const BusPage()),
