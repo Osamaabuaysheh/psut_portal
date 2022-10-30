@@ -1,11 +1,16 @@
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:psut_portal/Constants/api/login_api.dart';
 
 class ClubIconImage extends StatelessWidget {
   const ClubIconImage({
     Key? key,
-  }) : super(key: key);
+    required final String iconImage,
+  })  : _iconImage = iconImage,
+        super(key: key);
+
+  final String _iconImage;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +29,8 @@ class ClubIconImage extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(50.r),
               clipBehavior: Clip.antiAliasWithSaveLayer,
-              child: Image.asset(
-                "assets/images/AmazonLogo.png",
+              child: CachedNetworkImage(
+                imageUrl: "${ApiLogin.baseUrl}/$_iconImage",
                 fit: BoxFit.contain,
               ),
             ),

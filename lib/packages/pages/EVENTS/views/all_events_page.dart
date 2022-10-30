@@ -4,12 +4,11 @@ import 'package:get/get.dart';
 import 'package:psut_portal/packages/pages/EVENTS/controllers/event_controller.dart';
 import 'package:psut_portal/packages/pages/EVENTS/views/event_name_page.dart';
 import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Events_Card/event_card_main.dart';
-import 'package:psut_portal/utils/svg_images.dart';
 
 class AllEventsPage extends StatelessWidget {
   AllEventsPage({Key? key}) : super(key: key);
 
-  var controller = Get.put(EventController());
+  final controller = Get.put(EventController());
 
   @override
   Widget build(BuildContext context) {

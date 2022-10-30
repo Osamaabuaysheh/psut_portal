@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:psut_portal/Constants/api/login_api.dart';
 import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
 
 class BackgroundImageClub extends StatelessWidget {
@@ -15,12 +17,18 @@ class BackgroundImageClub extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        ClipRRect(
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: Image.asset(_imageName),
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(30.r),
-            bottomRight: Radius.circular(30.r),
+        SizedBox(
+          width: double.infinity,
+          child: ClipRRect(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            child: CachedNetworkImage(
+              imageUrl: "${ApiLogin.baseUrl}/$_imageName",
+              fit: BoxFit.fill,
+            ),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(30.r),
+              bottomRight: Radius.circular(30.r),
+            ),
           ),
         ),
         Positioned(

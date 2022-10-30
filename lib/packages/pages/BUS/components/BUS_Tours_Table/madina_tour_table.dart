@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/packages/pages/BUS/components/BUS_Tours_Table/data_row_table.dart';
+import 'package:psut_portal/packages/pages/BUS/models/bus_route.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class MadinaTourTable extends StatelessWidget {
-  const MadinaTourTable({Key? key}) : super(key: key);
+  const MadinaTourTable({
+    Key? key,
+    required List<BusRoute> routes,
+  })  : _routes = routes,
+        super(key: key);
+
+  final List<BusRoute> _routes;
 
   @override
   Widget build(BuildContext context) {
@@ -44,44 +51,16 @@ class MadinaTourTable extends StatelessWidget {
                   "Fourth (14:30)"
                 ],
               ),
-              CustomDataRowTabel.dataRowTableCells(
-                strings: [
-                  "Waha Circle\n(Habiba)",
-                  "8:00",
-                  "9:00",
-                  "11:07",
-                  "--",
-                ],
-              ),
-              CustomDataRowTabel.dataRowTableCells(
-                strings: [
-                  "Before AlHaramein Int.",
-                  "8:05",
-                  "9:05",
-                  "11:10",
-                  "--"
-                ],
-              ),
-              CustomDataRowTabel.dataRowTableCells(
-                strings: [
-                  "7th Circle\n(C-Town)",
-                  "8:10",
-                  "9:10",
-                  "11:15",
-                  "--"
-                ],
-              ),
-              CustomDataRowTabel.dataRowTableCells(
-                strings: ["8th Circle", "8:15", "9:15", "11:20", "--"],
-              ),
-              CustomDataRowTabel.dataRowTableCells(
-                strings: ["Mecca Street Circle", "8:18", "9:18", "11:23", "--"],
-              ),
-              CustomDataRowTabel.dataRowTableCells(
-                strings: ["Khilda Circle", "8:20", "9:20", "11:26", "--"],
-              ),
-              CustomDataRowTabel.dataRowTableCells(
-                strings: ["Sweileh", "8:25", "9:25", "11:20", "--"],
+              ..._routes.map(
+                (route) => CustomDataRowTabel.dataRowTableCells(
+                  strings: [
+                    route.locationTrip ?? "",
+                    route.firstRoute ?? "",
+                    route.secondRoute ?? "",
+                    route.thirdRoute ?? "",
+                    route.fourthRoute ?? "--",
+                  ],
+                ),
               ),
             ],
           ),

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:psut_portal/Constants/api/login_api.dart';
 import 'package:psut_portal/packages/pages/EVENTS/controllers/event_controller.dart';
 import 'package:psut_portal/packages/pages/EVENTS/views/event_name_page.dart';
-import 'package:psut_portal/packages/pages/EVENTS/views/events_page.dart';
 import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Events_Card/event_card_main.dart';
 
 class EventCard extends StatelessWidget {
@@ -34,7 +32,12 @@ class EventCard extends StatelessWidget {
                 scrollDirection: _scrollDirection,
                 itemCount: controller.events.length,
                 itemBuilder: (context, index) => InkWell(
-                  onTap: () => Get.toNamed(EventNamePage.id),
+                  onTap: () => Get.toNamed(
+                    EventNamePage.id,
+                    arguments: [
+                      controller.events[index],
+                    ],
+                  ),
                   child: EventCardMain(
                     eventName: controller.events[index].eventName!,
                     assetName: "${controller.events[index].image}",

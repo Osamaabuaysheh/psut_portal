@@ -5,12 +5,16 @@ import 'package:psut_portal/themes/custom_theme.dart';
 class ClubTitleText extends StatelessWidget {
   const ClubTitleText({
     Key? key,
-  }) : super(key: key);
+    required String title,
+  })  : _title = title,
+        super(key: key);
+
+  final String _title;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      "ACM Student Chapter - PSUT",
+      _title.toUpperCase(),
       style: CustomTheme.mainTextStyle?.copyWith(fontSize: 18.sp),
     );
   }

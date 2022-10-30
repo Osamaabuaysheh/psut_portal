@@ -1,6 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:psut_portal/Constants/api/login_api.dart';
+import 'package:psut_portal/packages/pages/ClubPage/controllers/club_controller.dart';
 import 'package:psut_portal/packages/pages/ClubPage/views/club_page.dart';
 import 'package:psut_portal/packages/pages/EVENTS/controllers/event_controller.dart';
 import 'package:psut_portal/packages/pages/EVENTS/views/event_name_page.dart';
@@ -12,6 +15,7 @@ class ClubsPage extends StatelessWidget {
   ClubsPage({Key? key}) : super(key: key);
 
   final EventController controller = Get.find();
+  final ClubController clubController = Get.put(ClubController());
 
   @override
   Widget build(BuildContext context) {
@@ -29,32 +33,39 @@ class ClubsPage extends StatelessWidget {
                   style: CustomTheme.mainTextStyle?.copyWith(fontSize: 16.sp),
                 ),
               ),
-              SizedBox(
-                height: 50.h,
-                child: ListView.builder(
-                  itemCount: 8,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => Container(
-                    width: 57.w,
-                    height: 60.h,
-                    margin: EdgeInsets.symmetric(horizontal: 10.w),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.r),
-                      border: Border.all(
-                        color: AppColors.mainColor,
-                        width: 3,
-                      ),
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, ClubPage.id);
-                      },
-                      child: ClipRRect(
+              GetX<ClubController>(
+                builder: (controller) => SizedBox(
+                  height: 50.h,
+                  child: ListView.builder(
+                    itemCount: controller.clubs.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => Container(
+                      width: 57.w,
+                      height: 60.h,
+                      margin: EdgeInsets.symmetric(horizontal: 10.w),
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50.r),
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Image.asset(
-                          "assets/images/AmazonLogo.png",
-                          fit: BoxFit.contain,
+                        border: Border.all(
+                          color: AppColors.mainColor,
+                          width: 3,
+                        ),
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            ClubPage.id,
+                            arguments: controller.clubs[index],
+                          );
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50.r),
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          child: CachedNetworkImage(
+                            fit: BoxFit.fill,
+                            imageUrl:
+                                "${ApiLogin.baseUrl}/${controller.clubs[index].clubIconImage}",
+                          ),
                         ),
                       ),
                     ),

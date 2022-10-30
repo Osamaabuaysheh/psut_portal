@@ -9,7 +9,7 @@ class HomeStatePages extends ChangeNotifier {
   int _selectedPage = 0;
   final List<Widget> pages = <Widget>[
     const HomePage(),
-    JOBSPage(),
+    const JOBSPage(),
     const EventsPage(),
     const CSOPage(),
     const TutorPage(),

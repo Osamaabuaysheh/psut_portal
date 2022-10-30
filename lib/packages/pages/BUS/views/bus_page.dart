@@ -9,8 +9,8 @@ class BusPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: AppBarSimple(actions: [PopIconButton()]),
+    return Scaffold(
+      appBar: const AppBarSimple(actions: [PopIconButton()]),
       body: BusPageBody(),
       backgroundColor: Colors.white,
     );

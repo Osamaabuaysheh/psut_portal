@@ -10,7 +10,22 @@ import 'package:psut_portal/packages/pages/Home/components/custom_home_card_titl
 import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Events_Card/event_card.dart';
 
 class ClubPageBody extends StatelessWidget {
-  const ClubPageBody({Key? key}) : super(key: key);
+  const ClubPageBody({
+    Key? key,
+    required final String backgroundImage,
+    required final String iconImage,
+    required final String clubName,
+    required final String description,
+  })  : _backgroundImage = backgroundImage,
+        _clubName = clubName,
+        _iconImage = iconImage,
+        _description = description,
+        super(key: key);
+
+  final String _backgroundImage;
+  final String _iconImage;
+  final String _clubName;
+  final String _description;
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +33,15 @@ class ClubPageBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const BackgroundImageClub(
-              imageName: "assets/images/acm background.png"),
-          const ClubIconImage(),
+          BackgroundImageClub(imageName: _backgroundImage),
+          ClubIconImage(iconImage: _iconImage),
           Padding(
             padding: EdgeInsets.all(20.w),
             child: Column(
               children: [
-                const ClubTitleText(),
+                ClubTitleText(title: _clubName),
                 SizedBox(height: 20.h),
-                const ClubTextDetails(),
+                ClubTextDetails(description: _description),
                 SizedBox(height: 15.h),
                 const ButtonIconText(
                     titleText: "Become a member", icon: Icons.person_add),

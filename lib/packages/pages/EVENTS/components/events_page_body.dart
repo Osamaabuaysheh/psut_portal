@@ -11,7 +11,7 @@ class EventsPageBody extends StatelessWidget {
     return TabBarView(
       children: [
         AllEventsPage(),
-        DeanshipPage(),
+        const DeanshipPage(),
         ClubsPage(),
       ],
     );
