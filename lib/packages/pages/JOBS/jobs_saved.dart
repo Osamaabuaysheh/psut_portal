@@ -15,7 +15,6 @@ class JobsSaved extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      //color: Colors.amber,
       width: 315.w,
       height: 97.h,
       child: GetX<JobsController>(
@@ -32,6 +31,9 @@ class JobsSaved extends StatelessWidget {
             : ListView.builder(
                 itemBuilder: (context, index) => JobsCard(
                   jobTitle: controller.savedList[index].jobTitle,
+                  companyName: controller.savedList[index].jobTitle,
+                  date: controller.displayList[index].jobDeadline ?? "",
+                  college: controller.displayList[index].college ?? "",
                   onPressed: () {
                     controller.removeFromSaved(controller.savedList[index]);
                   },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:psut_portal/Constants/api/login_api.dart';
+import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/pages/EVENTS/models/event.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/api_controller.dart';
 import 'dart:convert';

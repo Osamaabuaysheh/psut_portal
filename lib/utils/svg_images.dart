@@ -119,7 +119,7 @@ class AppSvg {
     width: 25.w,
     height: 25.h,
   );
-  static final SvgPicture psutLogoOragne = SvgPicture.asset(
+  static final SvgPicture psutLogoOrange = SvgPicture.asset(
     PathIcons.psutLogoOrange,
     width: 25.w,
     height: 25.h,

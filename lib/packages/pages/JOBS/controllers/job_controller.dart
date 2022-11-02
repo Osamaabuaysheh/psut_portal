@@ -1,29 +1,44 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/pages/JOBS/controllers/tab_bar_controller.dart';
+import 'package:psut_portal/packages/pages/JOBS/models/job.dart';
 import 'package:psut_portal/packages/pages/JOBS/models/job_model.dart';
+import 'package:psut_portal/packages/pages/auth/controllers/api_controller.dart';
+import 'dart:convert';
 
 class JobsController extends GetxController {
-  var textEditingController = TextEditingController().obs;
-  static final List<JobModel> jobs = <JobModel>[
-    JobModel(index: 0, jobTitle: "Amazon", isFavourite: false.obs),
-    JobModel(index: 1, jobTitle: "Google", isFavourite: false.obs),
-    JobModel(index: 2, jobTitle: "Qtech", isFavourite: false.obs),
-    JobModel(index: 3, jobTitle: "Xtechs", isFavourite: false.obs),
-    JobModel(index: 4, jobTitle: "Samsusng", isFavourite: false.obs),
-    JobModel(index: 5, jobTitle: "Apple", isFavourite: false.obs),
-  ].obs;
-
-  var savedList = <JobModel>[].obs;
-  var displayList = List.from(jobs).obs;
-
   final TabBarController tabBarController = Get.find();
+  var textEditingController = TextEditingController().obs;
+  static List<Job> jobs = <Job>[].obs;
+  var displayList = List.from(jobs).obs;
+  var savedList = <JobModel>[].obs;
+
+  Future<List<Job>> getJobs() async {
+    try {
+      var response = await ApiController.client.get(
+        Uri.parse("${ApiLogin.baseUrl}/get_All_Jobs"),
+      );
+      if (response.statusCode == 200) {
+        final json = jsonDecode(utf8.decode(response.bodyBytes))
+            .cast<Map<String, dynamic>>();
+        jobs.addAll(json.map<Job>((json) => Job.fromJson(json)).toList());
+
+        return jobs;
+      } else {
+        throw Exception("Failed To load Data from Server");
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+      return jobs;
+    }
+  }
 
   void addToSavedList(JobModel index) {
     index.isFavourite.toggle();
     savedList.add(index);
-    savedList.value =
-        jobs.where((job) => job.isFavourite.value == true).toList();
+    // savedList.value =
+    // jobs.where((job) => job.isFavourite.value == true).toList();
   }
 
   void removeFromSaved(JobModel index) {
@@ -31,7 +46,6 @@ class JobsController extends GetxController {
     savedList.remove(index);
   }
 
-  int get displayListLength => displayList.length.obs.toInt();
   int get displaySavedLength => savedList.length.obs.toInt();
 
   get returnJobs => jobs;
@@ -51,8 +65,8 @@ class JobsController extends GetxController {
   void updateList(String value) {
     if (value.isEmpty) {
       displayList.value = jobs;
-      savedList.value =
-          jobs.where((job) => job.isFavourite.value == true).toList();
+      // savedList.value =
+      //     jobs.where((job) => job.isFavourite.value == true).toList();
     }
     if (tabBarController.tabBarcontroller.index == 0) {
       displayList.value = jobs
@@ -64,12 +78,19 @@ class JobsController extends GetxController {
           .toList();
     }
     if (tabBarController.tabBarcontroller.index == 1) {
-      savedList.value = jobs.where((job) {
-        return job.jobTitle.toString().toLowerCase().contains(
-                  value.toLowerCase(),
-                ) &&
-            job.isFavourite.value == true;
-      }).toList();
+      // savedList.value = jobs.where((job) {
+      //   return job.jobTitle.toString().toLowerCase().contains(
+      //             value.toLowerCase(),
+      //           ) &&
+      //       job.isFavourite.value == true;
+      // }).toList();
     }
+  }
+
+  @override
+  void onInit() async {
+    jobs = await getJobs();
+    displayList.value = jobs;
+    super.onInit();
   }
 }

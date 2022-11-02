@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'dart:convert' as json;
 
-import 'package:psut_portal/Constants/api/login_api.dart';
+import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/Constants/string_constants.dart';
 import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/auth/Model/login_model.dart';

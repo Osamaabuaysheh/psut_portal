@@ -53,6 +53,9 @@ class SavedJobsPage extends StatelessWidget {
                     child: ListView.builder(
                       itemBuilder: (context, index) => JobsCard(
                         jobTitle: controller.savedList[index].jobTitle,
+                        companyName: controller.savedList[index].jobTitle,
+                        date: controller.displayList[index].jobDeadline ?? "",
+                        college: controller.displayList[index].college ?? "",
                         onPressed: () {
                           controller
                               .removeFromSaved(controller.savedList[index]);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:psut_portal/Constants/api/login_api.dart';
+import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/pages/Cards/Controllers/student_details_controller.dart';
 import 'package:psut_portal/packages/pages/Cards/Models/student.dart';
 import 'package:psut_portal/packages/pages/Cards/components/back_image.dart';

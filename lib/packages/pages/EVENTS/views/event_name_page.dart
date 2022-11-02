@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:psut_portal/Constants/api/login_api.dart';
+import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_component.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/event_name_details_card.dart';

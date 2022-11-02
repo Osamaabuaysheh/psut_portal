@@ -44,14 +44,15 @@ dependencies:
   #Local Storage
   shared_preferences: ^2.0.15
 
-  # material_floating_search_bar: ^0.3.7
-
   cloud_firestore: ^3.1.15
   firebase_auth: ^3.3.18
   firebase_core: ^1.17.0
 
   dotted_border: ^2.0.0+2
   lottie: ^1.4.3
+
+  #Datebase
+  sqflite: ^2.2.0+3
 
 dev_dependencies:
   flutter_test:

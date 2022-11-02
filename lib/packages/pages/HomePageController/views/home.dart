@@ -12,6 +12,7 @@ class MainHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<BottomNavBarController>(
       builder: (controller) => Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         body: controller.currentScreen,
       ),

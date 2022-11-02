@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:psut_portal/Constants/api/login_api.dart';
+import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/Constants/string_constants.dart';
 import 'package:psut_portal/packages/pages/Cards/Models/student.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/api_controller.dart';
