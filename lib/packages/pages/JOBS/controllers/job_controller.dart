@@ -1,9 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/Constants/API/login_api.dart';
+import 'package:psut_portal/Database/Jobs/jobs_db.dart';
 import 'package:psut_portal/packages/pages/JOBS/controllers/tab_bar_controller.dart';
 import 'package:psut_portal/packages/pages/JOBS/models/job.dart';
 import 'package:psut_portal/packages/pages/JOBS/models/job_model.dart';
+import 'package:psut_portal/packages/pages/SavedJobs/controllers/saved_jobs_controller.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/api_controller.dart';
 import 'dart:convert';
 
@@ -12,7 +14,8 @@ class JobsController extends GetxController {
   var textEditingController = TextEditingController().obs;
   static List<Job> jobs = <Job>[].obs;
   var displayList = List.from(jobs).obs;
-  var savedList = <JobModel>[].obs;
+
+  final SavedJobsController savedJobsController = Get.find();
 
   Future<List<Job>> getJobs() async {
     try {
@@ -22,6 +25,7 @@ class JobsController extends GetxController {
       if (response.statusCode == 200) {
         final json = jsonDecode(utf8.decode(response.bodyBytes))
             .cast<Map<String, dynamic>>();
+        jobs.clear();
         jobs.addAll(json.map<Job>((json) => Job.fromJson(json)).toList());
 
         return jobs;
@@ -34,19 +38,14 @@ class JobsController extends GetxController {
     }
   }
 
-  void addToSavedList(JobModel index) {
-    index.isFavourite.toggle();
-    savedList.add(index);
-    // savedList.value =
-    // jobs.where((job) => job.isFavourite.value == true).toList();
+  bool checkIfExist(int id, List<Job> savedJobs) {
+    var x = savedJobs.where((element) => element.jobID == id);
+    if (x.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
   }
-
-  void removeFromSaved(JobModel index) {
-    index.isFavourite.toggle();
-    savedList.remove(index);
-  }
-
-  int get displaySavedLength => savedList.length.obs.toInt();
 
   get returnJobs => jobs;
 
@@ -65,8 +64,6 @@ class JobsController extends GetxController {
   void updateList(String value) {
     if (value.isEmpty) {
       displayList.value = jobs;
-      // savedList.value =
-      //     jobs.where((job) => job.isFavourite.value == true).toList();
     }
     if (tabBarController.tabBarcontroller.index == 0) {
       displayList.value = jobs
@@ -78,12 +75,11 @@ class JobsController extends GetxController {
           .toList();
     }
     if (tabBarController.tabBarcontroller.index == 1) {
-      // savedList.value = jobs.where((job) {
-      //   return job.jobTitle.toString().toLowerCase().contains(
-      //             value.toLowerCase(),
-      //           ) &&
-      //       job.isFavourite.value == true;
-      // }).toList();
+      savedJobsController.savedJobs.value = jobs.where((job) {
+        return job.jobTitle.toString().toLowerCase().contains(
+              value.toLowerCase(),
+            );
+      }).toList();
     }
   }
 

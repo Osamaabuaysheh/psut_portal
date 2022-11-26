@@ -4,11 +4,31 @@ import 'package:psut_portal/packages/components/custom_spacing.dart';
 import 'package:psut_portal/packages/components/para_space.dart';
 import 'package:psut_portal/packages/pages/JOBS/apply_cv.dart';
 import 'package:psut_portal/themes/app_colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class JobDescDetails extends StatelessWidget {
   const JobDescDetails({
     Key? key,
-  }) : super(key: key);
+    required String jobTitle,
+    required String companyName,
+    required String deadLineDate,
+    required String jobRequierments,
+    required String jobDescription,
+    required String jobResponsanbilities,
+  })  : _jobTitle = jobTitle,
+        _companyName = companyName,
+        _jobRequierments = jobRequierments,
+        _deadLineDate = deadLineDate,
+        _jobDescription = jobDescription,
+        _jobResponsanbilities = jobResponsanbilities,
+        super(key: key);
+
+  final String _jobTitle;
+  final String _companyName;
+  final String _deadLineDate;
+  final String _jobRequierments;
+  final String _jobDescription;
+  final String _jobResponsanbilities;
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +38,20 @@ class JobDescDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Product Designer',
+            _jobTitle,
             style: TextStyle(
                 color: AppColors.blue,
                 fontSize: 29.sp,
                 fontWeight: FontWeight.bold),
           ),
           const CustomSpacing(),
-          Text('Amazon Amman',
+          Text(_companyName,
               style: TextStyle(
                   color: AppColors.blue,
                   fontSize: 17.sp,
                   fontWeight: FontWeight.bold)),
           const CustomSpacing(),
-          Text('Deadline 20 Jan 2022',
+          Text('Deadline $_deadLineDate',
               style: TextStyle(color: AppColors.lightBlue, fontSize: 14.sp)),
           const ParaSpacing(),
           Text(
@@ -45,8 +65,7 @@ class JobDescDetails extends StatelessWidget {
           const CustomSpacing(),
           SizedBox(
             width: 300.w,
-            child: Text(
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. ',
+            child: Text(_jobRequierments,
                 style: TextStyle(
                   color: AppColors.grey,
                   fontSize: 16.sp,
@@ -65,7 +84,7 @@ class JobDescDetails extends StatelessWidget {
           SizedBox(
             width: 300.w,
             child: Text(
-              'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. ',
+              _jobDescription,
               style: TextStyle(
                 color: AppColors.grey,
                 fontSize: 15.sp,
@@ -85,7 +104,7 @@ class JobDescDetails extends StatelessWidget {
           SizedBox(
             width: 300.w,
             child: Text(
-              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. ",
+              _jobResponsanbilities,
               style: TextStyle(
                 color: AppColors.grey,
                 fontSize: 15.sp,
@@ -97,28 +116,28 @@ class JobDescDetails extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Text('Apply before 20 Jan 2022',
+                child: Text('Apply before $_deadLineDate',
                     style: TextStyle(color: AppColors.lightBlue)),
               ),
               const CustomSpacing(),
               Align(
                 alignment: Alignment.center,
                 child: ElevatedButton(
-                  onPressed: () {
-                    showModalBottomSheet(
-                      context: context,
-                      builder: (context) {
-                        return SizedBox(
-                          height: 315.h,
-                          child: const ApplyCv(),
-                        );
-                      },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(43.r),
-                        ),
-                      ),
+                  onPressed: () async {
+                    final Uri emailLaunchUri = Uri(
+                      scheme: 'mailto',
+                      path: 'osamaabuaysheh@gmail.com',
+                      query: encodeQueryParameters(<String, String>{
+                        'subject': 'Hi Eiman',
+                        'body': "Hello World"
+                      }),
                     );
+
+                    if (await canLaunchUrl(emailLaunchUri)) {
+                      await launchUrl(emailLaunchUri);
+                    } else {
+                      debugPrint("Appliction is unable to lunch");
+                    }
                   },
                   child: const Text(
                     'Apply Now',
@@ -143,5 +162,12 @@ class JobDescDetails extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((MapEntry<String, String> e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
   }
 }

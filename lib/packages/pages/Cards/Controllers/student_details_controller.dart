@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/Constants/API/login_api.dart';
@@ -17,14 +18,12 @@ class StudentDetailsContoller extends GetxController {
       );
       if (response.statusCode == 200) {
         var json = jsonDecode(utf8.decode(response.bodyBytes));
-        debugPrint(Student.fromJson(json).toString());
         return Student.fromJson(json);
-      } else {
-        throw Exception("Failed To load Data from Server");
       }
+    } on SocketException {
+      return Student();
     } catch (e) {
-      debugPrint(e.toString());
-      throw Exception("Failed To load Data from Server");
+      return Student();
     }
   }
 

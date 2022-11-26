@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/components/error/error_network_image.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
@@ -76,7 +77,7 @@ class StringCard extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           CachedNetworkImage(
-            imageUrl: _imageUrl,
+            imageUrl: "${ApiLogin.baseUrl}/$_imageUrl",
             height: 60.w,
             width: 50.w,
             fit: BoxFit.cover,

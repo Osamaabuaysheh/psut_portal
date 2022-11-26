@@ -6,7 +6,8 @@ import 'package:psut_portal/packages/pages/auth/controllers/api_controller.dart'
 import 'dart:convert';
 
 class EventController extends GetxController {
-  List<Event> events = <Event>[].obs;
+  List<Event> allEvents = <Event>[].obs;
+  List<Event> clubEvents = <Event>[].obs;
 
   Future<List<Event>> getEvent() async {
     try {
@@ -16,20 +17,44 @@ class EventController extends GetxController {
       if (response.statusCode == 200) {
         final json = jsonDecode(utf8.decode(response.bodyBytes))
             .cast<Map<String, dynamic>>();
-        events.addAll(json.map<Event>((json) => Event.fromJson(json)).toList());
-        return events;
+        allEvents
+            .addAll(json.map<Event>((json) => Event.fromJson(json)).toList());
+        return allEvents;
       } else {
         throw Exception("Failed To load Data from Server");
       }
     } catch (e) {
       debugPrint(e.toString());
-      return events;
+      return allEvents;
+    }
+  }
+
+  Future<List<Event>> getClubEvents() async {
+    try {
+      var response = await ApiController.client.get(
+        Uri.parse("${ApiLogin.baseUrl}/get_club_events"),
+      );
+      if (response.statusCode == 200) {
+        final events = jsonDecode(utf8.decode(response.bodyBytes))
+            .cast<Map<String, dynamic>>();
+
+        clubEvents
+            .addAll(events.map<Event>((json) => Event.fromJson(json)).toList());
+
+        return clubEvents;
+      } else {
+        throw Exception("Failed To load Data from Server");
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+      return clubEvents;
     }
   }
 
   @override
   void onInit() async {
-    events = await getEvent();
+    allEvents = await getEvent();
+    clubEvents = await getClubEvents();
     super.onInit();
   }
 }

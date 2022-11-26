@@ -16,20 +16,20 @@ class AllEventsPage extends StatelessWidget {
       padding: EdgeInsets.all(10.w),
       child: GetX<EventController>(
         builder: (controller) => ListView.builder(
-          itemCount: controller.events.length,
+          itemCount: controller.allEvents.length,
           itemBuilder: (context, index) => SizedBox(
             height: 215.h,
             child: InkWell(
               onTap: () => Get.toNamed(
                 EventNamePage.id,
-                arguments: [controller.events[index]],
+                arguments: [controller.allEvents[index]],
               ),
               child: EventCardMain(
-                eventName: controller.events[index].eventName!,
-                assetName: controller.events[index].image!,
-                location: controller.events[index].location!,
-                startTime: controller.events[index].startTime!,
-                endTime: controller.events[index].endTime!,
+                eventName: controller.allEvents[index].eventName!,
+                assetName: controller.allEvents[index].image!,
+                location: controller.allEvents[index].location!,
+                startTime: controller.allEvents[index].startTime!,
+                endTime: controller.allEvents[index].endTime!,
               ),
             ),
           ),

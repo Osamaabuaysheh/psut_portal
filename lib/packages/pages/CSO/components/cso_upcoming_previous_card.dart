@@ -30,8 +30,8 @@ class CustomUpcomingPreviousCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10.w),
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.w),
+      margin: EdgeInsets.symmetric(horizontal: 12.w),
+      padding: EdgeInsets.symmetric(vertical: 10.w),
       child: Material(
         elevation: 10,
         borderRadius: BorderRadius.circular(30.r),

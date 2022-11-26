@@ -9,8 +9,7 @@ class ErrorNetworkImage extends StatelessWidget {
     return SizedBox(
       width: 50.w,
       height: 50.w,
-      child:
-          const Image(image: AssetImage("assets/images/not_found_profile.jpg")),
+      child: const Image(image: AssetImage("images/not_found_profile.jpg")),
     );
   }
 }

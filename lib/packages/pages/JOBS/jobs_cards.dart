@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/packages/pages/JOBS/controllers/build_icon_job.dart';
 import 'package:psut_portal/packages/pages/JOBS/controllers/job_controller.dart';
+import 'package:psut_portal/packages/pages/SavedJobs/controllers/saved_jobs_controller.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 
 bool toggle = false;
@@ -10,28 +11,29 @@ bool toggle = false;
 class JobsCard extends StatelessWidget {
   JobsCard({
     Key? key,
+    required int jobID,
     required String jobTitle,
     required String companyName,
     required String date,
     required String college,
     required void Function()? onPressed,
-    required RxBool isFavourite,
   })  : _jobTitle = jobTitle,
         _onPressed = onPressed,
-        _isFavourite = isFavourite,
         _companyName = companyName,
+        _jobID = jobID,
         _college = college,
         _date = date,
         super(key: key);
 
   final String _jobTitle;
   final String _companyName;
+  final int _jobID;
   final String _date;
   final String _college;
   final void Function()? _onPressed;
-  final RxBool _isFavourite;
 
   final JobsController controller = Get.find();
+  final SavedJobsController savedcontroller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -91,17 +93,18 @@ class JobsCard extends StatelessWidget {
               SizedBox(width: 10.w),
               GetX<JobsController>(
                 builder: (controller) => IconButton(
-                  icon: _isFavourite.value
-                      ? Icon(
-                          Icons.bookmark,
-                          size: 30.w,
-                          color: AppColors.blue,
-                        )
-                      : Icon(
-                          Icons.bookmark_border,
-                          size: 30.w,
-                          color: AppColors.blue,
-                        ),
+                  icon:
+                      controller.checkIfExist(_jobID, savedcontroller.savedJobs)
+                          ? Icon(
+                              Icons.bookmark,
+                              size: 30.w,
+                              color: AppColors.blue,
+                            )
+                          : Icon(
+                              Icons.bookmark_border,
+                              size: 30.w,
+                              color: AppColors.blue,
+                            ),
                   onPressed: _onPressed,
                 ),
               ),

@@ -45,13 +45,33 @@ class CSOCardMain extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                Row(
+                Column(
                   children: [
-                    const Icon(Icons.calendar_month),
-                    SizedBox(width: 10.w),
-                    const Text("Date And Time"),
+                    Row(
+                      children: [
+                        const Icon(Icons.calendar_month),
+                        SizedBox(width: 10.w),
+                        const Text("Date And Time"),
+                      ],
+                    ),
+                    SizedBox(height: 10.h),
+                    Row(
+                      children: [
+                        const Icon(Icons.calendar_month),
+                        SizedBox(width: 10.w),
+                        const Text("Date And Time"),
+                      ],
+                    ),
+                    SizedBox(height: 10.h),
+                    Row(
+                      children: [
+                        const Icon(Icons.calendar_month),
+                        SizedBox(width: 10.w),
+                        const Text("Date And Time"),
+                      ],
+                    ),
                   ],
-                ),
+                )
               ],
             ),
           ),

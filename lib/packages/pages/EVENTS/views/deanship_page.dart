@@ -14,17 +14,17 @@ class DeanshipPage extends StatelessWidget {
       child: SizedBox(
         child: GetX<EventController>(
           builder: (controller) => ListView.builder(
-            itemCount: controller.events.length,
+            itemCount: controller.allEvents.length,
             itemBuilder: (context, index) => Container(
               margin: EdgeInsets.symmetric(vertical: 5.h),
               child: SizedBox(
                 height: 215.h,
                 child: EventCardMain(
-                  eventName: controller.events[index].eventName!,
-                  assetName: controller.events[index].image!,
-                  location: controller.events[index].location!,
-                  startTime: controller.events[index].startTime!,
-                  endTime: controller.events[index].endTime!,
+                  eventName: controller.allEvents[index].eventName!,
+                  assetName: controller.allEvents[index].image!,
+                  location: controller.allEvents[index].location!,
+                  startTime: controller.allEvents[index].startTime!,
+                  endTime: controller.allEvents[index].endTime!,
                 ),
               ),
             ),

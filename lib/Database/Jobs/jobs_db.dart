@@ -15,24 +15,28 @@ class JobsSqlDb {
   initialDb() async {
     String databasePath = await getDatabasesPath();
     String path = join(databasePath, '${DatabaseConstants.databaseJobs}.db');
-    Database db =
-        await openDatabase(path, onCreate: _onCreate, onUpgrade: _onUpgrade);
+    Database db = await openDatabase(path,
+        onCreate: _onCreate, onUpgrade: _onUpgrade, version: 1);
     return db;
   }
 
   _onCreate(Database db, int version) async {
-    await db.execute('''
+    Batch batch = db.batch();
+
+    batch.execute('''
 CREATE TABLE "Jobs"(
   "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   "jobTitle" TEXT NOT NULL,
   "jobResponsanbilities" TEXT NOT NULL,
   "jobRequierments" TEXT NOT NULL,
+  "companyName" TEXT NOT NULL,
   "college" TEXT NOT NULL,
   "jobDeadline" TEXT NOT NULL,
   "jobIconImage" TEXT NOT NULL,
   "jobDescription" TEXT NOT NULL
 )
 ''');
+    await batch.commit();
     debugPrint("Jobs Datebase Tabel Has Been Created");
   }
 
@@ -40,13 +44,13 @@ CREATE TABLE "Jobs"(
     debugPrint("On Upgrade ==============================================");
   }
 
-  readData(String sql) async {
+  Future<List<Map>> readData(String sql) async {
     Database? myDb = await db;
     List<Map> response = await myDb!.rawQuery(sql);
     return response;
   }
 
-  insertData(String sql) async {
+  Future<int> insertData(String sql) async {
     Database? myDb = await db;
     int response = await myDb!.rawInsert(sql);
     return response;

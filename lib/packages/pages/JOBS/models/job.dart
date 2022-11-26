@@ -1,4 +1,5 @@
 class Job {
+  int? jobID;
   String? companyName;
   String? jobTitle;
   String? jobResponsanbilities;
@@ -9,7 +10,8 @@ class Job {
   String? jobDescription;
 
   Job(
-      {this.companyName,
+      {this.jobID,
+      this.companyName,
       this.jobTitle,
       this.jobResponsanbilities,
       this.jobRequierments,
@@ -19,6 +21,7 @@ class Job {
       this.jobDescription});
 
   Job.fromJson(Map<String, dynamic> json) {
+    jobID = json['job_id'];
     companyName = json['company_name'];
     jobTitle = json['job_title'];
     jobResponsanbilities = json['job_responsanbilities'];
@@ -29,8 +32,21 @@ class Job {
     college = json['college'];
   }
 
+  Job.fromSavedJobJson(Map<String, dynamic> json) {
+    jobID = json["jobID"];
+    jobTitle = json["jobTitle"];
+    jobResponsanbilities = json["jobResponsanbilities"];
+    companyName = json["companyName"];
+    jobRequierments = json["jobRequierments"];
+    college = json["college"];
+    jobDeadline = json["jobDeadline"];
+    jobIconImage = json["jobIconImage"];
+    jobDescription = json["jobDescription"];
+  }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['job_id'] = jobID;
     data['company_name'] = companyName;
     data['job_title'] = jobTitle;
     data['job_responsanbilities'] = jobResponsanbilities;

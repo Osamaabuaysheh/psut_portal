@@ -84,20 +84,20 @@ class ClubsPage extends StatelessWidget {
                 height: 350.h,
                 child: GetX<EventController>(
                   builder: (controller) => ListView.builder(
-                    itemCount: controller.events.length,
+                    itemCount: controller.clubEvents.length,
                     itemBuilder: (context, index) => SizedBox(
                       height: 215.h,
                       child: InkWell(
                         onTap: () => Get.toNamed(
                           EventNamePage.id,
-                          arguments: [controller.events[index]],
+                          arguments: [controller.clubEvents[index]],
                         ),
                         child: EventCardMain(
-                          eventName: controller.events[index].eventName!,
-                          assetName: controller.events[index].image!,
-                          location: controller.events[index].location!,
-                          startTime: controller.events[index].startTime!,
-                          endTime: controller.events[index].endTime!,
+                          eventName: controller.clubEvents[index].eventName!,
+                          assetName: controller.clubEvents[index].image!,
+                          location: controller.clubEvents[index].location!,
+                          startTime: controller.clubEvents[index].startTime!,
+                          endTime: controller.clubEvents[index].endTime!,
                         ),
                       ),
                     ),

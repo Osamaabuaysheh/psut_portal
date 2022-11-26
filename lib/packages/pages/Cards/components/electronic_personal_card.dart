@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/pages/Cards/Controllers/student_details_controller.dart';
 import 'package:psut_portal/packages/pages/Cards/Models/student.dart';
 import 'package:psut_portal/packages/pages/Cards/components/back_image.dart';
@@ -27,7 +26,7 @@ class ElectronicPersonalCard extends StatelessWidget {
                   right: 5,
                   name: snapshot.data?.fullnameArabic.toString() ?? "No Data",
                   collage: snapshot.data?.colleage.toString() ?? "Collage",
-                  imageUrl: "${ApiLogin.baseUrl}/${snapshot.data?.url}",
+                  imageUrl: "${snapshot.data?.url}",
                 ),
                 EnglishTextName(
                     englishName:
@@ -40,12 +39,12 @@ class ElectronicPersonalCard extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           } else {
-            return Container();
+            return const Text("Error Connnection");
           }
-        } else if (snapshot.hasError) {
+        } else if (!snapshot.hasData) {
           return const Text("Error Connnection");
         } else {
-          return Container();
+          return const Text("Error Connnection");
         }
       },
     );

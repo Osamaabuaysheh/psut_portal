@@ -14,7 +14,7 @@ class JobsBody extends StatelessWidget {
     return TabBarView(
       controller: _tabBarController.tabBarcontroller,
       children: [
-        const JobsAll(),
+        JobsAll(),
         JobsSaved(),
       ],
     );

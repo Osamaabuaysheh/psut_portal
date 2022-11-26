@@ -9,7 +9,7 @@ class JobsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       children: [
-        const JobsAll(),
+        JobsAll(),
         JobsSaved(),
       ],
     );

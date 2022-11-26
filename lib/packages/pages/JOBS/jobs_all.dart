@@ -1,31 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/packages/pages/JOBS/controllers/job_controller.dart';
+import 'package:psut_portal/packages/pages/JOBS/job_description.dart';
+import 'package:psut_portal/packages/pages/SavedJobs/controllers/saved_jobs_controller.dart';
 
 import 'jobs_cards.dart';
 
 class JobsAll extends StatelessWidget {
-  const JobsAll({Key? key}) : super(key: key);
+  JobsAll({Key? key}) : super(key: key);
+
+  final SavedJobsController savedController = Get.find();
+  final JobsController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return GetX<JobsController>(
-      init: JobsController(),
       builder: (controller) => controller.displayList.isEmpty
           ? const Center(
               child: Text("No Results"),
             )
-          : ListView.builder(
-              itemBuilder: (context, index) => JobsCard(
-                jobTitle: controller.displayList[index].jobTitle ?? "",
-                companyName: controller.displayList[index].companyName ?? "",
-                date: controller.displayList[index].jobDeadline ?? "",
-                college: controller.displayList[index].college ?? "",
-                onPressed: () {},
-                isFavourite: false.obs,
+          : RefreshIndicator(
+              onRefresh: controller.getJobs,
+              child: ListView.builder(
+                itemBuilder: (context, index) => InkWell(
+                  onTap: () => Get.toNamed(
+                    JobDesc.id,
+                    arguments: [controller.displayList[index]],
+                  ),
+                  child: JobsCard(
+                    jobID: controller.displayList[index].jobID ?? -1,
+                    jobTitle: controller.displayList[index].jobTitle ?? "",
+                    companyName:
+                        controller.displayList[index].companyName ?? "",
+                    date: controller.displayList[index].jobDeadline ?? "",
+                    college: controller.displayList[index].college ?? "",
+                    onPressed: () async {
+                      debugPrint(
+                          controller.displayList[index].jobID.toString());
+                      savedController.addToSaved(controller.displayList[index]);
+                    },
+                  ),
+                ),
+                itemCount: controller.displayList.length.toInt(),
               ),
-              itemCount: controller.displayList.length.toInt(),
             ),
     );
   }
