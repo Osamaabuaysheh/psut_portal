@@ -1,7 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:psut_portal/language/generated/key_lang.dart';
 import 'package:psut_portal/packages/components/button/simple_btn.dart';
 import 'package:psut_portal/packages/components/space/size_box.dart';
 import 'package:psut_portal/packages/pages/auth/Components/field_pass.dart';
@@ -12,6 +10,7 @@ import 'package:psut_portal/services/themes/theme_status.dart';
 
 class PageForget extends StatelessWidget {
   static const String id = '/PageForget';
+
   const PageForget({Key? key}) : super(key: key);
 
   static final ModelUserAuth _userAuth = ModelUserAuth();
@@ -31,7 +30,7 @@ class PageForget extends StatelessWidget {
                 children: [
                   const HeaderAuth(),
                   Text(
-                    KeyLang.hintResetPass.tr(),
+                    "Reset Password",
                     textAlign: TextAlign.start,
                     style: AppTheme.b1(context),
                   ),
@@ -39,7 +38,7 @@ class PageForget extends StatelessWidget {
                   FieldPass(valuePass: _userAuth.setEmail),
                   const SB(height: 20),
                   SimpleBtn(
-                    btnTitle: KeyLang.resetPassword,
+                    btnTitle: "Reset Password",
                     onTap: () {
                       if (_keyForm.currentState?.validate() ?? false) {
                         _keyForm.currentState?.save();
@@ -49,8 +48,8 @@ class PageForget extends StatelessWidget {
                   ),
                   const SB(height: 20),
                   RichTextAuth(
-                    fword: KeyLang.haveAccount,
-                    sword: KeyLang.login,
+                    fword: "Already Have Account",
+                    sword: "Login",
                     onTap: () => Navigator.pop(context),
                   ),
                 ],

@@ -5,17 +5,16 @@ import 'package:psut_portal/packages/components/app-bar/components/pop_icon_butt
 import 'package:psut_portal/packages/pages/JOBS/components/custom_background_image_job_desc.dart';
 import 'package:psut_portal/packages/pages/JOBS/components/custom_icon_image_job_desc.dart';
 import 'package:psut_portal/packages/pages/JOBS/components/job_desc_details.dart';
-import 'package:psut_portal/packages/pages/JOBS/components/row_icons_buttons.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 
 class JobDesc extends StatelessWidget {
   static const String id = '/JobDesc';
+
   const JobDesc({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final argumets = Get.arguments;
-    ;
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.white,
@@ -45,14 +44,6 @@ class JobDesc extends StatelessWidget {
                         child: CustomIconImageJobDesc(
                             imageUrl: argumets[0].jobIconImage),
                       ),
-                    ),
-                  ),
-                  Baseline(
-                    baselineType: TextBaseline.alphabetic,
-                    baseline: -10,
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 20.w),
-                      child: const RowIconButtons(),
                     ),
                   ),
                 ],

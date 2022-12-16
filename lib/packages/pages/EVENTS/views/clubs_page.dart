@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/Constants/API/login_api.dart';
+import 'package:psut_portal/packages/components/Lottie/no_events.dart';
 import 'package:psut_portal/packages/pages/ClubPage/controllers/club_controller.dart';
 import 'package:psut_portal/packages/pages/ClubPage/views/club_page.dart';
 import 'package:psut_portal/packages/pages/EVENTS/controllers/event_controller.dart';
@@ -33,45 +34,47 @@ class ClubsPage extends StatelessWidget {
                   style: CustomTheme.mainTextStyle?.copyWith(fontSize: 16.sp),
                 ),
               ),
-              GetX<ClubController>(
-                builder: (controller) => SizedBox(
-                  height: 50.h,
-                  child: ListView.builder(
-                    itemCount: controller.clubs.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => Container(
-                      width: 57.w,
-                      height: 60.h,
-                      margin: EdgeInsets.symmetric(horizontal: 10.w),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50.r),
-                        border: Border.all(
-                          color: AppColors.mainColor,
-                          width: 3,
-                        ),
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            ClubPage.id,
-                            arguments: controller.clubs[index],
-                          );
-                        },
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50.r),
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: CachedNetworkImage(
-                            fit: BoxFit.fill,
-                            imageUrl:
-                                "${ApiLogin.baseUrl}/${controller.clubs[index].clubIconImage}",
+              clubController.clubs.isNotEmpty
+                  ? GetX<ClubController>(
+                      builder: (controller) => SizedBox(
+                        height: 50.h,
+                        child: ListView.builder(
+                          itemCount: controller.clubs.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) => Container(
+                            width: 57.w,
+                            height: 60.h,
+                            margin: EdgeInsets.symmetric(horizontal: 10.w),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50.r),
+                              border: Border.all(
+                                color: AppColors.mainColor,
+                                width: 3,
+                              ),
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  ClubPage.id,
+                                  arguments: controller.clubs[index],
+                                );
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50.r),
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.fill,
+                                  imageUrl:
+                                      "${ApiLogin.baseUrl}/${controller.clubs[index].clubIconImage}",
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                ),
-              ),
+                    )
+                  : const Text("No Clubs"),
               Align(
                 heightFactor: 3,
                 alignment: Alignment.centerLeft,
@@ -82,27 +85,34 @@ class ClubsPage extends StatelessWidget {
               ),
               SizedBox(
                 height: 350.h,
-                child: GetX<EventController>(
-                  builder: (controller) => ListView.builder(
-                    itemCount: controller.clubEvents.length,
-                    itemBuilder: (context, index) => SizedBox(
-                      height: 215.h,
-                      child: InkWell(
-                        onTap: () => Get.toNamed(
-                          EventNamePage.id,
-                          arguments: [controller.clubEvents[index]],
+                child: controller.clubEvents.isNotEmpty
+                    ? GetX<EventController>(
+                        builder: (controller) => ListView.builder(
+                          itemCount: controller.clubEvents.length,
+                          itemBuilder: (context, index) => SizedBox(
+                            height: 215.h,
+                            child: InkWell(
+                              onTap: () => Get.toNamed(
+                                EventNamePage.id,
+                                arguments: [controller.clubEvents[index]],
+                              ),
+                              child: EventCardMain(
+                                eventName:
+                                    controller.clubEvents[index].eventName!,
+                                assetName: controller.clubEvents[index].image!,
+                                location:
+                                    controller.clubEvents[index].location!,
+                                startTime:
+                                    controller.clubEvents[index].startTime!,
+                                endTime: controller.clubEvents[index].endTime!,
+                              ),
+                            ),
+                          ),
                         ),
-                        child: EventCardMain(
-                          eventName: controller.clubEvents[index].eventName!,
-                          assetName: controller.clubEvents[index].image!,
-                          location: controller.clubEvents[index].location!,
-                          startTime: controller.clubEvents[index].startTime!,
-                          endTime: controller.clubEvents[index].endTime!,
-                        ),
+                      )
+                    : const Center(
+                        child: NoEventsLottie(),
                       ),
-                    ),
-                  ),
-                ),
               ),
             ],
           ),

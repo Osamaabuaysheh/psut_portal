@@ -35,8 +35,6 @@ class JobsAll extends StatelessWidget {
                     date: controller.displayList[index].jobDeadline ?? "",
                     college: controller.displayList[index].college ?? "",
                     onPressed: () async {
-                      debugPrint(
-                          controller.displayList[index].jobID.toString());
                       savedController.addToSaved(controller.displayList[index]);
                     },
                   ),

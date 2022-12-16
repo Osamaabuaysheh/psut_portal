@@ -11,6 +11,7 @@ class Event {
   String? image;
   List<Organizers>? organizers;
   String? clubName;
+  String? ownerRole;
 
   Event(
       {this.eventName,
@@ -22,7 +23,8 @@ class Event {
       this.description,
       this.image,
       this.organizers,
-      this.clubName});
+      this.clubName,
+      this.ownerRole});
 
   Event.fromJson(Map<String, dynamic> json) {
     eventName = json['event_name'];
@@ -34,6 +36,7 @@ class Event {
     description = json['description'];
     clubName = json['club_name'];
     image = json['image'];
+    ownerRole = json['owner_role'];
     if (json['organizers'] != null) {
       organizers = <Organizers>[];
       json['organizers'].forEach((v) {
@@ -53,6 +56,7 @@ class Event {
     data['description'] = description;
     data['image'] = image;
     data['club_name'] = clubName;
+    data['owner_role'] = ownerRole;
     if (organizers != null) {
       data['organizers'] = organizers!.map((v) => v.toJson()).toList();
     }

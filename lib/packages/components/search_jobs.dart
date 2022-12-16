@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:psut_portal/packages/pages/TUTORING/Controllers/courses_controller.dart';
 
 class CustomSearch extends StatelessWidget {
-  const CustomSearch({
+  CustomSearch({
     Key? key,
   }) : super(key: key);
+
+  final CourseController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,9 @@ class CustomSearch extends StatelessWidget {
         height: 40.h,
         width: double.infinity,
         child: TextField(
-          onChanged: (value) {},
+          onChanged: (value) => controller
+              .filterList(controller.textEditingController.value.text),
+          controller: controller.textEditingController.value,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.zero,
             filled: true,

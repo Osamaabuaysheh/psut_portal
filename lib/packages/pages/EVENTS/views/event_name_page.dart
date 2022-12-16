@@ -4,13 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
-import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_component.dart';
+import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_date_component.dart';
+import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_name_and_time.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/event_name_details_card.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
+import 'package:intl/intl.dart';
 
 class EventNamePage extends StatelessWidget {
   static const String id = '/EventNamePage';
+
   const EventNamePage({
     Key? key,
   }) : super(key: key);
@@ -18,17 +21,13 @@ class EventNamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = Get.arguments[0];
-    debugPrint(s.toString());
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: const PopIconButton(
-            color: Colors.white,
-            size: 25,
-          ),
+          leading: const PopIconButton(color: Colors.white, size: 25),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -46,7 +45,51 @@ class EventNamePage extends StatelessWidget {
                       imageUrl: "${ApiLogin.baseUrl}/${s.image}",
                     ),
                   ),
-                  const CsoEventComponent(),
+                  ClipRRect(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(40.r),
+                      bottomRight: Radius.circular(40.r),
+                    ),
+                    child: Baseline(
+                      baseline: 180.w,
+                      baselineType: TextBaseline.alphabetic,
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: Material(
+                            borderRadius: BorderRadius.circular(25.r),
+                            elevation: 7,
+                            child: Container(
+                              padding: EdgeInsets.all(18.w),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  CsoEventDate(
+                                    month: DateFormat('MMM').format(
+                                      DateTime.parse(
+                                          "${s.startDate} ${s.startTime}"),
+                                    ),
+                                    day: DateFormat('d').format(
+                                      DateTime.parse(
+                                          "${s.startDate} ${s.startTime}"),
+                                    ),
+                                  ),
+                                  SizedBox(width: 20.w),
+                                  CsoEventNameAndTime(
+                                      eventName: s.eventName,
+                                      dateTime: "${DateFormat('E').format(
+                                        DateTime.parse(
+                                            "${s.startDate} ${s.startTime}"),
+                                      )} ${s.startDate}"),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
               SizedBox(
@@ -71,10 +114,11 @@ class EventNamePage extends StatelessWidget {
                             text: "Location",
                             details: s.location,
                           ),
-                          const EventNameDetails(
+                          EventNameDetails(
                             icon: Icons.access_time,
                             text: "Time",
-                            details: "20-03-2022 (08:30) -  20-03-2022 (10:30)",
+                            details:
+                                "${s.startDate} ${DateFormat('jm').format(DateTime.parse("2022-12-12 ${s.startTime}"))} -  ${s.endDate} ${DateFormat('jm').format(DateTime.parse("2022-12-12 ${s.endTime}"))}",
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 12.w, top: 15.h),
@@ -108,10 +152,16 @@ class EventNamePage extends StatelessWidget {
                                       (BuildContext context, int index) {
                                     return Container(
                                       margin: EdgeInsets.all(10.w),
-                                      width: 50.w,
-                                      height: 50.h,
                                       child: CachedNetworkImage(
-                                        fit: BoxFit.fill,
+                                        imageBuilder:
+                                            (context, imageProvider) =>
+                                                CircleAvatar(
+                                          backgroundImage: imageProvider,
+                                          minRadius: 30.r,
+                                        ),
+                                        width: 70.w,
+                                        height: 70.h,
+                                        fit: BoxFit.cover,
                                         imageUrl:
                                             "${ApiLogin.baseUrl}/${s.organizers?[index].organizerImage}",
                                       ),

@@ -1,10 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/Constants/API/login_api.dart';
-import 'package:psut_portal/Database/Jobs/jobs_db.dart';
 import 'package:psut_portal/packages/pages/JOBS/controllers/tab_bar_controller.dart';
 import 'package:psut_portal/packages/pages/JOBS/models/job.dart';
-import 'package:psut_portal/packages/pages/JOBS/models/job_model.dart';
 import 'package:psut_portal/packages/pages/SavedJobs/controllers/saved_jobs_controller.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/api_controller.dart';
 import 'dart:convert';
@@ -27,7 +25,8 @@ class JobsController extends GetxController {
             .cast<Map<String, dynamic>>();
         jobs.clear();
         jobs.addAll(json.map<Job>((json) => Job.fromJson(json)).toList());
-
+        jobs.sort((a, b) => DateTime.parse("${b.jobDeadline}")
+            .compareTo(DateTime.parse("${a.jobDeadline}")));
         return jobs;
       } else {
         throw Exception("Failed To load Data from Server");
@@ -86,6 +85,8 @@ class JobsController extends GetxController {
   @override
   void onInit() async {
     jobs = await getJobs();
+    jobs.sort((a, b) => DateTime.parse("${b.jobDeadline}")
+        .compareTo(DateTime.parse("${a.jobDeadline}")));
     displayList.value = jobs;
     super.onInit();
   }

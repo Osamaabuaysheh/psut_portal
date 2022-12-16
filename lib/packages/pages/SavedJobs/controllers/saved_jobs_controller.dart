@@ -48,9 +48,9 @@ class SavedJobsController extends GetxController {
   @override
   void onInit() async {
     sqlDb = JobsSqlDb();
+    jobs.clear();
     jobs = await sqlDb.readData('''SELECT * FROM "Jobs"''');
     parseJsonToSaved(jobs);
-
     super.onInit();
   }
 

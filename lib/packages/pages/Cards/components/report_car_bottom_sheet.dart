@@ -25,17 +25,16 @@ class ReportCarBottomSheet extends StatelessWidget {
           topRight: Radius.circular(50.r),
         ),
       ),
-      height: 500.h,
+      height: 400.h,
       width: double.infinity,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.w),
+      child: Form(
+        key: _keyForm,
         child: SingleChildScrollView(
-          child: Form(
-            key: _keyForm,
+          child: Padding(
+            padding: EdgeInsets.all(20.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 50.h),
                 Text(
                   "Report Car Blocking",
                   style: CustomTheme.mainTextStyle?.copyWith(

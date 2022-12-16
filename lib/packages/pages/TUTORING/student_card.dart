@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:psut_portal/packages/components/app-bar/appbar_simple.dart';
-import 'package:psut_portal/packages/components/app-bar/components/open_notifications_page_icon_button.dart';
 import 'package:psut_portal/packages/components/app-bar/components/oper_drawer_icon_button.dart';
 import 'package:psut_portal/packages/components/custom_spacing.dart';
 import 'package:psut_portal/utils/path_image.dart';
@@ -12,7 +11,7 @@ class StudentCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarSimple(
-        actions: [OpenNotificationPageIconButton(), OpenDrawerIconButton()],
+        actions: [OpenDrawerIconButton()],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),

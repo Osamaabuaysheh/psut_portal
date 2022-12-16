@@ -7,7 +7,7 @@ import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
 import 'package:psut_portal/packages/pages/Cards/views/cards_page.dart';
 import 'package:psut_portal/packages/pages/SavedJobs/views/saved_jobs_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
-import 'package:psut_portal/packages/pages/TUTORING/tutor_signup.dart';
+import 'package:psut_portal/packages/pages/TUTORING/views/tutor_request_page.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/utils/svg_images.dart';
 import 'listtile_drawer.dart';
@@ -33,23 +33,21 @@ class SettingDrawer extends StatelessWidget {
             ListTileDrawer(
               title: "Settings",
               icon: AppSvg.settings,
-              onTap: () => Navigator.pushNamed(context, SettingsPage.id),
+              onTap: () => Get.toNamed(SettingsPage.id),
             ),
             const CustomDivider(),
             // * logout
             ListTileDrawer(
               title: "My Cards",
               icon: AppSvg.card,
-              onTap: () => Navigator.popAndPushNamed(context, CardsPage.id),
+              onTap: () => Get.toNamed(CardsPage.id),
             ),
 
             const CustomDivider(),
             ListTileDrawer(
                 title: "Community Service Profile",
                 icon: AppSvg.csoProfile,
-                onTap: () {
-                  Navigator.popAndPushNamed(context, CsoProfilePage.id);
-                }),
+                onTap: () => Get.toNamed(CsoProfilePage.id)),
             const CustomDivider(),
             ListTileDrawer(
               title: "Saved Jobs",
@@ -60,9 +58,7 @@ class SettingDrawer extends StatelessWidget {
             ListTileDrawer(
               title: "Become a Tutor",
               icon: AppSvg.tutor,
-              onTap: () {
-                Navigator.popAndPushNamed(context, TutorSignUp.id);
-              },
+              onTap: () => Get.toNamed(TutorRequestPage.id),
             ),
           ],
         ),

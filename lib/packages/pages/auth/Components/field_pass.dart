@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:psut_portal/language/generated/key_lang.dart';
 import 'package:psut_portal/packages/components/text_field_form/custom_field.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/login_controller.dart';
 import 'package:psut_portal/services/validator/app_validators.dart';
@@ -14,7 +13,7 @@ class FieldPass extends StatefulWidget {
     final void Function(String? value)? valuePass,
     final String? Function(String?)? onValidators = AppValidator.isPass,
     final void Function(String)? onChanged,
-    String hint = KeyLang.pass,
+    String hint = "Password",
   })  : _valuePass = valuePass,
         _onValidators = onValidators,
         _onChanged = onChanged,

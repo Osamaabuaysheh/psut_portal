@@ -18,24 +18,18 @@ class HomePageBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              EventCard(
-                titleWidget: CustomHomeCardTitle(
-                  cardName: "Events",
-                  onPressed: () {},
-                ),
+              const CustomHomeCardTitle(
+                cardName: "Events",
               ),
-              JobCard(
-                titleWidget: CustomHomeCardTitle(
-                  cardName: "Jobs",
-                  onPressed: () {},
-                ),
+              const EventCard(),
+              const CustomHomeCardTitle(
+                cardName: "Jobs",
               ),
-              CSOCard(
-                titleWidget: CustomHomeCardTitle(
-                  cardName: "Community Service",
-                  onPressed: () {},
-                ),
+              JobCard(),
+              const CustomHomeCardTitle(
+                cardName: "Community Service",
               ),
+              const CSOCard(),
             ],
           ),
         ),

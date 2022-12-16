@@ -6,8 +6,6 @@ class CustomHomeCardTitle extends StatelessWidget {
   const CustomHomeCardTitle({
     Key? key,
     required String cardName,
-    required void Function()? onPressed,
-    final bool enableFunc = true,
     final IconData icon = Icons.arrow_forward_ios_outlined,
   })  : _cardName = cardName,
         super(key: key);

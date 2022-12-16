@@ -3,7 +3,7 @@ import 'package:psut_portal/packages/pages/CSO/cso_page.dart';
 import 'package:psut_portal/packages/pages/EVENTS/views/events_page.dart';
 import 'package:psut_portal/packages/pages/Home/views/home_page.dart';
 import 'package:psut_portal/packages/pages/JOBS/views/jobs_page.dart';
-import 'package:psut_portal/packages/pages/TUTORING/views/tutoringpage.dart';
+import 'package:psut_portal/packages/pages/TUTORING/views/tutoring_page.dart';
 
 class HomeStatePages extends ChangeNotifier {
   int _selectedPage = 0;
@@ -12,7 +12,7 @@ class HomeStatePages extends ChangeNotifier {
     const JOBSPage(),
     const EventsPage(),
     const CSOPage(),
-    const TutorPage(),
+     TutorPage(),
   ];
   get selectedPage => _selectedPage;
   get currentScreen => pages[_selectedPage];

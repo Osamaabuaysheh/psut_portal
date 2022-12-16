@@ -29,7 +29,6 @@ class LoginController extends GetxController {
         Uri.parse(ApiLogin.loginApi),
         body: loginModel.toJson(),
       );
-      debugPrint(response.toString());
 
       if (response.statusCode == 200) {
         debugPrint("Login Success");

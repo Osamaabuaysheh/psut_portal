@@ -20,6 +20,9 @@ class AppColors {
   static final Color crusta = _colorFromHex('#F77737');
   static final Color yellowOrange = _colorFromHex('#FCAF45');
   static final Color salomie = _colorFromHex('#FFDC80');
+  static final Color errorSnackBar = _colorFromHex('#f68a1c');
+  static final Color successSnackBar = _colorFromHex('#4e9a51');
+
   // * colors
   static final Color darkMode = _colorFromHex('#3A3B3C');
   static final Color bgLightGrey = _colorFromHex('#FAFAFA');
@@ -40,6 +43,7 @@ class AppColors {
 
   // * text Color
   static final Color textGrey = _colorFromHex('#C8C8C8');
+
   // * logo color
   static final List<Color> colorLogo = [
     royalPurple,
@@ -57,6 +61,7 @@ class AppColors {
     AppColors.mainColor.withOpacity(0.5),
     AppColors.mainColor,
   ];
+
   // * color grey
   static final List<Color> colorGrey = [
     AppColors.bgGrey,

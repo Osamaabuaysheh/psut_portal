@@ -18,8 +18,6 @@ class ClubEventWidget extends StatelessWidget {
     final EventController controller = Get.find();
 
     for (var element in controller.clubEvents) {
-      debugPrint("Element:" + element.clubName.toString());
-      debugPrint(_clubName.toString());
       element.clubName.toString() == _clubName.toString()
           ? eventsClub.add(element)
           : null;

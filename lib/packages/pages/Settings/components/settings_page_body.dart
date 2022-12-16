@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:psut_portal/packages/pages/Cards/Controllers/student_details_controller.dart';
 import 'package:psut_portal/packages/pages/Settings/components/custom_settings_list_tile.dart';
 import 'package:psut_portal/packages/pages/Settings/components/settings_list_tile_icon_button.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/login_controller.dart';
@@ -12,10 +13,7 @@ class SettingsPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // AuthService _auth = Provider.of<AuthService>(context);
-
     var loginController = Get.put(LoginController());
-
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(18.w),
@@ -26,7 +24,7 @@ class SettingsPageBody extends StatelessWidget {
             Text("Account", style: CustomTheme.mainTextStyle),
             CustomSettingsListTile(
               icon: Icons.person,
-              title: "Leen Ahmad",
+              title: StudentDetailsContoller.studentName.value,
               widget: SettingsListTileIconButton(onPressed: () {}),
             ),
             Text("Perefrences", style: CustomTheme.mainTextStyle),
@@ -58,13 +56,11 @@ class SettingsPageBody extends StatelessWidget {
               widget: SettingsListTileIconButton(onPressed: () {}),
             ),
             Divider(color: AppColors.mainColor, thickness: 1.2, height: 30.h),
-            CustomSettingsListTile(
-              icon: Icons.logout_outlined,
-              title: "Logout",
-              widget: SettingsListTileIconButton(
-                onPressed: () {
-                  loginController.logOut();
-                },
+            InkWell(
+              onTap: () => loginController.logOut(),
+              child: const CustomSettingsListTile(
+                icon: Icons.logout_outlined,
+                title: "Logout",
               ),
             ),
           ],

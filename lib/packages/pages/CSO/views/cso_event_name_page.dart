@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_component.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/event_name_details_card.dart';
@@ -8,10 +11,13 @@ import 'package:psut_portal/themes/custom_theme.dart';
 
 class CsoEventNamePage extends StatelessWidget {
   static const String id = '/CsoEventNamePage';
+
   const CsoEventNamePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final s = Get.arguments[0];
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -25,16 +31,14 @@ class CsoEventNamePage extends StatelessWidget {
                       bottomLeft: Radius.circular(40.r),
                       bottomRight: Radius.circular(40.r),
                     ),
-                    child: const Image(
-                      width: double.infinity,
-                      image: AssetImage(
-                        "assets/images/Image 5.png",
-                      ),
+                    child: CachedNetworkImage(
+                      imageUrl: "${ApiLogin.baseUrl}/${s.image}",
                       fit: BoxFit.fill,
                     ),
                   ),
                   const PopIconButton(color: Colors.white, size: 25),
-                  const CsoEventComponent(),
+                  CsoEventComponent(
+                      eventName: s.eventName, dateTime: s.startDate),
                 ],
               ),
               SizedBox(
@@ -50,41 +54,40 @@ class CsoEventNamePage extends StatelessWidget {
                             ?.copyWith(fontSize: 18.sp),
                       ),
                       SizedBox(height: 10.h),
-                      const Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and.",
-                      ),
+                      Text(s.description),
                       SizedBox(height: 10.h),
                       Column(
-                        children: const [
+                        children: [
                           EventNameDetails(
                             icon: Icons.location_on_outlined,
                             text: "Location",
-                            details: "Lorem Ipsum is simply dummy text",
+                            details: s.location,
                           ),
                           EventNameDetails(
                             icon: Icons.calendar_month,
                             text: "Duration",
-                            details: "20-03-2022 (08:30) -  20-03-2022 (10:30)",
+                            details:
+                                "${s.startDate} (${s.startTime.toString().substring(0, 5)}) -  ${s.startDate} (${s.startTime.toString().substring(0, 5)})",
                           ),
                           EventNameDetails(
                             icon: Icons.category,
                             text: "Category",
-                            details: "Students Activities",
+                            details: s.category,
                           ),
                           EventNameDetails(
                             icon: Icons.female,
                             text: "Gender",
-                            details: "All",
+                            details: s.gender,
                           ),
                           EventNameDetails(
                             icon: Icons.supervisor_account,
                             text: "Supervisor",
-                            details: "Supervisor Name",
+                            details: s.supervisor,
                           ),
                           EventNameDetails(
                             icon: Icons.more_time_rounded,
                             text: "Hours",
-                            details: "1",
+                            details: s.hoursCredit.toString(),
                           ),
                         ],
                       ),

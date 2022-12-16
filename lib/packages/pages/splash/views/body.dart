@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:psut_portal/language/generated/key_lang.dart';
 import 'package:psut_portal/packages/components/button/simple_btn.dart';
 import 'package:psut_portal/packages/pages/auth/Views/login.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
@@ -68,7 +67,7 @@ class PageSplash extends StatelessWidget {
                             onTap: () {
                               Get.offNamed(PageLogin.id);
                             },
-                            btnTitle: KeyLang.login,
+                            btnTitle: "Login",
                             ltr: false,
                           ),
                         ),

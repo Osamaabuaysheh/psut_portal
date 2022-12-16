@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/Constants/API/login_api.dart';
-import 'package:psut_portal/utils/path_image.dart';
 
 class CustomIconImageJobDesc extends StatelessWidget {
   const CustomIconImageJobDesc({

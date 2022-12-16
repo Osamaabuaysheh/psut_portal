@@ -5,7 +5,6 @@ import 'package:psut_portal/packages/pages/auth/controllers/login_controller.dar
 import 'package:psut_portal/services/validator/app_validators.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:psut_portal/language/generated/key_lang.dart';
 import 'package:psut_portal/packages/components/button/simple_btn.dart';
 import 'package:psut_portal/packages/components/space/size_box.dart';
 import 'package:psut_portal/packages/pages/auth/Components/field_email.dart';
@@ -24,6 +23,7 @@ class PageLogin extends StatelessWidget {
   PageLogin({Key? key}) : super(key: key);
 
   var loginController = Get.put(LoginController());
+
   //* Key Form
 
   @override
@@ -93,7 +93,7 @@ class PageLogin extends StatelessWidget {
                                 loginController.login();
                               }
                             },
-                            btnTitle: KeyLang.login,
+                            btnTitle: "Login",
                             ltr: false,
                           ),
                         ),

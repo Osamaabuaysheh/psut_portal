@@ -14,13 +14,12 @@ import 'package:psut_portal/packages/pages/JOBS/job_description.dart';
 import 'package:psut_portal/packages/pages/JOBS/views/jobs_page.dart';
 import 'package:psut_portal/packages/pages/SavedJobs/views/saved_jobs_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
-import 'package:psut_portal/packages/pages/TUTORING/tutor_signup.dart';
-import 'package:psut_portal/packages/pages/TUTORING/views/tutoringpage.dart';
+import 'package:psut_portal/packages/pages/TUTORING/tutor_profile.dart';
+import 'package:psut_portal/packages/pages/TUTORING/views/tutor_request_page.dart';
+import 'package:psut_portal/packages/pages/TUTORING/views/tutoring_page.dart';
 import 'package:psut_portal/packages/pages/auth/Views/forget.dart';
 import 'package:psut_portal/packages/pages/auth/Views/login.dart';
-import 'package:psut_portal/packages/pages/auth/Views/register.dart';
 import 'package:psut_portal/packages/pages/auth/Views/wrapper.dart';
-import 'package:psut_portal/packages/pages/notifications/views/notifications_page.dart';
 import 'package:psut_portal/packages/pages/splash/views/body.dart';
 
 class AppRoute {
@@ -30,23 +29,22 @@ class AppRoute {
       AuthMiddleware(),
     ]),
     GetPage(name: PageLogin.id, page: () => PageLogin()),
-    GetPage(name: PageRegister.id, page: () => const PageRegister()),
     GetPage(name: PageForget.id, page: () => const PageForget()),
     GetPage(name: HomePage.id, page: () => const HomePage()),
     GetPage(name: EventsPage.id, page: () => const EventsPage()),
     GetPage(name: JOBSPage.id, page: () => const JOBSPage()),
     GetPage(name: CSOPage.id, page: () => const CSOPage()),
-    GetPage(name: TutorPage.id, page: () => const TutorPage()),
+    GetPage(name: TutorPage.id, page: () => TutorPage()),
+    GetPage(name: TutorProfile.id, page: () => const TutorProfile()),
     GetPage(name: CsoEventNamePage.id, page: () => const CsoEventNamePage()),
     GetPage(name: CsoProfilePage.id, page: () => const CsoProfilePage()),
     GetPage(name: CardsPage.id, page: () => const CardsPage()),
-    GetPage(name: NotificationPage.id, page: () => const NotificationPage()),
     GetPage(name: EventNamePage.id, page: () => const EventNamePage()),
     GetPage(name: SettingsPage.id, page: () => const SettingsPage()),
     GetPage(name: BusPage.id, page: () => const BusPage()),
     GetPage(name: Wrapper.id, page: () => const Wrapper()),
     GetPage(name: ClubPage.id, page: () => const ClubPage()),
-    GetPage(name: TutorSignUp.id, page: () => const TutorSignUp()),
+    GetPage(name: TutorRequestPage.id, page: () => const TutorRequestPage()),
     GetPage(name: SavedJobsPage.id, page: () => SavedJobsPage()),
     GetPage(name: JobDesc.id, page: () => const JobDesc()),
   ];

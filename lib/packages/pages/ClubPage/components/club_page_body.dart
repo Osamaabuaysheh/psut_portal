@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:psut_portal/packages/pages/ClubPage/components/background_image_club.dart';
 import 'package:psut_portal/packages/pages/ClubPage/components/button_icon_text.dart';
 import 'package:psut_portal/packages/pages/ClubPage/components/club_event_widget.dart';
 import 'package:psut_portal/packages/pages/ClubPage/components/club_icon_image.dart';
 import 'package:psut_portal/packages/pages/ClubPage/components/club_text_details.dart';
 import 'package:psut_portal/packages/pages/ClubPage/components/club_title_text.dart';
-import 'package:psut_portal/packages/pages/EVENTS/controllers/event_controller.dart';
-import 'package:psut_portal/packages/pages/EVENTS/models/event.dart';
-import 'package:psut_portal/packages/pages/EVENTS/views/event_name_page.dart';
-import 'package:psut_portal/packages/pages/EVENTS/views/events_page.dart';
 import 'package:psut_portal/packages/pages/Home/components/custom_home_card_title.dart';
-import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Events_Card/event_card.dart';
-import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Events_Card/event_card_main.dart';
 
 class ClubPageBody extends StatelessWidget {
   const ClubPageBody({
@@ -57,10 +50,9 @@ class ClubPageBody extends StatelessWidget {
                 SizedBox(height: 15.h),
                 // CustomHomeCardTitle(
                 //     cardName: "Upocoming Events", onPressed: () {}),
-                CustomHomeCardTitle(
+                const CustomHomeCardTitle(
                   cardName: "Upocoming Events",
                   icon: Icons.notifications_none_sharp,
-                  onPressed: () => Navigator.pushNamed(context, EventsPage.id),
                 ),
                 SizedBox(
                   width: double.infinity,

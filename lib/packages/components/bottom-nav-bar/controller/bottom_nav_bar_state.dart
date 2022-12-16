@@ -4,7 +4,7 @@ import 'package:psut_portal/packages/pages/CSO/cso_page.dart';
 import 'package:psut_portal/packages/pages/EVENTS/views/events_page.dart';
 import 'package:psut_portal/packages/pages/Home/views/home_page.dart';
 import 'package:psut_portal/packages/pages/JOBS/views/jobs_page.dart';
-import 'package:psut_portal/packages/pages/TUTORING/views/tutoringpage.dart';
+import 'package:psut_portal/packages/pages/TUTORING/views/tutoring_page.dart';
 
 class BottomNavBarController extends GetxController {
   var currentIndex = 0;
@@ -13,10 +13,13 @@ class BottomNavBarController extends GetxController {
     const JOBSPage(),
     const EventsPage(),
     const CSOPage(),
-    const TutorPage(),
+     TutorPage(),
   ];
+
   get selectedPageIndex => currentIndex;
+
   get currentScreen => pages[currentIndex];
+
   set setPage(int index) {
     currentIndex = index;
   }

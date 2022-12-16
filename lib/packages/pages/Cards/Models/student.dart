@@ -6,6 +6,7 @@ class Student {
   String? colleage;
   int? year;
   String? url;
+  int? hoursCompleted;
 
   Student(
       {this.studentId,
@@ -14,7 +15,8 @@ class Student {
       this.email,
       this.colleage,
       this.year,
-      this.url});
+      this.url,
+      this.hoursCompleted});
 
   Student.fromJson(Map<String, dynamic> json) {
     studentId = json['student_id'];
@@ -24,6 +26,7 @@ class Student {
     colleage = json['colleage'];
     year = json['year'];
     url = json['url'];
+    hoursCompleted = json['hours_completed'];
   }
 
   Map<String, dynamic> toJson() {
@@ -35,6 +38,7 @@ class Student {
     data['colleage'] = colleage;
     data['year'] = year;
     data['url'] = url;
+    data['hours_completed'] = hoursCompleted;
     return data;
   }
 }

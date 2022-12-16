@@ -6,7 +6,14 @@ import 'package:psut_portal/themes/custom_theme.dart';
 class CsoEventDate extends StatelessWidget {
   const CsoEventDate({
     Key? key,
-  }) : super(key: key);
+    required String month,
+    required String day,
+  })  : _month = month,
+        _day = day,
+        super(key: key);
+
+  final String _month;
+  final String _day;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,7 @@ class CsoEventDate extends StatelessWidget {
           text: TextSpan(
             children: [
               TextSpan(
-                text: "Apr",
+                text: _month,
                 style: CustomTheme.mainTextStyle?.copyWith(
                   color: Colors.white,
                   fontSize: 18.sp,
@@ -30,7 +37,7 @@ class CsoEventDate extends StatelessWidget {
                 ),
               ),
               TextSpan(
-                text: "\n14",
+                text: "\n$_day",
                 style: CustomTheme.mainTextStyle?.copyWith(
                   color: Colors.white,
                   fontSize: 32.sp,

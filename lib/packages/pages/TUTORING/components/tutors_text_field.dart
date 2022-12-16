@@ -7,9 +7,13 @@ class TutorTextField extends StatelessWidget {
   const TutorTextField({
     final String name = '',
     Key? key,
+    required TextEditingController? controller,
   })  : _name = name,
+        _controller = controller,
         super(key: key);
   final String _name;
+  final TextEditingController? _controller;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,11 +34,11 @@ class TutorTextField extends StatelessWidget {
               border: Border.all(color: AppColors.blue, width: 2.w)),
           child: TextFormField(
             keyboardType: TextInputType.number,
+            controller: _controller,
             decoration: InputDecoration(
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 10.w, vertical: 7.sp),
                 border: InputBorder.none,
-                //floatingLabelStyle: CustomTheme.bigTitle?.copyWith(fontSize: 20.sp),
                 hintText: _name,
                 floatingLabelAlignment: FloatingLabelAlignment.start),
           ),
