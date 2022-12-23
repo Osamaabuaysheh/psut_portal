@@ -35,10 +35,44 @@ class TutorReqBody extends StatelessWidget {
                 name: 'Course ID',
                 controller: controller.courseID,
               ),
-              SizedBox(height: 20.h),
-              TutorTextField(
-                name: 'Semester of Completion',
-                controller: controller.semesterOfCompletion,
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 7.sp),
+                child: Text(
+                  'Semester of Completion',
+                  style: CustomTheme.bigTitle?.copyWith(fontSize: 20.sp),
+                ),
+              ),
+              SizedBox(
+                height: 45.h,
+                width: double.infinity,
+                child: Container(
+                  padding: EdgeInsets.all(5.w),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.mainColor, width: 2.w),
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
+                  child: GetX<TutorRequestController>(
+                    builder: (controller) => ButtonTheme(
+                      alignedDropdown: true,
+                      padding: EdgeInsets.all(30.w),
+                      child: DropdownButton<String>(
+                        underline: Container(),
+                        iconSize: 35.w,
+                        isExpanded: true,
+                        value: controller.value.value.isNotEmpty
+                            ? controller.value.value
+                            : null,
+                        hint: const Text('Choose'),
+                        onChanged: (String? newValue) {
+                          if (newValue != null) {
+                            controller.value.value = newValue;
+                          }
+                        },
+                        items: controller.dropDownMenuItems,
+                      ),
+                    ),
+                  ),
+                ),
               ),
               TutorTextField(
                 name: 'Grade',

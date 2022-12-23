@@ -9,7 +9,7 @@ import 'package:psut_portal/packages/pages/Home/components/home_page_cards/Event
 class AllEventsPage extends StatelessWidget {
   AllEventsPage({Key? key}) : super(key: key);
 
-  final controller = Get.put(EventController());
+  final EventController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -41,4 +41,3 @@ class AllEventsPage extends StatelessWidget {
     );
   }
 }
-

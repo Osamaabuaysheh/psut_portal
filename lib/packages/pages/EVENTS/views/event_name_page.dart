@@ -41,6 +41,7 @@ class EventNamePage extends StatelessWidget {
                       bottomRight: Radius.circular(40.r),
                     ),
                     child: CachedNetworkImage(
+                      height: 200.h,
                       fit: BoxFit.fill,
                       imageUrl: "${ApiLogin.baseUrl}/${s.image}",
                     ),

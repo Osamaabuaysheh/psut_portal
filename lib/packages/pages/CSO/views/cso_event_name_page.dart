@@ -32,6 +32,7 @@ class CsoEventNamePage extends StatelessWidget {
                       bottomRight: Radius.circular(40.r),
                     ),
                     child: CachedNetworkImage(
+                      height: 200.h,
                       imageUrl: "${ApiLogin.baseUrl}/${s.image}",
                       fit: BoxFit.fill,
                     ),

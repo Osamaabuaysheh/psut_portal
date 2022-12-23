@@ -1,25 +1,32 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/Constants/API/login_api.dart';
+import 'package:psut_portal/Constants/string_constants.dart';
 import 'package:psut_portal/packages/pages/JOBS/controllers/tab_bar_controller.dart';
 import 'package:psut_portal/packages/pages/JOBS/models/job.dart';
 import 'package:psut_portal/packages/pages/SavedJobs/controllers/saved_jobs_controller.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/api_controller.dart';
 import 'dart:convert';
 
+import 'package:psut_portal/services/start_services/start_services.dart';
+
 class JobsController extends GetxController {
   final TabBarController tabBarController = Get.find();
   var textEditingController = TextEditingController().obs;
   static List<Job> jobs = <Job>[].obs;
   var displayList = List.from(jobs).obs;
+  SettingsServices prefs = Get.find();
 
   final SavedJobsController savedJobsController = Get.find();
 
   Future<List<Job>> getJobs() async {
     try {
       var response = await ApiController.client.get(
-        Uri.parse("${ApiLogin.baseUrl}/get_All_Jobs"),
-      );
+          Uri.parse("${ApiLogin.baseUrl}/get_all_jobs_students"),
+          headers: {
+            'Authorization':
+                "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
+          });
       if (response.statusCode == 200) {
         final json = jsonDecode(utf8.decode(response.bodyBytes))
             .cast<Map<String, dynamic>>();
@@ -58,6 +65,20 @@ class JobsController extends GetxController {
     displayList.sort(
       (a, b) => b.jobTitle.compareTo(a.jobTitle),
     );
+  }
+
+  void newestToOldest() {
+    displayList.sort((a, b) => DateTime.parse("${b.jobDeadline}")
+        .compareTo(DateTime.parse("${a.jobDeadline}")));
+  }
+
+  void sortCollege() {
+    displayList.sort((a, b) => b.college.compareTo(a.college));
+  }
+
+  void expiringSoon() {
+    displayList.sort((a, b) => DateTime.parse("${a.jobDeadline}")
+        .compareTo(DateTime.parse("${b.jobDeadline}")));
   }
 
   void updateList(String value) {

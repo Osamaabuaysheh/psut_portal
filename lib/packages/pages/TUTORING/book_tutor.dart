@@ -5,7 +5,6 @@ import 'package:psut_portal/packages/components/button/custom_button.dart';
 import 'package:psut_portal/packages/components/para_space.dart';
 import 'package:psut_portal/packages/pages/TUTORING/Controllers/courses_controller.dart';
 import 'package:psut_portal/packages/pages/TUTORING/Controllers/session_controller.dart';
-import 'package:psut_portal/packages/pages/TUTORING/Models/course.dart';
 import 'package:psut_portal/packages/pages/TUTORING/Models/session.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';

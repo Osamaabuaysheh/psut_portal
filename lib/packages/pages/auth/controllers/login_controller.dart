@@ -17,6 +17,7 @@ class LoginController extends GetxController {
 
   void login() async {
     SettingsServices prefs = Get.find();
+    prefs.preferences?.clear();
     LoginModel loginModel = LoginModel(
       username: emailController.value.text,
       password: passwordController.value.text,
@@ -26,12 +27,11 @@ class LoginController extends GetxController {
       debugPrint("Login Started");
       isLoading.value = true;
       var response = await ApiController.client.post(
-        Uri.parse(ApiLogin.loginApi),
+        Uri.parse(ApiLogin.accessToken),
         body: loginModel.toJson(),
       );
 
       if (response.statusCode == 200) {
-        debugPrint("Login Success");
         final token = json.jsonDecode(response.body);
         prefs.preferences!
             .setString(StringConstants.token, token['access_token'].toString());

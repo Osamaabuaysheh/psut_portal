@@ -20,7 +20,7 @@ class FilterIcon extends StatelessWidget {
     return Expanded(
       child: Container(
         width: 50.w,
-        height: 42.w,
+        height: 50.w,
         decoration: BoxDecoration(
           color: Colors.grey.shade300.withOpacity(0.9),
           borderRadius: BorderRadius.circular(10.r),
@@ -58,7 +58,10 @@ class FilterIcon extends StatelessWidget {
                                 ?.copyWith(fontSize: 16.sp),
                           ),
                           CustomTextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                controller.newestToOldest();
+                                Get.back();
+                              },
                               text: "Newest to Oldest".toUpperCase()),
                           CustomTextButton(
                               onPressed: () {
@@ -78,9 +81,15 @@ class FilterIcon extends StatelessWidget {
                                 ?.copyWith(fontSize: 16.sp),
                           ),
                           CustomTextButton(
-                              onPressed: () {}, text: "College".toUpperCase()),
+                              onPressed: () {
+                                controller.sortCollege();
+                                Get.back();
+                              }, text: "College".toUpperCase()),
                           CustomTextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                controller.expiringSoon();
+                                Get.back();
+                              },
                               text: "Expiring Soon".toUpperCase()),
                           const Spacer(),
                           CustomButton(onPressed: () {}, textButton: "Apply"),

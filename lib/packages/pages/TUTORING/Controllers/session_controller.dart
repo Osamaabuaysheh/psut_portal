@@ -20,8 +20,11 @@ class SessionController extends GetxController {
   Future<int?> getTotal(sessionID) async {
     try {
       var response = await ApiController.client.post(
-        Uri.parse("${ApiLogin.baseUrl}/get_session_total/$sessionID"),
-      );
+          Uri.parse("${ApiLogin.baseUrl}/get_session_total/$sessionID"),
+          headers: {
+            'Authorization':
+                "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
+          });
       if (response.statusCode == 200) {
         return int.parse(response.body);
       }
@@ -34,9 +37,12 @@ class SessionController extends GetxController {
   void incrementSession(int sessionID) async {
     try {
       var response = await ApiController.client.post(
-        Uri.parse(
-            "${ApiLogin.baseUrl}/increment_Session_Student?session_id=${sessionID.toInt()}&std_id=${prefs.preferences?.getString(StringConstants.studentID) ?? ""}"),
-      );
+          Uri.parse(
+              "${ApiLogin.baseUrl}/increment_Session_Student?session_id=${sessionID.toInt()}&std_id=${prefs.preferences?.getString(StringConstants.studentID) ?? ""}"),
+          headers: {
+            'Authorization':
+                "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
+          });
       if (response.statusCode == 200) {
         Get.snackbar("Request", "Enroll Success",
             duration: const Duration(seconds: 2),

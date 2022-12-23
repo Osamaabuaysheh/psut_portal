@@ -5,6 +5,8 @@ import 'package:psut_portal/packages/components/app-bar/components/pop_icon_butt
 import 'package:psut_portal/packages/pages/JOBS/components/custom_background_image_job_desc.dart';
 import 'package:psut_portal/packages/pages/JOBS/components/custom_icon_image_job_desc.dart';
 import 'package:psut_portal/packages/pages/JOBS/components/job_desc_details.dart';
+import 'package:psut_portal/packages/pages/JOBS/controllers/job_controller.dart';
+import 'package:psut_portal/packages/pages/SavedJobs/controllers/saved_jobs_controller.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 
 class JobDesc extends StatelessWidget {
@@ -14,6 +16,8 @@ class JobDesc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SavedJobsController savedController = Get.find();
+
     final argumets = Get.arguments;
     return SafeArea(
       child: Scaffold(
@@ -36,13 +40,45 @@ class JobDesc extends StatelessWidget {
                       imageUrl: argumets[0].jobIconImage),
                   Baseline(
                     baselineType: TextBaseline.alphabetic,
-                    baseline: 70,
+                    baseline: 60,
                     child: Align(
                       alignment: Alignment.bottomLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 35.w),
-                        child: CustomIconImageJobDesc(
-                            imageUrl: argumets[0].jobIconImage),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 35.w),
+                            child: CustomIconImageJobDesc(
+                                imageUrl: argumets[0].jobIconImage),
+                          ),
+                          const Spacer(),
+                          GetX<JobsController>(
+                            builder: (controller) => IconButton(
+                              icon: controller.checkIfExist(
+                                argumets[0].jobID,
+                                savedController.savedJobs,
+                              )
+                                  ? Icon(
+                                      Icons.bookmark,
+                                      size: 40.w,
+                                      color: AppColors.blue,
+                                    )
+                                  : Icon(
+                                      Icons.bookmark_border,
+                                      size: 40.w,
+                                      color: AppColors.blue,
+                                    ),
+                              onPressed: () {
+                                controller.checkIfExist(argumets[0].jobID,
+                                        savedController.savedJobs)
+                                    ? savedController
+                                        .removeFromSaved(argumets[0].jobID)
+                                    : savedController.addToSaved(argumets[0]);
+                              },
+                            ),
+                          ),
+                          SizedBox(width: 40.w),
+                        ],
                       ),
                     ),
                   ),

@@ -33,6 +33,7 @@ class TutorTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(16.r),
               border: Border.all(color: AppColors.blue, width: 2.w)),
           child: TextFormField(
+            style: TextStyle(fontSize: 18.sp),
             keyboardType: TextInputType.number,
             controller: _controller,
             decoration: InputDecoration(

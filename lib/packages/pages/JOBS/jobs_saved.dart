@@ -32,7 +32,8 @@ class JobsSaved extends StatelessWidget {
               )
             : ListView.builder(
                 itemBuilder: (context, index) => InkWell(
-                  onTap: () => Get.toNamed(JobDesc.id),
+                  onTap: () => Get.toNamed(JobDesc.id,
+                      arguments: [controller.savedJobs[index]]),
                   child: JobsCard(
                     jobID: controller.savedJobs[index].jobID ?? -1,
                     jobTitle: controller.savedJobs[index].jobTitle ?? "",
@@ -40,8 +41,6 @@ class JobsSaved extends StatelessWidget {
                     date: controller.savedJobs[index].jobDeadline ?? "",
                     college: controller.savedJobs[index].college ?? "",
                     onPressed: () {
-                      debugPrint("JOBID: " +
-                          controller.savedJobs[index].jobID.toString());
                       controller.removeFromSaved(
                           controller.savedJobs[index].jobID ?? -1);
                     },

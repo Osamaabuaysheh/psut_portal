@@ -33,7 +33,7 @@ class Job {
   }
 
   Job.fromSavedJobJson(Map<String, dynamic> json) {
-    jobID = json["jobID"];
+    jobID = json["id"];
     jobTitle = json["jobTitle"];
     jobResponsanbilities = json["jobResponsanbilities"];
     companyName = json["companyName"];

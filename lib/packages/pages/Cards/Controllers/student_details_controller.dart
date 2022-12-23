@@ -15,8 +15,12 @@ class StudentDetailsContoller extends GetxController {
     var stdID = prefs.preferences!.getString(StringConstants.studentID);
     try {
       var response = await ApiController.client.get(
-        Uri.parse("${ApiLogin.baseUrl}/get_studentsById/$stdID"),
-      );
+          Uri.parse("${ApiLogin.baseUrl}/get_studentsById_student/$stdID"),
+          headers: {
+            'Authorization':
+                "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
+          });
+
       if (response.statusCode == 200) {
         var json = jsonDecode(utf8.decode(response.bodyBytes));
         studentName.value = Student.fromJson(json).fullName!;

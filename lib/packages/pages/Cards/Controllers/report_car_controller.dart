@@ -20,8 +20,13 @@ class ReportCarController extends GetxController {
     var stdID = prefs.preferences!.getString(StringConstants.studentID);
     try {
       var response = await ApiController.client.get(
-        Uri.parse("${ApiLogin.baseUrl}/get_permit_by_student_id/$stdID"),
-      );
+
+          Uri.parse("${ApiLogin.baseUrl}/get_permit_by_student_id_student/$stdID"),
+          headers: {
+            'Authorization':
+                "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
+          });
+
       if (response.statusCode == 200) {
         var json = jsonDecode(utf8.decode(response.bodyBytes));
         return PermitCardModel.fromJson(json);
@@ -36,12 +41,17 @@ class ReportCarController extends GetxController {
   }
 
   Future<PermitCardModel?> reportCar() async {
+    SettingsServices prefs = Get.find();
+
     try {
       isLoading.value = true;
       var response = await ApiController.client.get(
-        Uri.parse(
-            "${ApiLogin.baseUrl}/ger_permit_by_permit_id/$carPermitNumber"),
-      );
+          Uri.parse(
+              "${ApiLogin.baseUrl}/ger_permit_by_permit_id/$carPermitNumber"),
+          headers: {
+            'Authorization':
+                "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
+          });
       if (response.statusCode == 200) {
         var json = jsonDecode(utf8.decode(response.bodyBytes));
         return PermitCardModel.fromJson(json);

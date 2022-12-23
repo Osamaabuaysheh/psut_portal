@@ -3,14 +3,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/Constants/API/login_api.dart';
+import 'package:psut_portal/Constants/string_constants.dart';
 import 'package:psut_portal/packages/pages/TUTORING/Controllers/tutoring_tab_bar_controller.dart';
 import 'package:psut_portal/packages/pages/TUTORING/Models/course.dart';
 import 'package:psut_portal/packages/pages/auth/controllers/api_controller.dart';
 import 'dart:convert';
 
+import 'package:psut_portal/services/start_services/start_services.dart';
+
 class CourseController extends GetxController {
   static List<Course> courses = <Course>[].obs;
   var displayAllCourses = List.from(courses).obs;
+  SettingsServices prefs = Get.find();
 
   var textEditingController = TextEditingController().obs;
   final TutoringTabBarController controller =
@@ -21,7 +25,10 @@ class CourseController extends GetxController {
       courses.clear();
       var response = await ApiController.client.get(
         Uri.parse("${ApiLogin.baseUrl}/get_course_details"),
-      );
+          headers: {
+            'Authorization':
+            "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
+          });
       if (response.statusCode == 200) {
         final data = jsonDecode(utf8.decode(response.bodyBytes))
             .cast<Map<String, dynamic>>();

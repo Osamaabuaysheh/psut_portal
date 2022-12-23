@@ -10,9 +10,9 @@ import 'package:psut_portal/packages/pages/CSO/controllers/cso_events_controller
 class InitBinding extends Bindings {
   @override
   void dependencies() {
-    Get.put(BottomNavBarController());
-    Get.put(EventController());
-    Get.put(CSOEventsController());
+    Get.lazyPut(() => BottomNavBarController(), fenix: true);
+    Get.lazyPut(() => EventController(), fenix: true);
+    Get.lazyPut(() => CSOEventsController(), fenix: true);
     Get.lazyPut(() => SavedJobsController(), fenix: true);
     Get.lazyPut(() => JobsController(), fenix: true);
     Get.lazyPut(() => TabBarController(), fenix: true);
