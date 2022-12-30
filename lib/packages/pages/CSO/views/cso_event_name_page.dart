@@ -6,6 +6,7 @@ import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_component.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/event_name_details_card.dart';
+import 'package:psut_portal/services/themes/theme_status.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
@@ -55,7 +56,12 @@ class CsoEventNamePage extends StatelessWidget {
                             ?.copyWith(fontSize: 18.sp),
                       ),
                       SizedBox(height: 10.h),
-                      Text(s.description),
+                      Text(
+                        s.description,
+                        textAlign: AppTheme.hasArabicCharacters(s.description)
+                            ? TextAlign.end
+                            : TextAlign.start,
+                      ),
                       SizedBox(height: 10.h),
                       Column(
                         children: [

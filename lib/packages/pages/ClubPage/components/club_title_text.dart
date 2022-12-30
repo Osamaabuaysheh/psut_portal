@@ -15,7 +15,7 @@ class ClubTitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       _title.toUpperCase(),
-      style: CustomTheme.mainTextStyle?.copyWith(fontSize: 18.sp),
+      style: CustomTheme.mainTextStyle?.copyWith(fontSize: 25.sp),
     );
   }
 }

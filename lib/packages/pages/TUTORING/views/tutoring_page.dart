@@ -24,7 +24,6 @@ class TutorPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBarSimple(
-          title: "",
           actions: const [OpenDrawerIconButton()],
           bottomsize: 150.w,
           bottomWidget: PreferredSize(

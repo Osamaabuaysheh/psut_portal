@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:psut_portal/Constants/API/login_api.dart';
+import 'package:psut_portal/services/themes/theme_status.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 
 class EventCardMain extends StatelessWidget {
@@ -29,12 +30,9 @@ class EventCardMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 340.w,
+      width: 350.w,
       child: Card(
-        margin: EdgeInsets.symmetric(
-          vertical: 10.w,
-          horizontal: 10.w,
-        ),
+        margin: EdgeInsets.symmetric(vertical: 10.w, horizontal: 10.w),
         elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.r),
@@ -50,35 +48,49 @@ class EventCardMain extends StatelessWidget {
                 width: double.infinity,
                 color: Colors.transparent,
                 child: CachedNetworkImage(
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                   imageUrl: "${ApiLogin.baseUrl}/$_assetName",
                 ),
               ),
-              SizedBox(
-                height: 45.h,
-                child: ListTile(
-                  title: Text(
+              ListTile(
+                horizontalTitleGap: 10.w,
+                title: Padding(
+                  padding: EdgeInsets.only(left: 4.w),
+                  child: Text(
                     _eventName.toString(),
+                    maxLines: 1,
+                    textAlign: AppTheme.hasArabicCharacters(_eventName)
+                        ? TextAlign.end
+                        : TextAlign.start,
+                    softWrap: true,
                     style: TextStyle(
                       color: AppColors.mainColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  subtitle: Row(
-                    children: [
-                      Icon(
-                        Icons.location_on_sharp,
-                        color: AppColors.mainColor,
-                      ),
-                      Text(
+                ),
+                subtitle: Row(
+                  children: [
+                    Icon(
+                      Icons.location_on_sharp,
+                      color: AppColors.mainColor,
+                    ),
+                    SizedBox(
+                      width: 150.w,
+                      child: Text(
                         _location,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: AppColors.mainColor,
                         ),
                       ),
-                    ],
-                  ),
-                  trailing: Text(
+                    ),
+                  ],
+                ),
+                trailing: SizedBox(
+                  width: 70.w,
+                  child: Text(
                     "${DateFormat('jm').format(DateTime.parse("2022-12-12 " + _startTime))} - ${DateFormat('jm').format(DateTime.parse("2022-12-12 " + _endTime))}",
                     style: TextStyle(
                       color: AppColors.mainColor,

@@ -18,7 +18,7 @@ class EventCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 210.h,
+      height: 215.h,
       child: GetX<EventController>(
         builder: (controller) => controller.allEvents.isNotEmpty
             ? ListView.builder(

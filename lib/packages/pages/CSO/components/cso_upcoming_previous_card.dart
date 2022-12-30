@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/packages/pages/CSO/components/custom_listtile_upcoming.dart';
+import 'package:psut_portal/services/themes/theme_status.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class CustomUpcomingPreviousCard extends StatelessWidget {
@@ -31,7 +32,6 @@ class CustomUpcomingPreviousCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 12.w),
-      padding: EdgeInsets.symmetric(vertical: 10.w),
       child: Material(
         elevation: 10,
         borderRadius: BorderRadius.circular(30.r),
@@ -40,19 +40,34 @@ class CustomUpcomingPreviousCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.r),
           ),
-          width: 310.w,
-          height: 300.h,
+          width: 330.w,
+          height: 300.w,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(_title,
-                  style: CustomTheme.mainTextStyle?.apply(fontSizeDelta: 2)),
+              Text(
+                _title,
+                style: CustomTheme.mainTextStyle?.apply(
+                  fontSizeDelta: 2,
+                ),
+                maxLines: 2,
+                textAlign: AppTheme.hasArabicCharacters(_title)
+                    ? TextAlign.end
+                    : TextAlign.start,
+                overflow: TextOverflow.ellipsis,
+              ),
               Text(
                 _subtitle,
                 style: CustomTheme.secondaryTextStyle?.apply(
                   color: Colors.grey,
                 ),
+                softWrap: true,
+                maxLines: 2,
+                textAlign: AppTheme.hasArabicCharacters(_title)
+                    ? TextAlign.end
+                    : TextAlign.start,
+                overflow: TextOverflow.ellipsis,
               ),
               Column(
                 children: [

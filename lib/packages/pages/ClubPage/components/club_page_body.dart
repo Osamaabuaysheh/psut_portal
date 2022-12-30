@@ -35,7 +35,7 @@ class ClubPageBody extends StatelessWidget {
           BackgroundImageClub(imageName: _backgroundImage),
           ClubIconImage(iconImage: _iconImage),
           Padding(
-            padding: EdgeInsets.all(20.w),
+            padding: EdgeInsets.all(10.w),
             child: Column(
               children: [
                 ClubTitleText(title: _clubName),
@@ -50,9 +50,12 @@ class ClubPageBody extends StatelessWidget {
                 SizedBox(height: 15.h),
                 // CustomHomeCardTitle(
                 //     cardName: "Upocoming Events", onPressed: () {}),
-                const CustomHomeCardTitle(
-                  cardName: "Upocoming Events",
-                  icon: Icons.notifications_none_sharp,
+                const Padding(
+                  padding: EdgeInsets.all(5.0),
+                  child: CustomHomeCardTitle(
+                    cardName: "Upocoming Events",
+                    icon: Icons.notifications_none_sharp,
+                  ),
                 ),
                 SizedBox(
                   width: double.infinity,

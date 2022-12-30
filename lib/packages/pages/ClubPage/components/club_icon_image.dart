@@ -15,7 +15,7 @@ class ClubIconImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Baseline(
-      baseline: 70.h,
+      baseline: 50.h,
       baselineType: TextBaseline.alphabetic,
       child: Material(
         elevation: 10,

@@ -33,8 +33,14 @@ class JobCard extends StatelessWidget {
               companyName: controller.displayList[index].companyName ?? "",
               date: controller.displayList[index].jobDeadline ?? "",
               college: controller.displayList[index].college ?? "",
-              onPressed: () async {
-                savedController.addToSaved(controller.displayList[index]);
+              onPressed: ()  {
+                controller.checkIfExist(
+                    controller.displayList[index].jobID,
+                    savedController.savedJobs)
+                    ? savedController.removeFromSaved(
+                    controller.displayList[index].jobID)
+                    : savedController
+                    .addToSaved(controller.displayList[index]);
               },
             ),
           ),

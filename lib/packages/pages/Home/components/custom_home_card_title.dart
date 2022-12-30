@@ -14,7 +14,8 @@ class CustomHomeCardTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
       height: 25.h,
       child: Align(
         alignment: Alignment.centerLeft,

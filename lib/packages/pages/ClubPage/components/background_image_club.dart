@@ -23,7 +23,8 @@ class BackgroundImageClub extends StatelessWidget {
             clipBehavior: Clip.antiAliasWithSaveLayer,
             child: CachedNetworkImage(
               imageUrl: "${ApiLogin.baseUrl}/$_imageName",
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
+              height: 180.h,
             ),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(30.r),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
@@ -16,16 +17,19 @@ class CustomListTileUpcoming extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      leading: Icon(
-        _icon,
-        color: AppColors.mainColor,
-      ),
-      title: Text(
-        _title,
-        style: CustomTheme.secondaryTextStyle?.apply(
-          color: Colors.grey,
+    return SizedBox(
+      height: 35.h,
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+        leading: Icon(
+          _icon,
+          color: AppColors.mainColor,
+        ),
+        title: Text(
+          _title,
+          style: CustomTheme.secondaryTextStyle?.apply(
+            color: Colors.grey,
+          ),
         ),
       ),
     );

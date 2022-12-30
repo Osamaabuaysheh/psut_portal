@@ -5,6 +5,12 @@ class AppTheme {
   static bool isDark(BuildContext context) =>
       Theme.of(context).brightness == Brightness.dark;
 
+  static bool hasArabicCharacters(String text) {
+    RegExp regex = RegExp(
+        "[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufc3f]|[\ufe70-\ufefc]");
+    return regex.hasMatch(text);
+  }
+
   // * current theme Text
 
   // * headline1

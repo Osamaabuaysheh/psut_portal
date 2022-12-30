@@ -38,9 +38,9 @@ class JobsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(10.w),
+      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 10.w),
       child: Card(
-        margin: EdgeInsets.symmetric(horizontal: 10.w),
+        margin: EdgeInsets.symmetric(horizontal: 5.w),
         elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.r),
@@ -108,6 +108,7 @@ class JobsCard extends StatelessWidget {
                   onPressed: _onPressed,
                 ),
               ),
+              SizedBox(width: 10.w),
             ],
           ),
         ),

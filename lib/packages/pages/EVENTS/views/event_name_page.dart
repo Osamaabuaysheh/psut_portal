@@ -7,6 +7,7 @@ import 'package:psut_portal/packages/components/app-bar/components/pop_icon_butt
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_date_component.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/cso_event_name_and_time.dart';
 import 'package:psut_portal/packages/pages/CSO/components/cso_event_name_components/event_name_details_card.dart';
+import 'package:psut_portal/services/themes/theme_status.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 import 'package:intl/intl.dart';
@@ -42,7 +43,8 @@ class EventNamePage extends StatelessWidget {
                     ),
                     child: CachedNetworkImage(
                       height: 200.h,
-                      fit: BoxFit.fill,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
                       imageUrl: "${ApiLogin.baseUrl}/${s.image}",
                     ),
                   ),
@@ -57,12 +59,12 @@ class EventNamePage extends StatelessWidget {
                       baselineType: TextBaseline.alphabetic,
                       child: Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(18.0),
+                          padding: EdgeInsets.all(10.w),
                           child: Material(
                             borderRadius: BorderRadius.circular(25.r),
                             elevation: 7,
                             child: Container(
-                              padding: EdgeInsets.all(18.w),
+                              padding: EdgeInsets.all(15.w),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -106,7 +108,13 @@ class EventNamePage extends StatelessWidget {
                             ?.copyWith(fontSize: 18.sp),
                       ),
                       SizedBox(height: 10.h),
-                      Text(s.description),
+                      Text(
+                        s.description,
+                        softWrap: true,
+                        textAlign: AppTheme.hasArabicCharacters(s.description)
+                            ? TextAlign.end
+                            : TextAlign.start,
+                      ),
                       SizedBox(height: 10.h),
                       Column(
                         children: [

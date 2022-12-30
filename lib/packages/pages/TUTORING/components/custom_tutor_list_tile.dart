@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:psut_portal/packages/pages/RequestCourse/Views/request_course_page.dart';
 import 'package:psut_portal/packages/pages/TUTORING/Controllers/courses_controller.dart';
 import 'package:psut_portal/packages/pages/TUTORING/subject_cards.dart';
 import 'package:get/get.dart';
-import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
 
 class CustomTutorListTile extends StatelessWidget {
@@ -76,11 +76,15 @@ class CustomTutorListTile extends StatelessWidget {
                       width: 300.w,
                       child:
                           LottieBuilder.asset('assets/Lottie/classRoom.json')),
-                  Text(
-                    "No Courses For This Section Right Now",
-                    style: CustomTheme.mainTextStyle
-                        ?.copyWith(fontSize: 16.sp, color: AppColors.mainColor),
-                  ),
+                  TextButton(
+                    onPressed: () => Get.to(() => const RequestCoursePage()),
+                    child: Text(
+                      "Request Course ?",
+                      style: CustomTheme.mainTextStyle?.copyWith(
+                        fontSize: 16.sp,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

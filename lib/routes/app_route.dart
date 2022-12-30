@@ -12,6 +12,7 @@ import 'package:psut_portal/packages/pages/Home/views/home_page.dart';
 import 'package:psut_portal/packages/pages/HomePageController/views/home.dart';
 import 'package:psut_portal/packages/pages/JOBS/job_description.dart';
 import 'package:psut_portal/packages/pages/JOBS/views/jobs_page.dart';
+import 'package:psut_portal/packages/pages/RequestCourse/Views/request_course_page.dart';
 import 'package:psut_portal/packages/pages/SavedJobs/views/saved_jobs_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
 import 'package:psut_portal/packages/pages/TUTORING/tutor_profile.dart';
@@ -47,5 +48,6 @@ class AppRoute {
     GetPage(name: TutorRequestPage.id, page: () => const TutorRequestPage()),
     GetPage(name: SavedJobsPage.id, page: () => SavedJobsPage()),
     GetPage(name: JobDesc.id, page: () => const JobDesc()),
+    GetPage(name: RequestCoursePage.id, page: () => const RequestCoursePage()),
   ];
 }

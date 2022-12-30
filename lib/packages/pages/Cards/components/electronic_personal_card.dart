@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psut_portal/packages/pages/Cards/Controllers/student_details_controller.dart';
 import 'package:psut_portal/packages/pages/Cards/Models/student.dart';
 import 'package:psut_portal/packages/pages/Cards/components/back_image.dart';
