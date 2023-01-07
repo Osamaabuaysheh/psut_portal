@@ -52,12 +52,14 @@ class CustomTutorListTile extends StatelessWidget {
                                           .courseName ??
                                       "",
                                   courseNum: controller
-                                      .displayAllCourses[index].courseId
-                                      .toString(),
+                                          .displayAllCourses[index].courseId
+                                          .toString() ??
+                                      "",
                                   courseTutor: controller
-                                      .displayAllCourses[index]
-                                      .tutor
-                                      ?.tutorName,
+                                          .displayAllCourses[index]
+                                          .tutor
+                                          ?.tutorName ??
+                                      "",
                                   sessions: controller
                                           .displayAllCourses[index].sessions ??
                                       [],

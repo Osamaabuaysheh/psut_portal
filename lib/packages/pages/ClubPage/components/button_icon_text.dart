@@ -10,16 +10,19 @@ class ButtonIconText extends StatelessWidget {
     final double height = 40,
     final String titleText = "Button",
     final IconData icon = Icons.add,
+    void Function()? onPressed,
   })  : _width = width,
         _height = height,
         _titleText = titleText,
         _icon = icon,
+        _onPressed = onPressed,
         super(key: key);
 
   final double _width;
   final double _height;
   final String _titleText;
   final IconData _icon;
+  final void Function()? _onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,7 @@ class ButtonIconText extends StatelessWidget {
             borderRadius: BorderRadius.circular(15.r),
           ),
         ),
-        onPressed: () {},
+        onPressed: _onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

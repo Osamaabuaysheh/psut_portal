@@ -4,6 +4,7 @@ import 'package:psut_portal/packages/pages/ClubPage/components/club_page_body.da
 
 class ClubPage extends StatelessWidget {
   static const String id = "/ClubPage";
+
   const ClubPage({Key? key}) : super(key: key);
 
   @override
@@ -17,6 +18,8 @@ class ClubPage extends StatelessWidget {
           clubName: clubArguments.clubName,
           description: clubArguments.description,
           iconImage: clubArguments.clubIconImage,
+          becomeMemeber: clubArguments.link,
+          contactUs: clubArguments.contactInfo,
         ),
       ),
     );
