@@ -30,24 +30,13 @@ class SettingDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTileDrawer(
-              title: "Settings",
-              icon: AppSvg.settings,
-              onTap: () => Get.toNamed(SettingsPage.id),
-            ),
-            const CustomDivider(),
+
             // * logout
             ListTileDrawer(
               title: "My Cards",
               icon: AppSvg.card,
               onTap: () => Get.toNamed(CardsPage.id),
             ),
-
-            const CustomDivider(),
-            ListTileDrawer(
-                title: "Community Service Profile",
-                icon: AppSvg.csoProfile,
-                onTap: () => Get.toNamed(CsoProfilePage.id)),
             const CustomDivider(),
             ListTileDrawer(
               title: "Saved Jobs",
@@ -59,6 +48,12 @@ class SettingDrawer extends StatelessWidget {
               title: "Become a Tutor",
               icon: AppSvg.tutor,
               onTap: () => Get.toNamed(TutorRequestPage.id),
+            ),
+            const CustomDivider(),
+            ListTileDrawer(
+              title: "Settings",
+              icon: AppSvg.settings,
+              onTap: () => Get.toNamed(SettingsPage.id),
             ),
           ],
         ),

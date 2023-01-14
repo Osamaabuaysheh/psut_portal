@@ -11,16 +11,19 @@ class SubjectCards extends StatelessWidget {
     required courseTitle,
     required courseNum,
     required courseTutor,
+    required tutorImage,
     required List<Sessions> sessions,
   })  : _courseTitle = courseTitle,
         _courseNum = courseNum,
         _courseTutor = courseTutor,
+        _tutorImage = tutorImage,
         _sessions = sessions,
         super(key: key);
 
   final String _courseTitle;
   final String _courseNum;
   final String _courseTutor;
+  final String _tutorImage;
   final List<Sessions> _sessions;
 
   @override
@@ -38,7 +41,7 @@ class SubjectCards extends StatelessWidget {
             child: ListTile(
               title: Text(
                 '$_courseNum $_courseTitle',
-                style: CustomTheme.subjectCardTitle,
+                style: CustomTheme.subjectCardTitle?.copyWith(fontSize: 17.sp),
               ),
               subtitle: Padding(
                 padding: EdgeInsets.symmetric(vertical: 8.w),
@@ -50,7 +53,8 @@ class SubjectCards extends StatelessWidget {
                   "CourseTitle": _courseTitle,
                   "courseNum": _courseNum,
                   "courseTutor": _courseTutor,
-                  "Sessions": _sessions
+                  "Sessions": _sessions,
+                  "TutorImage": _tutorImage
                 });
               },
             ),

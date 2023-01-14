@@ -14,7 +14,6 @@ class BusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final StudentDetailsContoller contoller = Get.find();
     return FutureBuilder<BusRoute?>(
       future: BusRouteStudentController.getDetails(),
       builder: (context, snapshot) {
@@ -52,7 +51,7 @@ class BusCard extends StatelessWidget {
               ),
             );
           } else {
-            return const Text("Error Data ");
+            return Container();
           }
         }
         if (snapshot.connectionState == ConnectionState.waiting) {

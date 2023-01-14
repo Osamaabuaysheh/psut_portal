@@ -38,7 +38,7 @@ class LoginController extends GetxController {
         prefs.preferences!.setString(
             StringConstants.studentID, loginModel.username.toString());
 
-        Get.to(MainHomePage());
+        Get.offAllNamed(MainHomePage.id);
       }
     } catch (e) {
       isLoading.value = false;

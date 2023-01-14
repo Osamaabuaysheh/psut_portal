@@ -25,7 +25,8 @@ class PermitCard extends StatelessWidget {
                   height: 200.w,
                   child: Image(
                     image: AssetImage(
-                      snapshot.data?.colleage == "IT"
+                      snapshot.data?.colleage ==
+                              "كلية الملك الخسين لعلوم الحوسبة"
                           ? PathImage.itLogo
                           : PathImage.engLogo,
                     ),
@@ -47,7 +48,7 @@ class PermitCard extends StatelessWidget {
             return const Text("Error Connnection");
           }
         } else if (!snapshot.hasData) {
-          return const Text("Error Connnection HERE");
+          return Container();
         } else {
           return const Text("Error Connnection");
         }

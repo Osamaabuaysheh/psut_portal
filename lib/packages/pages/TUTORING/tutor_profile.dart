@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:psut_portal/Constants/API/login_api.dart';
 import 'package:psut_portal/packages/components/app-bar/components/pop_icon_button.dart';
 import 'package:psut_portal/packages/components/button/custom_button.dart';
 import 'package:psut_portal/packages/components/para_space.dart';
@@ -45,22 +47,22 @@ class TutorProfile extends StatelessWidget {
                   Positioned(
                     top: 80.h,
                     left: 100.w,
-                    child: Container(
-                      width: 160.w,
-                      height: 160.h,
-                      decoration: BoxDecoration(
-                        color: AppColors.blue,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CircleAvatar(
-                          backgroundColor: AppColors.grey,
-                          radius: 7,
-                          backgroundImage: const AssetImage(PathImage.tutor),
-                        ),
-                      ),
-                    ),
+                    child: CachedNetworkImage(
+                        errorWidget: (context, url, error) => Container(),
+                        imageBuilder: (context, imageProvider) => Container(
+                              width: 160.w,
+                              height: 160.h,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                        fit: BoxFit.fill,
+                        imageUrl:
+                            "${ApiLogin.baseUrl}/${arguments['TutorImage']}"),
                   ),
                 ],
               ),
@@ -86,11 +88,11 @@ class TutorProfile extends StatelessWidget {
                     children: [
                       Text(
                         'Tutor Name ',
-                        style: CustomTheme.bigTitle?.copyWith(fontSize: 21.sp),
+                        style: CustomTheme.bigTitle?.copyWith(fontSize: 19.sp),
                       ),
                       Text("  ${arguments['courseTutor']}",
                           style: CustomTheme.normalBlue
-                              ?.copyWith(fontSize: 18.sp)),
+                              ?.copyWith(fontSize: 16.sp)),
                     ],
                   ),
                   const ParaSpacing(),
@@ -115,7 +117,7 @@ class TutorProfile extends StatelessWidget {
                   const ParaSpacing(),
                   Text(
                     'Tutor Availability ',
-                    style: CustomTheme.bigTitle?.copyWith(fontSize: 21.sp),
+                    style: CustomTheme.bigTitle?.copyWith(fontSize: 19.sp),
                   ),
                   SizedBox(height: 10.h),
                   arguments['Sessions'].isNotEmpty

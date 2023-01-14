@@ -51,6 +51,7 @@ class ContactPermitBottomSheet extends StatelessWidget {
                       CustomBorderdButton(
                           text: "Call Anonmously",
                           func: () {
+                            carNumberController.establishConnection();
                             launchUrl(Uri.parse(
                                 "tel://0${snapshot.data?.phoneNumber}"));
                           },

@@ -19,7 +19,6 @@ class BusRouteStudentController extends GetxController {
             'Authorization':
                 "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
           });
-
       if (response.statusCode == 200) {
         var json = jsonDecode(utf8.decode(response.bodyBytes));
         return BusRoute.fromJson(json);

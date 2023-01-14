@@ -13,6 +13,7 @@ class ReportCarController extends GetxController {
   TextEditingController carPermitNumberController = TextEditingController();
   final carPermitNumber = 0.obs;
   RxBool isLoading = false.obs;
+  SettingsServices prefs = Get.find();
 
   //ger_permit_by_student_id
   static Future<PermitCardModel?> getPermitCard() async {
@@ -20,8 +21,8 @@ class ReportCarController extends GetxController {
     var stdID = prefs.preferences!.getString(StringConstants.studentID);
     try {
       var response = await ApiController.client.get(
-
-          Uri.parse("${ApiLogin.baseUrl}/get_permit_by_student_id_student/$stdID"),
+          Uri.parse(
+              "${ApiLogin.baseUrl}/get_permit_by_student_id_student/$stdID"),
           headers: {
             'Authorization':
                 "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
@@ -41,8 +42,6 @@ class ReportCarController extends GetxController {
   }
 
   Future<PermitCardModel?> reportCar() async {
-    SettingsServices prefs = Get.find();
-
     try {
       isLoading.value = true;
       var response = await ApiController.client.get(
@@ -52,6 +51,7 @@ class ReportCarController extends GetxController {
             'Authorization':
                 "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
           });
+
       if (response.statusCode == 200) {
         var json = jsonDecode(utf8.decode(response.bodyBytes));
         return PermitCardModel.fromJson(json);
@@ -62,6 +62,24 @@ class ReportCarController extends GetxController {
       return PermitCardModel();
     } catch (e) {
       return PermitCardModel();
+    }
+  }
+
+  Future<void> establishConnection() async {
+    try {
+      var response = await ApiController.client.post(
+          Uri.parse(
+              "${ApiLogin.baseUrl}/establish_call?caller=${prefs.preferences?.getString(StringConstants.studentID)}&receiver=$carPermitNumber"),
+          headers: {
+            'Authorization':
+                "Bearer ${prefs.preferences?.getString(StringConstants.token)}"
+          });
+      if (response.statusCode == 200) {
+      } else {
+        print("Cannot establish Call");
+      }
+    } catch (e) {
+      print(e);
     }
   }
 

@@ -1,5 +1,5 @@
 class ApiLogin {
-  static const baseUrl = "http://10.0.2.2:8000";
+  static const baseUrl = "http://192.168.1.70:8000";
   static const loginApi = '$baseUrl/login_Student';
   static const requestTutorApi = '$baseUrl/Create_Request';
   static const accessToken = '$baseUrl/login_Student/access-token';
