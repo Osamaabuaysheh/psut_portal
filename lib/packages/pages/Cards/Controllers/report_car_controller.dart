@@ -76,10 +76,10 @@ class ReportCarController extends GetxController {
           });
       if (response.statusCode == 200) {
       } else {
-        print("Cannot establish Call");
+        debugPrint("Cannot establish Call");
       }
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 

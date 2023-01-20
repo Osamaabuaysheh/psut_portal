@@ -97,7 +97,7 @@ class BusDetails extends StatelessWidget {
                           firstRow: "Su",
                           secondRow: _sttPresence,
                           thirdRow: _sttBack),
-                      DayTimeBus(secondRow: " :حضور", thirdRow: " :عودة"),
+                      const DayTimeBus(secondRow: " :حضور", thirdRow: " :عودة"),
                     ],
                   ),
                 ],

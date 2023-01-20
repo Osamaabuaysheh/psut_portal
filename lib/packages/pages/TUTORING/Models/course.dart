@@ -1,5 +1,4 @@
 import 'package:psut_portal/packages/pages/TUTORING/Models/session.dart';
-import 'package:psut_portal/packages/pages/TUTORING/Models/tutor.dart';
 
 class Course {
   int? courseId;

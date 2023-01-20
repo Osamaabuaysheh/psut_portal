@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:psut_portal/packages/components/app_drawer/drawer_home/custom_divider.dart';
-import 'package:psut_portal/packages/pages/CSO/views/cso_profile_page.dart';
 import 'package:psut_portal/packages/pages/Cards/views/cards_page.dart';
 import 'package:psut_portal/packages/pages/SavedJobs/views/saved_jobs_page.dart';
 import 'package:psut_portal/packages/pages/Settings/views/settings_page.dart';
@@ -30,7 +29,6 @@ class SettingDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             // * logout
             ListTileDrawer(
               title: "My Cards",

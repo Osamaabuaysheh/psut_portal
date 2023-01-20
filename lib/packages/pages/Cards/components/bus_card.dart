@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:psut_portal/packages/pages/Cards/Controllers/bus_route_controller.dart';
 import 'package:psut_portal/packages/pages/Cards/Controllers/student_details_controller.dart';
 import 'package:psut_portal/packages/pages/Cards/Models/bus_route.dart';
@@ -45,7 +44,8 @@ class BusCard extends StatelessWidget {
                     mwBack: snapshot.data?.monWedBack!.toString() ?? "",
                     mwPresence: snapshot.data?.monWedPresence!.toString() ?? "",
                     sttBack: snapshot.data?.sunTueThuBack!.toString() ?? "",
-                    sttPresence: snapshot.data?.sunTueThuPresence!.toString() ?? "",
+                    sttPresence:
+                        snapshot.data?.sunTueThuPresence!.toString() ?? "",
                   ),
                 ],
               ),

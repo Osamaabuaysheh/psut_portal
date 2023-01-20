@@ -9,7 +9,6 @@ import 'package:psut_portal/packages/components/para_space.dart';
 import 'package:psut_portal/packages/pages/TUTORING/book_tutor.dart';
 import 'package:psut_portal/themes/app_colors.dart';
 import 'package:psut_portal/themes/custom_theme.dart';
-import 'package:psut_portal/utils/path_image.dart';
 import 'package:intl/intl.dart';
 
 class TutorProfile extends StatelessWidget {

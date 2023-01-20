@@ -6,7 +6,7 @@ import 'package:psut_portal/utils/svg_images.dart';
 class CollegeIcon {
   static Widget buildCollegeIcon(String college) {
     switch (college.toUpperCase()) {
-      case 'IT':
+      case 'Faculty of Computing Sciences':
         return SizedBox(
           child: const Image(
             image: AssetImage(PathImage.itLogo),
